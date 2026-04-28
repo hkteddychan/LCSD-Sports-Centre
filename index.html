@@ -77,6 +77,10 @@
    padding: 5px 10px; border: 1px solid #ccc; border-radius: 6px;
    font-size: 13px; width: 180px;
   }
+  #time-filter {
+   padding: 5px 10px; border: 1px solid #ccc; border-radius: 6px;
+   font-size: 13px; min-width: 110px;
+  }
   #stats { font-size: 12px; color: #666; margin-left: auto; }
 
   #map { height: calc(100vh - 155px); width: 100%; }
@@ -134,6 +138,8 @@
   .time-cell.mid  { background: #dcedc8; color: #558b2f; }
   .time-cell.high { background: #c8e6c9; color: #2e7d32; }
   .time-cell.full { background: #a5d6a7; color: #1b5e20; }
+  /* Highlight time period filter */
+  .time-cell.filtered-out { opacity: 0.2; }
 
   .popup-facilities { margin-top: 8px; }
   .popup-facilities .facility-tags {
@@ -165,9 +171,6 @@
   }
   .custom-marker.avail-low {
    background: #f57f17; border: 2.5px solid white;
-  }
-  .custom-marker.no-avail {
-   background: #e0e0e0; border: 2.5px solid #bbb; color: #999;
   }
   .marker-text {
    font-size: 10px; line-height: 1;
@@ -209,6 +212,13 @@
   <select id="district-filter"><option value="">All Districts | 所有地區</option></select>
   <label id="search-label">Search:</label>
   <input type="text" id="search-input" placeholder="Name | 名稱">
+  <label id="time-label">Time:</label>
+  <select id="time-filter">
+   <option value="all" data-en="All Times" data-tc="全部時段">All Times | 全部時段</option>
+   <option value="morning" data-en="Morning ≤12:00" data-tc="早 ≤12:00">Morning ≤12:00 | 早 ≤12:00</option>
+   <option value="afternoon" data-en="Afternoon 12-17" data-tc="午 12-17">Afternoon 12-17 | 午 12-17</option>
+   <option value="evening" data-en="Evening ≥20:00" data-tc="晚 ≥20:00">Evening ≥20:00 | 晚 ≥20:00</option>
+  </select>
   <span id="stats">Loading...</span>
  </div>
  <div id="map"></div>
@@ -217,6 +227,7 @@
 let currentLang = 'en';
 let currentSport = 'badminton';
 let currentDateIdx = 0; // index into ALL_DATES
+let currentTimeFilter = 'all'; // 'all' | 'morning' | 'afternoon' | 'evening'
 
 const ALL_DATES = [
   { iso: '2026-04-28', label_en: 'Tue 28', label_tc: '二 28' },
@@ -229,10 +240,17 @@ const ALL_DATES = [
   { iso: '2026-05-05', label_en: 'Tue 5',  label_tc: '二 5'  },
 ];
 
-// Time slot labels (start hour only)
+// Time slot labels
 const TIME_SLOTS = ['07:00','08:00','09:00','10:00','11:00','12:00',
                     '13:00','14:00','15:00','16:00','17:00','18:00',
                     '19:00','20:00','21:00','22:00'];
+
+// Which slots belong to which time period
+const TIME_PERIOD_SLOTS = {
+ morning:   ['07:00','08:00','09:00','10:00','11:00','12:00'],
+ afternoon: ['12:00','13:00','14:00','15:00','16:00','17:00'],
+ evening:   ['20:00','21:00','22:00'],
+};
 
 const labels = {
  en: {
@@ -241,7 +259,7 @@ const labels = {
   address: 'Address', facilities: 'Facilities', hours: 'Hours',
   tel: 'Tel', website: 'Website',
   loading: 'Loading...',
-  results: 'Showing {n} of {total}',
+  results: 'Showing {n} venues',
   courts: 'courts',
   noSchedule: 'No schedule data for this venue',
   available: 'Available',
@@ -254,7 +272,7 @@ const labels = {
   address: '地址', facilities: '設施', hours: '開放時間',
   tel: '電話', website: '網站',
   loading: '載入中...',
-  results: '顯示 {n} 個，共 {total} 個',
+  results: '顯示 {n} 個場地',
   courts: '個場',
   noSchedule: '此場地暫無數據',
   available: '有位',
@@ -319,7 +337,7 @@ function formatFacilities(facilityStr) {
  return facilityStr.split(',').map(f => f.trim()).filter(f => f);
 }
 
-// Get available sessions count for a venue on selected date
+// Get available sessions count — respects current time period filter
 function getAvailableSessions(props) {
  const dataKey = SPORT_DATA_KEY[currentSport];
  const raw = props[dataKey];
@@ -329,8 +347,13 @@ function getAvailableSessions(props) {
  const dateIso = ALL_DATES[currentDateIdx].iso;
  const dateData = schedule && schedule[dateIso];
  if (!dateData) return 0;
+
  let total = 0;
- TIME_SLOTS.forEach(t => {
+ let slotsToCheck = TIME_SLOTS;
+ if (currentTimeFilter !== 'all') {
+  slotsToCheck = TIME_PERIOD_SLOTS[currentTimeFilter] || TIME_SLOTS;
+ }
+ slotsToCheck.forEach(t => {
   const c = dateData[t];
   if (c !== undefined && c > 0) total += c;
  });
@@ -339,9 +362,9 @@ function getAvailableSessions(props) {
 
 function createMarkerIcon(count) {
  const text = count > 0 ? count : '–';
- let cls = 'no-avail';
+ let cls = 'avail-low';
  if (count >= 7) cls = 'avail';
- else if (count >= 1) cls = 'avail-low';
+ // 0 count venues are hidden, not shown
  const sz = count > 99 ? 32 : count > 9 ? 28 : 24;
  return L.divIcon({
   className: 'custom-marker-wrapper',
@@ -364,13 +387,19 @@ function buildScheduleGrid(schedule, dateIso) {
  const dateData = schedule && schedule[dateIso];
  if (!dateData) return `<div class="no-data-msg">${l.noSchedule}</div>`;
 
+ // Determine which cells to grey out based on time filter
+ const filteredSlots = currentTimeFilter !== 'all'
+  ? new Set(TIME_PERIOD_SLOTS[currentTimeFilter] || [])
+  : new Set();
+
  let html = `<div class="time-grid">`;
  TIME_SLOTS.forEach(time => {
   const courts = dateData[time] !== undefined ? dateData[time] : -1;
   const cls = courts < 0 ? 'none' : getCellClass(courts);
   const displayCourts = courts < 0 ? '-' : courts;
   const timeLabel = currentLang === 'tc' ? time.slice(0,2) + ':' : time;
-  html += `<div class="time-cell ${cls}">`;
+  const filteredOut = filteredSlots.size > 0 && !filteredSlots.has(time) ? ' filtered-out' : '';
+  html += `<div class="time-cell ${cls}${filteredOut}">`;
   html += `<div class="time-label">${timeLabel}</div>`;
   html += `<div class="time-courts">${displayCourts}</div>`;
   html += `</div>`;
@@ -393,7 +422,6 @@ function createPopup(props) {
  const tel = props.TelephoneEN || props.TelephoneTC || '-';
  const website = currentLang === 'en' ? props.WebsiteEN : props.WebsiteTC;
 
- // Get selected date
  const selectedDate = ALL_DATES[currentDateIdx];
  const dateLabel = currentLang === 'en' ? selectedDate.label_en : selectedDate.label_tc;
  const sportUnit = SPORT_DISPLAY[currentSport].unit[currentLang];
@@ -405,7 +433,6 @@ function createPopup(props) {
  if (hours && hours !== '-') html += `<div class="popup-row"><span class="popup-label">${l.hours}:</span><span class="popup-value">${hours}</span></div>`;
  if (tel && tel !== '-') html += `<div class="popup-row"><span class="popup-label">${l.tel}:</span><span class="popup-value">${tel}</span></div>`;
 
- // Schedule
  const dataKey = SPORT_DATA_KEY[currentSport];
  const rawSchedule = props[dataKey];
  let schedule = null;
@@ -447,8 +474,14 @@ function updateLanguage(newLang) {
   newLang === 'tc' ? '康文署體育館' : 'LCSD Sports Centres / 康文署體育館';
  document.getElementById('district-label').textContent = l.district + ':';
  document.getElementById('search-label').textContent = l.search + ':';
+ document.getElementById('time-label').textContent = l.district.indexOf('地') === -1 ? 'Time:' : '時間:';
  document.getElementById('search-input').placeholder =
   newLang === 'en' ? 'Name | 名稱' : newLang === 'tc' ? '名稱' : 'Name / 名稱';
+
+ // Update time filter options
+ document.querySelectorAll('#time-filter option').forEach(opt => {
+  opt.textContent = newLang === 'tc' ? opt.dataset.tc : opt.en;
+ });
 
  // Rebuild date bar
  buildDateBar();
@@ -471,7 +504,6 @@ function updateLanguage(newLang) {
  if (window.markerMap) {
   window.markerMap.forEach((m, idx) => {
    m.setPopupContent(createPopup(window.allData[idx].properties));
-   // Update icon for new language (count may display differently)
    const avail = getAvailableSessions(window.allData[idx].properties);
    m.setIcon(createMarkerIcon(avail));
   });
@@ -532,12 +564,11 @@ function selectSport(sport) {
  updateMarkerVisibility();
 }
 
-// Show/hide markers based on availability + district + search
+// Show/hide markers: only venues with >0 available sessions shown
 function updateMarkerVisibility() {
  const district = document.getElementById('district-filter').value;
  const search = document.getElementById('search-input').value.toLowerCase().trim();
 
- // Count available for selected sport+date
  window.allData.forEach((f, idx) => {
   const avail = getAvailableSessions(f.properties);
   const p = f.properties;
@@ -548,7 +579,8 @@ function updateMarkerVisibility() {
    (p.AddressEN && p.AddressEN.toLowerCase().includes(search)) ||
    (p.AddressTC && p.AddressTC.includes(search));
   const m = window.markerMap.get(idx);
-  if (dMatch && sMatch) {
+  // Only show if has availability AND matches filters
+  if (avail > 0 && dMatch && sMatch) {
    m.addTo(map);
   } else {
    m.remove();
@@ -558,13 +590,11 @@ function updateMarkerVisibility() {
 
 function updateStats() {
  const l = labels[currentLang];
- const total = window.allData ? window.allData.length : 0;
- // Count visible markers
  let visible = 0;
  window.markerMap.forEach((m) => {
   if (map.hasLayer(m)) visible++;
  });
- document.getElementById('stats').textContent = l.results.replace('{n}', visible).replace('{total}', total);
+ document.getElementById('stats').textContent = l.results.replace('{n}', visible);
 }
 
 function filterData() {
@@ -579,13 +609,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 window.markerMap = new Map();
 window.allData = [];
-window.filteredData = [];
 
 fetch('lcsd_sports_centres.geojson')
  .then(r => r.json())
  .then(data => {
   window.allData = data.features;
-  window.filteredData = data.features;
 
   buildDateBar();
 
@@ -604,7 +632,8 @@ fetch('lcsd_sports_centres.geojson')
     { icon: createMarkerIcon(avail) }
    ).bindPopup(createPopup(props));
    window.markerMap.set(idx, m);
-   m.addTo(map);
+   // Only add to map if has availability
+   if (avail > 0) m.addTo(map);
   });
 
   updateStats();
@@ -616,6 +645,17 @@ fetch('lcsd_sports_centres.geojson')
 
 document.getElementById('district-filter').addEventListener('change', filterData);
 document.getElementById('search-input').addEventListener('input', filterData);
+document.getElementById('time-filter').addEventListener('change', e => {
+ currentTimeFilter = e.target.value;
+ if (window.markerMap) {
+  window.markerMap.forEach((m, i) => {
+   m.setPopupContent(createPopup(window.allData[i].properties));
+   const avail = getAvailableSessions(window.allData[i].properties);
+   m.setIcon(createMarkerIcon(avail));
+  });
+ }
+ updateMarkerVisibility();
+});
 
 document.getElementById('lang-toggle').addEventListener('click', e => {
  if (e.target.tagName !== 'BUTTON') return;
