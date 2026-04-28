@@ -153,14 +153,25 @@
   }
 
   .custom-marker {
-   background: #3949ab; border: 2.5px solid white; border-radius: 50%;
+   border-radius: 50%;
    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-   transition: transform 0.2s, background 0.2s;
+   transition: transform 0.2s;
+   display: flex; align-items: center; justify-content: center;
+   font-weight: 700; color: white;
   }
-  .custom-marker:hover { transform: scale(1.2); background: #1a237e; }
-  .marker-digit {
-   color: white; font-size: 10px; font-weight: 700;
-   text-align: center; line-height: 24px;
+  .custom-marker:hover { transform: scale(1.2); }
+  .custom-marker.avail {
+   background: #3949ab; border: 2.5px solid white;
+  }
+  .custom-marker.avail-low {
+   background: #f57f17; border: 2.5px solid white;
+  }
+  .custom-marker.no-avail {
+   background: #e0e0e0; border: 2.5px solid #bbb; color: #999;
+  }
+  .marker-text {
+   font-size: 10px; line-height: 1;
+   text-align: center;
   }
 
   @media (max-width: 600px) {
@@ -177,7 +188,6 @@
   <div id="lang-toggle">
    <button class="active" data-lang="en">EN</button>
    <button data-lang="tc">繁體</button>
-   <button data-lang="both">EN+中</button>
   </div>
  </div>
 
@@ -185,8 +195,8 @@
  <div id="sport-bar">
   <span style="font-size:11px;color:#888;font-weight:600;margin-right:4px;">球類:</span>
   <button class="sport-btn active" data-sport="badminton">🏸 羽毛球</button>
-  <button class="sport-btn" data-sport="tennis" disabled style="opacity:0.4" title="Coming soon">🎾 網球</button>
-  <button class="sport-btn" data-sport="basketball" disabled style="opacity:0.4" title="Coming soon">🏀 籃球</button>
+  <button class="sport-btn" data-sport="basketball">🏀 籃球</button>
+  <button class="sport-btn" data-sport="volleyball">🏐 排球</button>
  </div>
 
  <!-- Date Tabs -->
@@ -236,6 +246,7 @@ const labels = {
   noSchedule: 'No schedule data for this venue',
   available: 'Available',
   noAvail: 'No slots',
+  sessions: 'sessions',
  },
  tc: {
   title: '康文署體育館',
@@ -248,6 +259,7 @@ const labels = {
   noSchedule: '此場地暫無數據',
   available: '有位',
   noAvail: '無位',
+  sessions: '節',
  }
 };
 
@@ -273,15 +285,17 @@ const DISTRICT_NAMES = {
  'YUEN LONG':           { en: 'Yuen Long',           tc: '元朗' },
 };
 
-// Sport-specific data keys (future sports add their key here)
+// Sport-specific data keys
 const SPORT_DATA_KEY = {
- badminton: 'BwfSchedule',
- // tennis: 'TnsSchedule',
- // basketball: 'BskSchedule',
+ badminton:  'BwfSchedule',
+ basketball: 'BskSchedule',
+ volleyball: 'VlbSchedule',
 };
 
 const SPORT_DISPLAY = {
- badminton: { en: 'Badminton Court', tc: '羽毛球場', unit: { en: 'courts', tc: '個場' } },
+ badminton:  { en: 'Badminton Court', tc: '羽毛球場', unit: { en: 'courts', tc: '個場' },  icon: '🏸' },
+ basketball: { en: 'Basketball Court', tc: '籃球場',  unit: { en: 'courts', tc: '個場' },  icon: '🏀' },
+ volleyball: { en: 'Volleyball Court', tc: '排球場', unit: { en: 'courts', tc: '個場' },  icon: '🏐' },
 };
 
 function getText(enVal, tcVal) {
@@ -305,11 +319,34 @@ function formatFacilities(facilityStr) {
  return facilityStr.split(',').map(f => f.trim()).filter(f => f);
 }
 
-function createIcon(number) {
+// Get available sessions count for a venue on selected date
+function getAvailableSessions(props) {
+ const dataKey = SPORT_DATA_KEY[currentSport];
+ const raw = props[dataKey];
+ if (!raw) return 0;
+ let schedule;
+ try { schedule = JSON.parse(raw); } catch(e) { return 0; }
+ const dateIso = ALL_DATES[currentDateIdx].iso;
+ const dateData = schedule && schedule[dateIso];
+ if (!dateData) return 0;
+ let total = 0;
+ TIME_SLOTS.forEach(t => {
+  const c = dateData[t];
+  if (c !== undefined && c > 0) total += c;
+ });
+ return total;
+}
+
+function createMarkerIcon(count) {
+ const text = count > 0 ? count : '–';
+ let cls = 'no-avail';
+ if (count >= 7) cls = 'avail';
+ else if (count >= 1) cls = 'avail-low';
+ const sz = count > 99 ? 32 : count > 9 ? 28 : 24;
  return L.divIcon({
   className: 'custom-marker-wrapper',
-  html: `<div class="custom-marker"><div class="marker-digit">${number}</div></div>`,
-  iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -14]
+  html: `<div class="custom-marker ${cls}" style="width:${sz}px;height:${sz}px"><div class="marker-text">${text}</div></div>`,
+  iconSize: [sz, sz], iconAnchor: [sz/2, sz/2], popupAnchor: [0, -sz/2]
  });
 }
 
@@ -434,9 +471,13 @@ function updateLanguage(newLang) {
  if (window.markerMap) {
   window.markerMap.forEach((m, idx) => {
    m.setPopupContent(createPopup(window.allData[idx].properties));
+   // Update icon for new language (count may display differently)
+   const avail = getAvailableSessions(window.allData[idx].properties);
+   m.setIcon(createMarkerIcon(avail));
   });
  }
  updateStats();
+ updateMarkerVisibility();
 }
 
 function buildDateBar() {
@@ -469,8 +510,11 @@ function selectDate(idx) {
  if (window.markerMap) {
   window.markerMap.forEach((m, i) => {
    m.setPopupContent(createPopup(window.allData[i].properties));
+   const avail = getAvailableSessions(window.allData[i].properties);
+   m.setIcon(createMarkerIcon(avail));
   });
  }
+ updateMarkerVisibility();
 }
 
 function selectSport(sport) {
@@ -481,22 +525,21 @@ function selectSport(sport) {
  if (window.markerMap) {
   window.markerMap.forEach((m, i) => {
    m.setPopupContent(createPopup(window.allData[i].properties));
+   const avail = getAvailableSessions(window.allData[i].properties);
+   m.setIcon(createMarkerIcon(avail));
   });
  }
+ updateMarkerVisibility();
 }
 
-function updateStats() {
- const l = labels[currentLang];
- const total = window.allData ? window.allData.length : 0;
- const filtered = window.filteredData ? window.filteredData.length : total;
- document.getElementById('stats').textContent = l.results.replace('{n}', filtered).replace('{total}', total);
-}
-
-function filterData() {
+// Show/hide markers based on availability + district + search
+function updateMarkerVisibility() {
  const district = document.getElementById('district-filter').value;
  const search = document.getElementById('search-input').value.toLowerCase().trim();
 
- window.filteredData = window.allData.filter(f => {
+ // Count available for selected sport+date
+ window.allData.forEach((f, idx) => {
+  const avail = getAvailableSessions(f.properties);
   const p = f.properties;
   const dMatch = !district || (p.DistrictEN?.toUpperCase() === district);
   const sMatch = !search ||
@@ -504,15 +547,29 @@ function filterData() {
    (p.NameTC && p.NameTC.includes(search)) ||
    (p.AddressEN && p.AddressEN.toLowerCase().includes(search)) ||
    (p.AddressTC && p.AddressTC.includes(search));
-  return dMatch && sMatch;
+  const m = window.markerMap.get(idx);
+  if (dMatch && sMatch) {
+   m.addTo(map);
+  } else {
+   m.remove();
+  }
  });
+}
 
- updateStats();
- const shown = new Set(window.filteredData.map(f => f.properties.OBJECTID));
- window.markerMap.forEach((m, idx) => {
-  if (shown.has(window.allData[idx].properties.OBJECTID)) m.addTo(map);
-  else m.remove();
+function updateStats() {
+ const l = labels[currentLang];
+ const total = window.allData ? window.allData.length : 0;
+ // Count visible markers
+ let visible = 0;
+ window.markerMap.forEach((m) => {
+  if (map.hasLayer(m)) visible++;
  });
+ document.getElementById('stats').textContent = l.results.replace('{n}', visible).replace('{total}', total);
+}
+
+function filterData() {
+ updateMarkerVisibility();
+ updateStats();
 }
 
 const map = L.map('map').setView([22.35, 114.18], 11);
@@ -541,9 +598,10 @@ fetch('lcsd_sports_centres.geojson')
     document.getElementById('district-filter').innerHTML +=
      `<option value="${dKey}">${getDistrictName(props.DistrictEN, props.DistrictTC)}</option>`;
    }
+   const avail = getAvailableSessions(props);
    const m = L.marker(
     [feature.geometry.coordinates[1], feature.geometry.coordinates[0]],
-    { icon: createIcon(idx + 1) }
+    { icon: createMarkerIcon(avail) }
    ).bindPopup(createPopup(props));
    window.markerMap.set(idx, m);
    m.addTo(map);
