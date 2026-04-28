@@ -8,139 +8,239 @@
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
  <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
+  /* ── Header ── */
   #header {
-   background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-   color: white; padding: 12px 20px;
+   background: #1a237e;
+   color: white; padding: 10px 16px;
    display: flex; justify-content: space-between; align-items: center;
-   flex-wrap: wrap; gap: 10px;
+   flex-wrap: wrap; gap: 8px;
   }
-  #header h1 { font-size: 18px; font-weight: 600; }
+  #header h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; }
 
-  #lang-toggle { display: flex; gap: 8px; }
+  #lang-toggle { display: flex; gap: 6px; }
   #lang-toggle button {
-   padding: 6px 14px; border: 1.5px solid rgba(255,255,255,0.5);
-   background: transparent; color: white; border-radius: 20px;
-   cursor: pointer; font-size: 13px; transition: all 0.2s;
+   padding: 5px 12px; border: 1.5px solid rgba(255,255,255,0.45);
+   background: transparent; color: rgba(255,255,255,0.8); border-radius: 16px;
+   cursor: pointer; font-size: 12px; transition: all 0.2s;
   }
-  #lang-toggle button.active { background: white; color: #1a237e; border-color: white; font-weight: 600; }
-  #lang-toggle button:hover:not(.active) { border-color: white; }
+  #lang-toggle button.active { background: white; color: #1a237e; border-color: white; font-weight: 700; }
+  #lang-toggle button:hover:not(.active) { border-color: white; color: white; }
 
+  /* ── Sport Bar ── */
   #sport-bar {
-   padding: 8px 15px;
-   background: #f8f9ff;
-   border-bottom: 1px solid #e0e4ff;
-   display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+   padding: 7px 12px; background: #f0f2ff;
+   border-bottom: 1px solid #dde3ff;
+   display: flex; gap: 5px; flex-wrap: wrap; align-items: center;
   }
+  .sport-label { font-size: 11px; color: #777; font-weight: 600; margin-right: 2px; }
   .sport-btn {
-   padding: 5px 14px; border: 1.5px solid #c5cae9;
-   background: white; color: #3949ab; border-radius: 16px;
-   cursor: pointer; font-size: 12px; font-weight: 600;
-   transition: all 0.2s;
+   padding: 6px 14px; border: 1.5px solid #b0b9e8;
+   background: white; color: #283593; border-radius: 18px;
+   cursor: pointer; font-size: 12px; font-weight: 700;
+   transition: all 0.2s; display: flex; align-items: center; gap: 4px;
   }
-  .sport-btn:hover { background: #e8eaf6; }
-  .sport-btn.active {
-   background: #3949ab; color: white; border-color: #3949ab;
-  }
+  .sport-btn:hover { background: #e0e5ff; border-color: #3949ab; }
+  .sport-btn.active { background: #3949ab; color: white; border-color: #3949ab; box-shadow: 0 2px 8px rgba(57,73,171,0.35); }
+  .sport-btn:focus { outline: 3px solid #3949ab; outline-offset: 2px; }
+  .sport-btn .sport-emoji { font-size: 14px; }
 
-  #date-bar {
-   padding: 8px 15px;
-   background: #f5f5f5;
-   border-bottom: 1px solid #ddd;
-   display: flex; gap: 5px; overflow-x: auto; align-items: center;
-   white-space: nowrap;
+  /* ── Time Pills Bar ── */
+  #time-bar {
+   padding: 6px 12px; background: #fafafa;
+   border-bottom: 1px solid #e0e0e0;
+   display: flex; gap: 5px; flex-wrap: wrap; align-items: center;
   }
+  .time-label { font-size: 11px; color: #777; font-weight: 600; margin-right: 2px; }
+  .time-pill {
+   padding: 5px 14px; border: 1.5px solid #ccc;
+   background: white; color: #555; border-radius: 20px;
+   cursor: pointer; font-size: 12px; font-weight: 600;
+   transition: all 0.2s; white-space: nowrap;
+  }
+  .time-pill:hover { border-color: #3949ab; color: #3949ab; }
+  .time-pill.active { background: #3949ab; color: white; border-color: #3949ab; }
+  .time-pill:focus { outline: 3px solid #3949ab; outline-offset: 2px; }
+  .time-pill .pill-icon { margin-right: 2px; }
+
+  /* ── Date Bar ── */
+  #date-bar {
+   padding: 6px 12px; background: #fff;
+   border-bottom: 1px solid #e0e0e0;
+   display: flex; gap: 5px; overflow-x: auto; align-items: center;
+   white-space: nowrap; scrollbar-width: thin; scrollbar-color: #ccc transparent;
+   position: relative;
+  }
+  /* Scroll fade hints */
+  #date-bar::before, #date-bar::after {
+   content: ''; position: absolute; top: 0; bottom: 0; width: 30px; z-index: 2;
+   pointer-events: none;
+  }
+  #date-bar::before { left: 0; background: linear-gradient(to right, #fff 60%, transparent); }
+  #date-bar::after  { right: 0; background: linear-gradient(to left, #fff 60%, transparent); }
+
   .date-btn {
-   padding: 5px 12px; border: 1.5px solid #ccc;
-   background: white; color: #555; border-radius: 16px;
-   cursor: pointer; font-size: 11.5px; font-weight: 600;
+   padding: 5px 10px; border: 1.5px solid #ccc;
+   background: white; color: #555; border-radius: 14px;
+   cursor: pointer; font-size: 11px; font-weight: 600;
    transition: all 0.2s; flex-shrink: 0;
   }
   .date-btn:hover { border-color: #3949ab; color: #3949ab; }
   .date-btn.active { background: #3949ab; color: white; border-color: #3949ab; }
-  .date-btn .date-num {
-   display: block; font-size: 14px; margin-top: 1px;
-  }
+  .date-btn:focus { outline: 3px solid #3949ab; outline-offset: 2px; }
+  .date-btn .date-dow { display: block; font-size: 10px; opacity: 0.7; margin-bottom: 1px; }
+  .date-btn .date-num { display: block; font-size: 13px; }
+  .date-btn.active .date-dow { opacity: 0.85; }
 
+  /* ── Controls ── */
   #controls {
-   padding: 8px 15px; background: #fafafa;
-   display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+   padding: 7px 12px; background: #f5f5f5;
+   display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
    border-bottom: 1px solid #ddd;
   }
-  #controls label { font-size: 13px; color: #555; }
+  #controls label { font-size: 12px; color: #666; font-weight: 600; }
   #district-filter {
-   padding: 5px 10px; border: 1px solid #ccc; border-radius: 6px;
-   font-size: 13px; min-width: 150px;
+   padding: 5px 8px; border: 1px solid #ccc; border-radius: 6px;
+   font-size: 12px; min-width: 140px;
   }
+  #district-filter:focus { outline: 2px solid #3949ab; }
   #search-input {
-   padding: 5px 10px; border: 1px solid #ccc; border-radius: 6px;
-   font-size: 13px; width: 180px;
+   padding: 5px 8px; border: 1px solid #ccc; border-radius: 6px;
+   font-size: 12px; width: 160px; position: relative;
   }
-  #time-filter {
-   padding: 5px 10px; border: 1px solid #ccc; border-radius: 6px;
-   font-size: 13px; min-width: 110px;
+  #search-input:focus { outline: 2px solid #3949ab; }
+  .search-wrap { position: relative; display: flex; align-items: center; }
+  .search-wrap .search-icon {
+   position: absolute; left: 8px; color: #aaa; font-size: 12px; pointer-events: none;
   }
-  #stats { font-size: 12px; color: #666; margin-left: auto; }
+  #search-input { padding-left: 26px; }
+  .search-clear {
+   position: absolute; right: 6px; background: none; border: none;
+   color: #aaa; cursor: pointer; font-size: 14px; line-height: 1; padding: 2px;
+   display: none;
+  }
+  .search-clear.visible { display: block; }
+  .search-clear:hover { color: #555; }
 
-  #map { height: calc(100vh - 155px); width: 100%; }
-
-  .leaflet-popup-content-wrapper {
-   border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  /* Show-full toggle */
+  .show-full-wrap { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+  .show-full-wrap label { font-size: 11px; color: #888; cursor: pointer; }
+  #show-full-toggle {
+   width: 14px; height: 14px; cursor: pointer; accent-color: #3949ab;
+   margin: 0;
   }
-  .popup-content { min-width: 320px; max-width: 380px; }
+
+  #stats { font-size: 11px; color: #777; }
+
+  /* ── Map ── */
+  #map { height: calc(100vh - 148px); width: 100%; }
+
+  /* ── Legend ── */
+  #legend {
+   position: absolute; bottom: 30px; right: 10px; z-index: 1000;
+   background: white; border-radius: 10px;
+   box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+   padding: 10px 12px; min-width: 170px;
+   font-size: 11px;
+  }
+  #legend h4 {
+   font-size: 11px; font-weight: 700; color: #1a237e;
+   margin-bottom: 7px; border-bottom: 1px solid #e0e4ff;
+   padding-bottom: 5px;
+  }
+  .legend-row {
+   display: flex; align-items: center; gap: 7px;
+   margin: 4px 0; color: #444; font-size: 11px;
+  }
+  .legend-dot {
+   width: 16px; height: 16px; border-radius: 50%;
+   border: 2px solid white; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+   flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+   font-size: 8px; font-weight: 700; color: white;
+  }
+  .legend-cell {
+   width: 18px; height: 14px; border-radius: 3px;
+   display: inline-block; margin-right: 4px;
+  }
+
+  /* ── Popup ── */
+  .leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.16); }
+  .popup-content { min-width: 300px; max-width: 360px; }
   .popup-header {
    font-size: 15px; font-weight: 700; color: #1a237e;
-   margin-bottom: 6px; padding-bottom: 6px; border-bottom: 2px solid #3949ab;
+   margin-bottom: 5px; padding-bottom: 6px; border-bottom: 2.5px solid #3949ab;
   }
   .popup-sub {
-   font-size: 11.5px; color: #777; margin-top: -4px; margin-bottom: 6px;
+   font-size: 11px; color: #777; margin-top: -3px; margin-bottom: 7px;
   }
   .popup-row {
    display: flex; gap: 6px; margin: 3px 0;
-   font-size: 12.5px; line-height: 1.4;
+   font-size: 12px; line-height: 1.4;
   }
-  .popup-label { font-weight: 600; color: #555; min-width: 60px; }
+  .popup-label { font-weight: 700; color: #555; min-width: 56px; }
   .popup-value { color: #333; flex: 1; }
 
-  /* Schedule Grid */
+  /* ── Schedule Grid ── */
   .popup-schedule {
    margin-top: 10px; padding: 10px;
-   background: #f8f9ff; border-radius: 10px;
+   background: #f0f2ff; border-radius: 10px;
    border: 1px solid #dde4ff;
   }
   .popup-schedule-header {
-   font-size: 11px; font-weight: 700; color: #33691e;
-   margin-bottom: 6px; display: flex; justify-content: space-between;
+   font-size: 11px; font-weight: 700; color: #1a237e;
+   margin-bottom: 7px; display: flex; justify-content: space-between; align-items: center;
   }
-  .popup-schedule-venue {
-   font-size: 11px; color: #666; margin-bottom: 8px;
+  .popup-schedule-summary {
+   font-size: 10.5px; color: #555; margin-bottom: 8px;
+   display: flex; gap: 4px; flex-wrap: wrap;
   }
+  .summary-chip {
+   padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 600;
+  }
+  .summary-chip.has { background: #c8e6c9; color: #2e7d32; }
+  .summary-chip.full { background: #ffcdd2; color: #c62828; }
+  .summary-chip.empty { background: #eee; color: #999; }
+
+  /* Period dividers in grid */
   .time-grid {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
-   gap: 4px;
+   gap: 3px;
   }
+  .time-period-label {
+   grid-column: 1 / -1;
+   font-size: 9px; font-weight: 700; color: #888;
+   text-align: center;
+   padding: 2px 0 1px;
+   border-top: 1px dashed #dde4ff;
+   margin-top: 2px;
+   letter-spacing: 0.5px;
+  }
+  .time-period-label:first-child { border-top: none; margin-top: 0; }
   .time-cell {
-   padding: 5px 3px; border-radius: 6px;
+   padding: 5px 2px; border-radius: 6px;
    text-align: center; font-size: 10px; font-weight: 600;
-   transition: transform 0.15s;
+   transition: transform 0.15s, opacity 0.2s;
+   cursor: default;
+   position: relative;
   }
-  .time-cell:hover { transform: scale(1.05); }
-  .time-cell .time-label {
-   font-size: 9px; opacity: 0.75; font-weight: 400;
-  }
-  .time-cell .time-courts {
-   font-size: 13px; font-weight: 700;
-  }
+  .time-cell:hover { transform: scale(1.06); z-index: 1; }
+  .time-cell .time-label { font-size: 8.5px; opacity: 0.7; font-weight: 400; }
+  .time-cell .time-courts { font-size: 13px; font-weight: 700; }
   .time-cell.none { background: #ffebee; color: #c62828; }
-  .time-cell.low  { background: #fff9c4; color: #f57f17; }
-  .time-cell.mid  { background: #dcedc8; color: #558b2f; }
-  .time-cell.high { background: #c8e6c9; color: #2e7d32; }
-  .time-cell.full { background: #a5d6a7; color: #1b5e20; }
-  /* Highlight time period filter */
-  .time-cell.filtered-out { opacity: 0.2; }
+  .time-cell.low  { background: #fff9c4; color: #e65100; }
+  .time-cell.mid  { background: #e8f5e9; color: #2e7d32; }
+  .time-cell.high { background: #c8e6c9; color: #1b5e20; }
+  .time-cell.full { background: #a5d6a7; color: #0a3d0a; }
+  .time-cell.filtered-out { opacity: 0.18; }
 
+  /* Color-blind safe: use shape + text hints */
+  .time-cell.none::before  { content: '✕ '; font-size: 8px; }
+  .time-cell.low::before   { content: '! '; font-size: 8px; }
+
+  /* ── Facilities ── */
   .popup-facilities { margin-top: 8px; }
   .popup-facilities .facility-tags {
    display: flex; flex-wrap: wrap; gap: 3px; margin-top: 3px;
@@ -154,120 +254,217 @@
    color: #3949ab; text-decoration: none; font-size: 12px; font-weight: 600;
   }
   .popup-link a:hover { text-decoration: underline; }
-  .no-data-msg {
-   text-align: center; color: #999; font-size: 12px; padding: 12px;
-  }
+  .no-data-msg { text-align: center; color: #999; font-size: 12px; padding: 12px; }
 
+  /* ── Markers ── */
   .custom-marker {
    border-radius: 50%;
    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-   transition: transform 0.2s;
+   transition: transform 0.2s, box-shadow 0.2s;
    display: flex; align-items: center; justify-content: center;
    font-weight: 700; color: white;
   }
-  .custom-marker:hover { transform: scale(1.2); }
+  .custom-marker:hover { transform: scale(1.25); box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
   .custom-marker.avail {
    background: #3949ab; border: 2.5px solid white;
+   box-shadow: 0 2px 8px rgba(57,73,171,0.4);
   }
   .custom-marker.avail-low {
    background: #f57f17; border: 2.5px solid white;
+   box-shadow: 0 2px 8px rgba(245,127,23,0.4);
   }
-  .marker-text {
-   font-size: 10px; line-height: 1;
-   text-align: center;
+  .custom-marker.zero { background: #bdbdbd; border: 2px solid white; opacity: 0.5; }
+  .marker-text { font-size: 10px; line-height: 1; text-align: center; }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+   #header h1 { font-size: 14px; }
+   #search-input { width: 120px; }
+   #map { height: calc(100vh - 162px); }
+   .time-grid { grid-template-columns: repeat(4, 1fr); }
+   #legend { bottom: 20px; right: 6px; min-width: 155px; font-size: 10px; }
+   .time-cell .time-courts { font-size: 12px; }
+   .time-cell .time-label { font-size: 8px; }
+   .popup-content { min-width: 260px; }
   }
 
-  @media (max-width: 600px) {
-   #header h1 { font-size: 15px; }
-   #search-input { width: 140px; }
-   #map { height: calc(100vh - 170px); }
-   .time-grid { grid-template-columns: repeat(4, 1fr); }
+  /* Screen-reader only */
+  .sr-only {
+   position: absolute; width: 1px; height: 1px;
+   padding: 0; margin: -1px; overflow: hidden;
+   clip: rect(0,0,0,0); border: 0;
   }
  </style>
 </head>
 <body>
+
+ <!-- Header -->
  <div id="header">
-  <h1 id="title">LCSD Sports Centres | 康文署體育館</h1>
-  <div id="lang-toggle">
-   <button class="active" data-lang="en">EN</button>
-   <button data-lang="tc">繁體</button>
+  <h1 id="title">🏸 LCSD 康文署體育館</h1>
+  <div id="lang-toggle" role="group" aria-label="Language">
+   <button class="active" data-lang="en" role="button" aria-pressed="true">EN</button>
+   <button data-lang="tc" role="button" aria-pressed="false">繁體</button>
   </div>
  </div>
 
- <!-- Sport Type Selector -->
- <div id="sport-bar">
-  <span style="font-size:11px;color:#888;font-weight:600;margin-right:4px;">球類:</span>
-  <button class="sport-btn active" data-sport="badminton">🏸 羽毛球</button>
-  <button class="sport-btn" data-sport="basketball">🏀 籃球</button>
-  <button class="sport-btn" data-sport="volleyball">🏐 排球</button>
+ <!-- Sport Bar -->
+ <div id="sport-bar" role="group" aria-label="Sport type">
+  <span class="sport-label" aria-hidden="true">球類:</span>
+  <button class="sport-btn active" data-sport="badminton" role="button" aria-pressed="true">
+   <span class="sport-emoji">🏸</span><span>羽毛球</span>
+  </button>
+  <button class="sport-btn" data-sport="basketball" role="button" aria-pressed="false">
+   <span class="sport-emoji">🏀</span><span>籃球</span>
+  </button>
+  <button class="sport-btn" data-sport="volleyball" role="button" aria-pressed="false">
+   <span class="sport-emoji">🏐</span><span>排球</span>
+  </button>
+ </div>
+
+ <!-- Time Pills Bar -->
+ <div id="time-bar" role="group" aria-label="Time filter">
+  <span class="time-label" aria-hidden="true">時間:</span>
+  <button class="time-pill active" data-value="all" role="button" aria-pressed="true">
+   <span class="pill-icon">🕐</span><span>全部</span>
+  </button>
+  <button class="time-pill" data-value="morning" role="button" aria-pressed="false">
+   <span class="pill-icon">🌅</span><span>早</span>
+  </button>
+  <button class="time-pill" data-value="afternoon" role="button" aria-pressed="false">
+   <span class="pill-icon">☀️</span><span>午</span>
+  </button>
+  <button class="time-pill" data-value="evening" role="button" aria-pressed="false">
+   <span class="pill-icon">🌙</span><span>晚</span>
+  </button>
  </div>
 
  <!-- Date Tabs -->
- <div id="date-bar">
+ <div id="date-bar" role="group" aria-label="Select date">
   <!-- Dynamically generated -->
  </div>
 
+ <!-- Controls -->
  <div id="controls">
-  <label id="district-label">District:</label>
-  <select id="district-filter"><option value="">All Districts | 所有地區</option></select>
-  <label id="search-label">Search:</label>
-  <input type="text" id="search-input" placeholder="Name | 名稱">
-  <label id="time-label">Time:</label>
-  <select id="time-filter">
-   <option value="all" data-en="All Times" data-tc="全部時段">All Times | 全部時段</option>
-   <option value="morning" data-en="Morning ≤12:00" data-tc="早 ≤12:00">Morning ≤12:00 | 早 ≤12:00</option>
-   <option value="afternoon" data-en="Afternoon 12-17" data-tc="午 12-17">Afternoon 12-17 | 午 12-17</option>
-   <option value="evening" data-en="Evening ≥20:00" data-tc="晚 ≥20:00">Evening ≥20:00 | 晚 ≥20:00</option>
+  <label id="district-label">地區:</label>
+  <select id="district-filter" aria-label="District filter">
+   <option value="">所有地區</option>
   </select>
-  <span id="stats">Loading...</span>
+
+  <div class="search-wrap">
+   <span class="search-icon" aria-hidden="true">🔍</span>
+   <input type="text" id="search-input" placeholder="體育館名稱 / 地址 / 地區"
+    aria-label="Search venue" autocomplete="off">
+   <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
+  </div>
+
+  <div class="show-full-wrap">
+   <input type="checkbox" id="show-full-toggle" aria-label="Show fully booked venues">
+   <label for="show-full-toggle" id="show-full-label">顯示已滿</label>
+  </div>
+
+  <span id="stats" aria-live="polite" aria-atomic="true">載入中...</span>
  </div>
- <div id="map"></div>
+
+ <!-- Map -->
+ <div id="map" role="application" aria-label="Sports centre map">
+  <!-- Legend -->
+  <div id="legend" role="note" aria-label="Map legend">
+   <h4 id="legend-title">圖例</h4>
+   <div class="legend-row">
+    <div class="legend-dot" style="background:#3949ab" aria-hidden="true">7+</div>
+    <span id="legend-lots">7+ 節充足</span>
+   </div>
+   <div class="legend-row">
+    <div class="legend-dot" style="background:#f57f17" aria-hidden="true">1-6</div>
+    <span id="legend-some">1-6 節少量</span>
+   </div>
+   <div class="legend-row">
+    <div class="legend-dot" style="background:#9e9e9e;border-style:dashed" aria-hidden="true">0</div>
+    <span id="legend-none">已滿（隱藏）</span>
+   </div>
+   <div style="margin-top:8px;padding-top:6px;border-top:1px solid #e0e4ff">
+    <div style="font-size:10px;color:#888;margin-bottom:4px" id="legend-sched-title">時段顏色:</div>
+    <div class="legend-row"><span class="legend-cell" style="background:#ffebee"></span><span id="legend-s0">無位</span></div>
+    <div class="legend-row"><span class="legend-cell" style="background:#fff9c4"></span><span id="legend-s1">1 場</span></div>
+    <div class="legend-row"><span class="legend-cell" style="background:#e8f5e9"></span><span id="legend-s2">2-3 場</span></div>
+    <div class="legend-row"><span class="legend-cell" style="background:#c8e6c9"></span><span id="legend-s3">4-6 場</span></div>
+    <div class="legend-row"><span class="legend-cell" style="background:#a5d6a7"></span><span id="legend-s4">7+ 場</span></div>
+   </div>
+  </div>
+ </div>
+
+<!-- ARIA announcer -->
+<div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
 <script>
-let currentLang = 'en';
+// ─── State ───
+let currentLang = 'tc'; // default to Traditional Chinese
 let currentSport = 'badminton';
-let currentDateIdx = 0; // index into ALL_DATES
-let currentTimeFilter = 'all'; // 'all' | 'morning' | 'afternoon' | 'evening'
+let currentDateIdx = 0;
+let currentTimeFilter = 'all';
+let showFullVenues = false;
 
+// ─── Dates ───
 const ALL_DATES = [
-  { iso: '2026-04-28', label_en: 'Tue 28', label_tc: '二 28' },
-  { iso: '2026-04-29', label_en: 'Wed 29', label_tc: '三 29' },
-  { iso: '2026-04-30', label_en: 'Thu 30', label_tc: '四 30' },
-  { iso: '2026-05-01', label_en: 'Fri 1',  label_tc: '五 1'  },
-  { iso: '2026-05-02', label_en: 'Sat 2',  label_tc: '六 2'  },
-  { iso: '2026-05-03', label_en: 'Sun 3',  label_tc: '日 3'  },
-  { iso: '2026-05-04', label_en: 'Mon 4',  label_tc: '一 4'  },
-  { iso: '2026-05-05', label_en: 'Tue 5',  label_tc: '二 5'  },
+ { iso: '2026-04-28', label_en: 'Tue 28', label_tc: '二 28' },
+ { iso: '2026-04-29', label_en: 'Wed 29', label_tc: '三 29' },
+ { iso: '2026-04-30', label_en: 'Thu 30', label_tc: '四 30' },
+ { iso: '2026-05-01', label_en: 'Fri 1',  label_tc: '五 1'  },
+ { iso: '2026-05-02', label_en: 'Sat 2',  label_tc: '六 2'  },
+ { iso: '2026-05-03', label_en: 'Sun 3',  label_tc: '日 3'  },
+ { iso: '2026-05-04', label_en: 'Mon 4',  label_tc: '一 4'  },
+ { iso: '2026-05-05', label_en: 'Tue 5',  label_tc: '二 5'  },
 ];
 
-// Time slot labels
-const TIME_SLOTS = ['07:00','08:00','09:00','10:00','11:00','12:00',
-                    '13:00','14:00','15:00','16:00','17:00','18:00',
-                    '19:00','20:00','21:00','22:00'];
+// ─── Time Slots (16 hours) ───
+const TIME_SLOTS = [
+ '07:00','08:00','09:00','10:00','11:00','12:00',
+ '13:00','14:00','15:00','16:00','17:00','18:00',
+ '19:00','20:00','21:00','22:00'
+];
 
-// Which slots belong to which time period
+// ─── Period definitions ───
+// FIX #1: Evening now includes 18:00 and 19:00 (香港人「今晚7點」= 19:00)
 const TIME_PERIOD_SLOTS = {
- morning:   ['07:00','08:00','09:00','10:00','11:00','12:00'],
- afternoon: ['12:00','13:00','14:00','15:00','16:00','17:00'],
- evening:   ['20:00','21:00','22:00'],
+ all:      TIME_SLOTS,                           // all 16 slots
+ morning:  ['07:00','08:00','09:00','10:00','11:00','12:00'],
+ afternoon:['12:00','13:00','14:00','15:00','16:00','17:00'],
+ evening:  ['18:00','19:00','20:00','21:00','22:00'],
 };
 
+const PERIOD_NAMES = {
+ all:      { en: 'All Day',      tc: '全部時段' },
+ morning:  { en: 'Morning',       tc: '早上' },
+ afternoon:{ en: 'Afternoon',     tc: '下午' },
+ evening:  { en: 'Evening',       tc: '晚間' },
+};
+
+// ─── i18n Labels ───
 const labels = {
  en: {
-  title: 'LCSD Sports Centres',
+  title: '🏸 LCSD Sports Centres',
   district: 'District', search: 'Search', all: 'All Districts',
   address: 'Address', facilities: 'Facilities', hours: 'Hours',
   tel: 'Tel', website: 'Website',
   loading: 'Loading...',
   results: 'Showing {n} venues',
   courts: 'courts',
-  noSchedule: 'No schedule data for this venue',
-  available: 'Available',
-  noAvail: 'No slots',
+  noSchedule: 'No schedule data',
+  available: 'Available', noAvail: 'No slots',
   sessions: 'sessions',
+  noData: 'No data',
+  periodAll: 'All Day', periodMorning: 'Morning', periodAfternoon: 'Afternoon', periodEvening: 'Evening',
+  lots: '7+ slots plenty', some: '1-6 slots limited', none: 'Fully booked (hidden)',
+  s0: 'No courts', s1: '1 court', s2: '2-3 courts', s3: '4-6 courts', s4: '7+ courts',
+  showFull: 'Show fully booked',
+  schedTitle: 'Slot colours:',
+  today: 'Today', tomorrow: 'Tomorrow',
+  availableSummary: 'Available · {date} · {sport}',
+  summaryHas: '{n} slots open', summaryFull: 'all slots full', summaryEmpty: 'no data',
+  anon: 'Anonymous venue',
  },
  tc: {
-  title: '康文署體育館',
+  title: '🏸 康文署體育館',
   district: '地區', search: '搜尋', all: '所有地區',
   address: '地址', facilities: '設施', hours: '開放時間',
   tel: '電話', website: '網站',
@@ -275,59 +472,63 @@ const labels = {
   results: '顯示 {n} 個場地',
   courts: '個場',
   noSchedule: '此場地暫無數據',
-  available: '有位',
-  noAvail: '無位',
+  available: '有位', noAvail: '無位',
   sessions: '節',
+  noData: '沒有數據',
+  periodAll: '全部時段', periodMorning: '早上', periodAfternoon: '下午', periodEvening: '晚間',
+  lots: '7+ 節充足', some: '1-6 節少量', none: '已滿（隱藏）',
+  s0: '無場', s1: '1 場', s2: '2-3 場', s3: '4-6 場', s4: '7+ 場',
+  showFull: '顯示已滿',
+  schedTitle: '時段顏色:',
+  today: '今日', tomorrow: '明日',
+  availableSummary: '有位 · {date} · {sport}',
+  summaryHas: '共 {n} 節有位', summaryFull: '全部時段已滿', summaryEmpty: '暫無數據',
+  anon: '未命名場地',
  }
 };
 
+// ─── District names ───
 const DISTRICT_NAMES = {
  'CENTRAL AND WESTERN': { en: 'Central & Western', tc: '中西區' },
- 'EASTERN':             { en: 'Eastern',             tc: '東區' },
- 'ISLANDS':             { en: 'Islands',             tc: '離島' },
- 'KOWLOON CITY':        { en: 'Kloon City',          tc: '九龍城' },
- 'KWAI TSING':          { en: 'Kwai Tsing',          tc: '葵青' },
- 'KWUN TONG':           { en: 'Kwun Tong',           tc: '觀塘' },
- 'NORTH':               { en: 'North',               tc: '北區' },
- 'SAI KUNG':            { en: 'Sai Kung',            tc: '西貢' },
- 'SHA TIN':             { en: 'Sha Tin',             tc: '沙田' },
- 'SHAM SHUI PO':        { en: 'Sham Shui Po',        tc: '深水埗' },
- 'SOUTHERN':            { en: 'Southern',            tc: '南區' },
+ 'EASTERN':             { en: 'Eastern',            tc: '東區' },
+ 'ISLANDS':             { en: 'Islands',            tc: '離島' },
+ 'KOWLOON CITY':        { en: 'Kowloon City',       tc: '九龍城' },
+ 'KWAI TSING':          { en: 'Kwai Tsing',         tc: '葵青' },
+ 'KWUN TONG':           { en: 'Kwun Tong',          tc: '觀塘' },
+ 'NORTH':               { en: 'North',              tc: '北區' },
+ 'SAI KUNG':            { en: 'Sai Kung',           tc: '西貢' },
+ 'SHA TIN':             { en: 'Sha Tin',            tc: '沙田' },
+ 'SHAM SHUI PO':        { en: 'Sham Shui Po',       tc: '深水埗' },
+ 'SOUTHERN':            { en: 'Southern',           tc: '南區' },
  'TAI PO':              { en: 'Tai Po',              tc: '大埔' },
- 'TSEUNG KWAN O':       { en: 'Tseung Kwan O',       tc: '將軍澳' },
- 'TSUEN WAN':           { en: 'Tsuen Wan',           tc: '荃灣' },
- 'TUEN MUN':            { en: 'Tuen Mun',            tc: '屯門' },
+ 'TSEUNG KWAN O':       { en: 'Tseung Kwan O',      tc: '將軍澳' },
+ 'TSUEN WAN':           { en: 'Tsuen Wan',          tc: '荃灣' },
+ 'TUEN MUN':            { en: 'Tuen Mun',           tc: '屯門' },
  'WAN CHAI':            { en: 'Wan Chai',            tc: '灣仔' },
- 'WONG TAI SIN':        { en: 'Wong Tai Sin',        tc: '黃大仙' },
- 'YAU TSIM MONG':       { en: 'Yau Tsim Mong',       tc: '油尖旺' },
- 'YUEN LONG':           { en: 'Yuen Long',           tc: '元朗' },
+ 'WONG TAI SIN':        { en: 'Wong Tai Sin',       tc: '黃大仙' },
+ 'YAU TSIM MONG':       { en: 'Yau Tsim Mong',      tc: '油尖旺' },
+ 'YUEN LONG':           { en: 'Yuen Long',          tc: '元朗' },
 };
 
-// Sport-specific data keys
-const SPORT_DATA_KEY = {
- badminton:  'BwfSchedule',
- basketball: 'BskSchedule',
- volleyball: 'VlbSchedule',
-};
+// ─── Sport config ───
+const SPORT_DATA_KEY = { badminton: 'BwfSchedule', basketball: 'BskSchedule', volleyball: 'VlbSchedule' };
 
 const SPORT_DISPLAY = {
- badminton:  { en: 'Badminton Court', tc: '羽毛球場', unit: { en: 'courts', tc: '個場' },  icon: '🏸' },
- basketball: { en: 'Basketball Court', tc: '籃球場',  unit: { en: 'courts', tc: '個場' },  icon: '🏀' },
- volleyball: { en: 'Volleyball Court', tc: '排球場', unit: { en: 'courts', tc: '個場' },  icon: '🏐' },
+ badminton:  { en: 'Badminton',  tc: '羽毛球',  icon: '🏸', unit: { en: 'courts', tc: '個場' } },
+ basketball: { en: 'Basketball', tc: '籃球',   icon: '🏀', unit: { en: 'courts', tc: '個場' } },
+ volleyball: { en: 'Volleyball', tc: '排球',   icon: '🏐', unit: { en: 'courts', tc: '個場' } },
 };
 
+// ─── Helpers ───
 function getText(enVal, tcVal) {
  if (currentLang === 'en') return enVal || tcVal || '-';
- if (currentLang === 'tc') return tcVal || enVal || '-';
- return enVal && tcVal ? `${enVal} / ${tcVal}` : (enVal || tcVal || '-');
+ return tcVal || enVal || '-';
 }
 
 function getDistrictName(en, tc) {
  const key = en?.toUpperCase() || '';
  if (DISTRICT_NAMES[key]) {
-  if (currentLang === 'en') return DISTRICT_NAMES[key].en;
-  if (currentLang === 'tc') return DISTRICT_NAMES[key].tc;
-  return `${DISTRICT_NAMES[key].en} / ${DISTRICT_NAMES[key].tc}`;
+  return currentLang === 'en' ? DISTRICT_NAMES[key].en : DISTRICT_NAMES[key].tc;
  }
  return getText(en, tc);
 }
@@ -337,7 +538,12 @@ function formatFacilities(facilityStr) {
  return facilityStr.split(',').map(f => f.trim()).filter(f => f);
 }
 
-// Get available sessions count — respects current time period filter
+function announce(msg) {
+ const el = document.getElementById('announcer');
+ if (el) { el.textContent = msg; setTimeout(() => { el.textContent = ''; }, 1000); }
+}
+
+// ─── Get available sessions for current sport/date/time filter ───
 function getAvailableSessions(props) {
  const dataKey = SPORT_DATA_KEY[currentSport];
  const raw = props[dataKey];
@@ -348,24 +554,42 @@ function getAvailableSessions(props) {
  const dateData = schedule && schedule[dateIso];
  if (!dateData) return 0;
 
+ const slots = TIME_PERIOD_SLOTS[currentTimeFilter] || TIME_SLOTS;
  let total = 0;
- let slotsToCheck = TIME_SLOTS;
- if (currentTimeFilter !== 'all') {
-  slotsToCheck = TIME_PERIOD_SLOTS[currentTimeFilter] || TIME_SLOTS;
- }
- slotsToCheck.forEach(t => {
-  const c = dateData[t];
-  if (c !== undefined && c > 0) total += c;
- });
+ slots.forEach(t => { const c = dateData[t]; if (c !== undefined && c > 0) total += c; });
  return total;
 }
 
-function createMarkerIcon(count) {
- const text = count > 0 ? count : '–';
- let cls = 'avail-low';
- if (count >= 7) cls = 'avail';
- // 0 count venues are hidden, not shown
- const sz = count > 99 ? 32 : count > 9 ? 28 : 24;
+// ─── Get total courts for a venue (for color threshold) ───
+function getTotalCourts(props) {
+ const dataKey = SPORT_DATA_KEY[currentSport];
+ const raw = props[dataKey];
+ if (!raw) return 0;
+ let schedule;
+ try { schedule = JSON.parse(raw); } catch(e) { return 0; }
+ const dateIso = ALL_DATES[currentDateIdx].iso;
+ const dateData = schedule && schedule[dateIso];
+ if (!dateData) return 0;
+ // Sum all time slots
+ let total = 0;
+ TIME_SLOTS.forEach(t => { const c = dateData[t]; if (c !== undefined && c > 0) total += c; });
+ return total;
+}
+
+// ─── Marker Icon ───
+function createMarkerIcon(count, totalCourts) {
+ if (count === 0) {
+  // Zero venues are hidden unless showFullVenues is on
+  const sz = 22;
+  return L.divIcon({
+   className: 'custom-marker-wrapper',
+   html: `<div class="custom-marker zero" style="width:${sz}px;height:${sz}px"><div class="marker-text">—</div></div>`,
+   iconSize: [sz, sz], iconAnchor: [sz/2, sz/2], popupAnchor: [0, -sz/2]
+  });
+ }
+ const text = count > 99 ? '99+' : count;
+ let cls = count >= 7 ? 'avail' : 'avail-low';
+ const sz = count > 99 ? 34 : count > 9 ? 28 : 24;
  return L.divIcon({
   className: 'custom-marker-wrapper',
   html: `<div class="custom-marker ${cls}" style="width:${sz}px;height:${sz}px"><div class="marker-text">${text}</div></div>`,
@@ -373,6 +597,7 @@ function createMarkerIcon(count) {
  });
 }
 
+// ─── Time cell class based on courts count ───
 function getCellClass(courts) {
  if (courts <= 0) return 'none';
  if (courts === 1) return 'low';
@@ -381,74 +606,93 @@ function getCellClass(courts) {
  return 'full';
 }
 
+// ─── Build schedule grid with period dividers ───
 function buildScheduleGrid(schedule, dateIso) {
  const l = labels[currentLang];
  const sport = SPORT_DISPLAY[currentSport];
  const dateData = schedule && schedule[dateIso];
  if (!dateData) return `<div class="no-data-msg">${l.noSchedule}</div>`;
 
- // Determine which cells to grey out based on time filter
  const filteredSlots = currentTimeFilter !== 'all'
   ? new Set(TIME_PERIOD_SLOTS[currentTimeFilter] || [])
   : new Set();
 
- let html = `<div class="time-grid">`;
- TIME_SLOTS.forEach(time => {
-  const courts = dateData[time] !== undefined ? dateData[time] : -1;
-  const cls = courts < 0 ? 'none' : getCellClass(courts);
-  const displayCourts = courts < 0 ? '-' : courts;
-  const timeLabel = currentLang === 'tc' ? time.slice(0,2) + ':' : time;
-  const filteredOut = filteredSlots.size > 0 && !filteredSlots.has(time) ? ' filtered-out' : '';
-  html += `<div class="time-cell ${cls}${filteredOut}">`;
-  html += `<div class="time-label">${timeLabel}</div>`;
-  html += `<div class="time-courts">${displayCourts}</div>`;
-  html += `</div>`;
+ // Summary chips: how many periods have open slots
+ const periods = ['morning','afternoon','evening'];
+ let summaryHtml = '';
+ periods.forEach(p => {
+  const slots = TIME_PERIOD_SLOTS[p];
+  const hasSlots = slots.some(t => dateData[t] !== undefined && dateData[t] > 0);
+  const allFull = slots.every(t => dateData[t] !== undefined && dateData[t] === 0);
+  const noData = slots.every(t => dateData[t] === undefined);
+  let chip = '', cls = '';
+  if (noData) { cls = 'empty'; chip = `${PERIOD_NAMES[p][currentLang]}: ${l.summaryEmpty}`; }
+  else if (allFull) { cls = 'full'; chip = `${PERIOD_NAMES[p][currentLang]}: ${l.summaryFull}`; }
+  else { cls = 'has'; const cnt = slots.reduce((s,t) => s + (dateData[t] > 0 ? 1 : 0), 0); chip = `${PERIOD_NAMES[p][currentLang]}: ${l.summaryHas.replace('{n}', cnt)}`; }
+  summaryHtml += `<span class="summary-chip ${cls}">${chip}</span>`;
  });
+
+ let html = `<div class="popup-schedule-summary">${summaryHtml}</div>`;
+ html += `<div class="time-grid" role="grid" aria-label="Time slots">`;
+
+ // Build rows by period
+ const periodOrder = ['morning','afternoon','evening'];
+ periodOrder.forEach(period => {
+  const slots = TIME_PERIOD_SLOTS[period];
+  // Filter out slots not in current filter (for 'all' show everything, for specific just that period)
+  const visibleSlots = filteredSlots.size === 0 ? slots : slots.filter(s => filteredSlots.has(s));
+
+  if (filteredSlots.size > 0 && visibleSlots.length === 0) return; // skip non-matching periods
+
+  html += `<div class="time-period-label" role="row">${PERIOD_NAMES[period][currentLang]}</div>`;
+  visibleSlots.forEach(time => {
+   const courts = dateData[time] !== undefined ? dateData[time] : -1;
+   const cls = courts < 0 ? 'none' : getCellClass(courts);
+   const displayCourts = courts < 0 ? '—' : courts;
+   const filteredOut = filteredSlots.size > 0 && !filteredSlots.has(time) ? ' filtered-out' : '';
+   const periodLabel = PERIOD_NAMES[period][currentLang];
+   const availLabel = courts <= 0 ? l.noAvail : courts === 1 ? l.s1 : courts <= 3 ? l.s2 : courts <= 6 ? l.s3 : l.s4;
+   const ariaLabel = `${time}, ${sport[currentLang]}, ${displayCourts === '—' ? l.noData : availLabel}`;
+   html += `<div class="time-cell ${cls}${filteredOut}" role="gridcell" aria-label="${ariaLabel}">`;
+   html += `<div class="time-label">${time}</div>`;
+   html += `<div class="time-courts">${displayCourts}</div>`;
+   html += `</div>`;
+  });
+ });
+
  html += `</div>`;
  return html;
 }
 
+// ─── Popup HTML ───
 function createPopup(props) {
  const l = labels[currentLang];
- const name = getText(props.NameEN, props.NameTC);
+ const name = props.NameTC || props.NameEN || l.anon;
  const address = getText(props.AddressEN, props.AddressTC);
  const district = getDistrictName(props.DistrictEN, props.DistrictTC);
-
- let facilities = formatFacilities(
-  currentLang === 'tc' ? props.FacilityTypeTC : props.FacilityTypeEN
- );
-
+ const facilities = formatFacilities(currentLang === 'tc' ? props.FacilityTypeTC : props.FacilityTypeEN);
  const hours = getText(props.OpeningHoursEN, props.OpeningHoursTC);
  const tel = props.TelephoneEN || props.TelephoneTC || '-';
  const website = currentLang === 'en' ? props.WebsiteEN : props.WebsiteTC;
-
  const selectedDate = ALL_DATES[currentDateIdx];
  const dateLabel = currentLang === 'en' ? selectedDate.label_en : selectedDate.label_tc;
  const sportUnit = SPORT_DISPLAY[currentSport].unit[currentLang];
 
+ const dataKey = SPORT_DATA_KEY[currentSport];
+ const rawSchedule = props[dataKey];
+ let schedule = null;
+ if (rawSchedule) { try { schedule = JSON.parse(rawSchedule); } catch(e) {} }
+
  let html = `<div class="popup-content">`;
  html += `<div class="popup-header">${name}</div>`;
- html += `<div class="popup-sub">${district} · ${dateLabel}</div>`;
+ html += `<div class="popup-sub">${district} · ${dateLabel} · ${SPORT_DISPLAY[currentSport].icon} ${sportUnit}</div>`;
  html += `<div class="popup-row"><span class="popup-label">${l.address}:</span><span class="popup-value">${address}</span></div>`;
  if (hours && hours !== '-') html += `<div class="popup-row"><span class="popup-label">${l.hours}:</span><span class="popup-value">${hours}</span></div>`;
  if (tel && tel !== '-') html += `<div class="popup-row"><span class="popup-label">${l.tel}:</span><span class="popup-value">${tel}</span></div>`;
 
- const dataKey = SPORT_DATA_KEY[currentSport];
- const rawSchedule = props[dataKey];
- let schedule = null;
- if (rawSchedule) {
-  try { schedule = JSON.parse(rawSchedule); } catch(e) {}
- }
-
  html += `<div class="popup-schedule">`;
- html += `<div class="popup-schedule-header">`;
- html += `${labels[currentLang].available} · ${dateLabel} · ${sportUnit}`;
- html += `</div>`;
- if (schedule) {
-  html += buildScheduleGrid(schedule, selectedDate.iso);
- } else {
-  html += `<div class="no-data-msg">${l.noSchedule}</div>`;
- }
+ const availSummary = schedule ? buildScheduleGrid(schedule, selectedDate.iso) : `<div class="no-data-msg">${l.noSchedule}</div>`;
+ html += availSummary;
  html += `</div>`;
 
  if (facilities.length > 0) {
@@ -459,33 +703,74 @@ function createPopup(props) {
  }
 
  if (website && website.indexOf('sportcentre.html') === -1) {
-  html += `<div class="popup-link"><a href="${website}" target="_blank">${l.website} →</a></div>`;
+  html += `<div class="popup-link"><a href="${website}" target="_blank" rel="noopener">${l.website} →</a></div>`;
  }
 
  html += `</div>`;
  return html;
 }
 
+// ─── Marker tooltip (hover) ───
+function addMarkerTooltip(marker, props) {
+ const name = props.NameTC || props.NameEN || '—';
+ const avail = getAvailableSessions(props);
+ const sport = SPORT_DISPLAY[currentSport];
+ const periodName = PERIOD_NAMES[currentTimeFilter]?.[currentLang] || '全部';
+ const tip = currentLang === 'tc'
+  ? `${sport.tc}\n${name}\n${periodName}: ${avail} 節有位`
+  : `${sport.en}\n${name}\n${periodName}: ${avail} slots`;
+ marker.bindTooltip(tip, {
+  direction: 'top', offset: [0, -10],
+  className: 'marker-tooltip',
+  opacity: 0.9
+ });
+}
+
+// ─── Language update ───
 function updateLanguage(newLang) {
  currentLang = newLang;
  const l = labels[newLang];
- document.getElementById('title').textContent =
-  newLang === 'en' ? 'LCSD Sports Centres | 康文署體育館' :
-  newLang === 'tc' ? '康文署體育館' : 'LCSD Sports Centres / 康文署體育館';
+ document.getElementById('title').textContent = l.title;
  document.getElementById('district-label').textContent = l.district + ':';
- document.getElementById('search-label').textContent = l.search + ':';
- document.getElementById('time-label').textContent = l.district.indexOf('地') === -1 ? 'Time:' : '時間:';
- document.getElementById('search-input').placeholder =
-  newLang === 'en' ? 'Name | 名稱' : newLang === 'tc' ? '名稱' : 'Name / 名稱';
+ document.getElementById('search-input').placeholder = newLang === 'tc' ? '體育館名稱 / 地址 / 地區' : 'Venue name / address / district';
+ document.getElementById('show-full-label').textContent = l.showFull;
+ document.getElementById('stats').textContent = l.loading;
+ document.getElementById('legend-title').textContent = '圖例';
+ document.getElementById('legend-lots').textContent = l.lots;
+ document.getElementById('legend-some').textContent = l.some;
+ document.getElementById('legend-none').textContent = l.none;
+ document.getElementById('legend-s0').textContent = l.s0;
+ document.getElementById('legend-s1').textContent = l.s1;
+ document.getElementById('legend-s2').textContent = l.s2;
+ document.getElementById('legend-s3').textContent = l.s3;
+ document.getElementById('legend-s4').textContent = l.s4;
+ document.getElementById('legend-sched-title').textContent = l.schedTitle;
 
- // Update time filter options
- document.querySelectorAll('#time-filter option').forEach(opt => {
-  opt.textContent = newLang === 'tc' ? opt.dataset.tc : opt.en;
+ // Update language toggle buttons
+ document.querySelectorAll('#lang-toggle button').forEach(b => {
+  const isActive = b.dataset.lang === newLang;
+  b.classList.toggle('active', isActive);
+  b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
  });
 
- // Rebuild date bar
  buildDateBar();
+ rebuildDistrictFilter();
 
+ if (window.markerMap) {
+  window.markerMap.forEach((m, idx) => {
+   m.setPopupContent(createPopup(window.allData[idx].properties));
+   const avail = getAvailableSessions(window.allData[idx].properties);
+   m.setIcon(createMarkerIcon(avail));
+   addMarkerTooltip(m, window.allData[idx].properties);
+  });
+ }
+ updateStats();
+ updateMarkerVisibility();
+ announce(l.results.replace('{n}', document.querySelectorAll('.leaflet-marker-icon').length));
+}
+
+function rebuildDistrictFilter() {
+ const l = labels[currentLang];
  const select = document.getElementById('district-filter');
  const cur = select.value;
  select.innerHTML = `<option value="">${l.all}</option>`;
@@ -500,34 +785,25 @@ function updateLanguage(newLang) {
   });
  }
  select.value = cur;
-
- if (window.markerMap) {
-  window.markerMap.forEach((m, idx) => {
-   m.setPopupContent(createPopup(window.allData[idx].properties));
-   const avail = getAvailableSessions(window.allData[idx].properties);
-   m.setIcon(createMarkerIcon(avail));
-  });
- }
- updateStats();
- updateMarkerVisibility();
 }
 
+// ─── Date Bar ───
 function buildDateBar() {
  const bar = document.getElementById('date-bar');
- const today = new Date();
- today.setHours(0,0,0,0);
-
+ const today = new Date(); today.setHours(0,0,0,0);
  bar.innerHTML = '';
  ALL_DATES.forEach((d, idx) => {
   const dateObj = new Date(d.iso + 'T00:00:00');
   const diff = Math.round((dateObj - today) / 86400000);
   let label;
-  if (diff === 0) label = currentLang === 'tc' ? '今日' : 'Today';
-  else if (diff === 1) label = currentLang === 'tc' ? '明日' : 'Tomorrow';
+  if (diff === 0) label = currentLang === 'tc' ? labels[currentLang].today : labels[currentLang].today;
+  else if (diff === 1) label = currentLang === 'tc' ? labels[currentLang].tomorrow : labels[currentLang].tomorrow;
   else label = currentLang === 'tc' ? d.label_tc : d.label_en;
 
   const btn = document.createElement('button');
   btn.className = 'date-btn' + (idx === currentDateIdx ? ' active' : '');
+  btn.setAttribute('role', 'button');
+  btn.setAttribute('aria-pressed', idx === currentDateIdx ? 'true' : 'false');
   btn.innerHTML = `<span class="date-dow">${label}</span><span class="date-num">${d.iso.slice(5)}</span>`;
   btn.onclick = () => selectDate(idx);
   bar.appendChild(btn);
@@ -537,22 +813,52 @@ function buildDateBar() {
 function selectDate(idx) {
  currentDateIdx = idx;
  document.querySelectorAll('.date-btn').forEach((b, i) => {
-  b.classList.toggle('active', i === idx);
+  const isActive = i === idx;
+  b.classList.toggle('active', isActive);
+  b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
  });
  if (window.markerMap) {
   window.markerMap.forEach((m, i) => {
    m.setPopupContent(createPopup(window.allData[i].properties));
    const avail = getAvailableSessions(window.allData[i].properties);
    m.setIcon(createMarkerIcon(avail));
+   addMarkerTooltip(m, window.allData[i].properties);
   });
  }
  updateMarkerVisibility();
+ updateStats();
+ const l = labels[currentLang];
+ const count = document.querySelectorAll('.leaflet-marker-icon:not([style*="display: none"])').length;
+ announce(`${l.results.replace('{n}', count)}`);
 }
 
+// ─── Sport Selection ───
 function selectSport(sport) {
  currentSport = sport;
  document.querySelectorAll('.sport-btn').forEach(b => {
-  b.classList.toggle('active', b.dataset.sport === sport);
+  const isActive = b.dataset.sport === sport;
+  b.classList.toggle('active', isActive);
+  b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+ });
+ if (window.markerMap) {
+  window.markerMap.forEach((m, i) => {
+   m.setPopupContent(createPopup(window.allData[i].properties));
+   const avail = getAvailableSessions(window.allData[i].properties);
+   m.setIcon(createMarkerIcon(avail));
+   addMarkerTooltip(m, window.allData[i].properties);
+  });
+ }
+ updateMarkerVisibility();
+ updateStats();
+}
+
+// ─── Time Filter Pills ───
+function selectTimeFilter(value) {
+ currentTimeFilter = value;
+ document.querySelectorAll('.time-pill').forEach(b => {
+  const isActive = b.dataset.value === value;
+  b.classList.toggle('active', isActive);
+  b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
  });
  if (window.markerMap) {
   window.markerMap.forEach((m, i) => {
@@ -562,12 +868,14 @@ function selectSport(sport) {
   });
  }
  updateMarkerVisibility();
+ updateStats();
 }
 
-// Show/hide markers: only venues with >0 available sessions shown
+// ─── Marker Visibility ───
 function updateMarkerVisibility() {
  const district = document.getElementById('district-filter').value;
  const search = document.getElementById('search-input').value.toLowerCase().trim();
+ const l = labels[currentLang];
 
  window.allData.forEach((f, idx) => {
   const avail = getAvailableSessions(f.properties);
@@ -578,9 +886,12 @@ function updateMarkerVisibility() {
    (p.NameTC && p.NameTC.includes(search)) ||
    (p.AddressEN && p.AddressEN.toLowerCase().includes(search)) ||
    (p.AddressTC && p.AddressTC.includes(search));
+
   const m = window.markerMap.get(idx);
-  // Only show if has availability AND matches filters
-  if (avail > 0 && dMatch && sMatch) {
+  // Show if: has availability OR (showFullVenues is on AND has data)
+  const hasData = !!p[SPORT_DATA_KEY[currentSport]];
+  const shouldShow = (avail > 0 && dMatch && sMatch) || (showFullVenues && hasData && dMatch && sMatch);
+  if (shouldShow) {
    m.addTo(map);
   } else {
    m.remove();
@@ -597,11 +908,26 @@ function updateStats() {
  document.getElementById('stats').textContent = l.results.replace('{n}', visible);
 }
 
-function filterData() {
+// ─── Debounced search ───
+let searchTimer = null;
+function handleSearchInput() {
+ const val = document.getElementById('search-input').value;
+ const clearBtn = document.getElementById('search-clear');
+ clearBtn.classList.toggle('visible', val.length > 0);
+ clearTimeout(searchTimer);
+ searchTimer = setTimeout(() => {
+  updateMarkerVisibility();
+  updateStats();
+ }, 200);
+}
+function clearSearch() {
+ document.getElementById('search-input').value = '';
+ document.getElementById('search-clear').classList.remove('visible');
  updateMarkerVisibility();
  updateStats();
 }
 
+// ─── Map init ───
 const map = L.map('map').setView([22.35, 114.18], 11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | LCSD'
@@ -610,11 +936,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 window.markerMap = new Map();
 window.allData = [];
 
+// ─── Load data ───
 fetch('lcsd_sports_centres.geojson')
  .then(r => r.json())
  .then(data => {
   window.allData = data.features;
-
   buildDateBar();
 
   const districts = new Set();
@@ -631,11 +957,13 @@ fetch('lcsd_sports_centres.geojson')
     [feature.geometry.coordinates[1], feature.geometry.coordinates[0]],
     { icon: createMarkerIcon(avail) }
    ).bindPopup(createPopup(props));
+   addMarkerTooltip(m, props);
    window.markerMap.set(idx, m);
-   // Only add to map if has availability
    if (avail > 0) m.addTo(map);
   });
 
+  // Apply default language (TC)
+  updateLanguage('tc');
   updateStats();
  })
  .catch(e => {
@@ -643,31 +971,42 @@ fetch('lcsd_sports_centres.geojson')
   document.getElementById('stats').textContent = 'Error loading data';
  });
 
-document.getElementById('district-filter').addEventListener('change', filterData);
-document.getElementById('search-input').addEventListener('input', filterData);
-document.getElementById('time-filter').addEventListener('change', e => {
- currentTimeFilter = e.target.value;
- if (window.markerMap) {
-  window.markerMap.forEach((m, i) => {
-   m.setPopupContent(createPopup(window.allData[i].properties));
-   const avail = getAvailableSessions(window.allData[i].properties);
-   m.setIcon(createMarkerIcon(avail));
-  });
- }
+// ─── Event Listeners ───
+document.getElementById('district-filter').addEventListener('change', () => { updateMarkerVisibility(); updateStats(); });
+document.getElementById('search-input').addEventListener('input', handleSearchInput);
+document.getElementById('search-clear').addEventListener('click', clearSearch);
+document.getElementById('show-full-toggle').addEventListener('change', e => {
+ showFullVenues = e.target.checked;
  updateMarkerVisibility();
+ updateStats();
 });
 
-document.getElementById('lang-toggle').addEventListener('click', e => {
- if (e.target.tagName !== 'BUTTON') return;
- document.querySelectorAll('#lang-toggle button').forEach(b => b.classList.remove('active'));
- e.target.classList.add('active');
- updateLanguage(e.target.dataset.lang);
+// Time pills
+document.getElementById('time-bar').addEventListener('click', e => {
+ const btn = e.target.closest('.time-pill');
+ if (!btn) return;
+ selectTimeFilter(btn.dataset.value);
 });
 
+// Sport bar
 document.getElementById('sport-bar').addEventListener('click', e => {
  const btn = e.target.closest('.sport-btn');
  if (!btn || btn.disabled) return;
  selectSport(btn.dataset.sport);
+});
+
+// Language toggle
+document.getElementById('lang-toggle').addEventListener('click', e => {
+ if (e.target.tagName !== 'BUTTON') return;
+ updateLanguage(e.target.dataset.lang);
+});
+
+// Keyboard: sport + date + time buttons
+document.addEventListener('keydown', e => {
+ if (e.key === 'Enter' || e.key === ' ') {
+  const btn = e.target.closest('.sport-btn, .date-btn, .time-pill');
+  if (btn) { e.preventDefault(); btn.click(); }
+ }
 });
 </script>
 </body>
