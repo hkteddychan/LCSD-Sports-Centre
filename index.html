@@ -9,7 +9,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-        
+
         #header {
             background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
             color: white;
@@ -21,7 +21,7 @@
             gap: 10px;
         }
         #header h1 { font-size: 18px; font-weight: 600; }
-        
+
         #lang-toggle {
             display: flex;
             gap: 8px;
@@ -45,7 +45,7 @@
         #lang-toggle button:hover:not(.active) {
             border-color: white;
         }
-        
+
         #controls {
             padding: 10px 15px;
             background: #f5f5f5;
@@ -70,14 +70,26 @@
             font-size: 13px;
             width: 200px;
         }
+        #bwf-refresh {
+            padding: 6px 14px;
+            border: none;
+            background: #3949ab;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+        #bwf-refresh:hover { background: #1a237e; }
+        #bwf-refresh:disabled { background: #9fa8da; cursor: not-allowed; }
         #stats {
             font-size: 12px;
             color: #666;
             margin-left: auto;
         }
-        
+
         #map { height: calc(100vh - 110px); width: 100%; }
-        
+
         .leaflet-popup-content-wrapper {
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
@@ -114,6 +126,30 @@
             border-radius: 12px;
             font-size: 11px;
         }
+        .popup-bwf {
+            margin-top: 10px;
+            padding: 8px 10px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            border: 1px solid #a5d6a7;
+        }
+        .popup-bwf-header {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 4px;
+        }
+        .popup-bwf-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #333;
+            margin: 2px 0;
+        }
+        .popup-bwf-label { color: #555; }
+        .popup-bwf-val { font-weight: 600; }
+        .popup-bwf-val.has-avail { color: #2e7d32; }
+        .popup-bwf-val.no-avail { color: #c62828; }
         .popup-link {
             margin-top: 10px;
             text-align: right;
@@ -125,7 +161,7 @@
             font-weight: 600;
         }
         .popup-link a:hover { text-decoration: underline; }
-        
+
         .custom-marker {
             background: #3949ab;
             border: 2.5px solid white;
@@ -144,7 +180,13 @@
             text-align: center;
             line-height: 24px;
         }
-        
+
+        .bwf-loading {
+            font-size: 11px;
+            color: #888;
+            margin-left: 10px;
+        }
+
         @media (max-width: 600px) {
             #header h1 { font-size: 15px; }
             #search-input { width: 150px; }
@@ -168,6 +210,8 @@
         </select>
         <label id="search-label">Search:</label>
         <input type="text" id="search-input" placeholder="Name | 名稱">
+        <button id="bwf-refresh">🔄 Refresh Badminton</button>
+        <span class="bwf-loading" id="bwf-loading" style="display:none">Loading badminton data...</span>
         <span id="stats">Loading...</span>
     </div>
     <div id="map"></div>
@@ -176,6 +220,7 @@
 const lang = { en: true, tc: true, both: false };
 let currentLang = 'en';
 let geojsonLayer;
+let bwfData = {}; // keyed by venue name (lowercase)
 
 const labels = {
     en: {
@@ -192,6 +237,13 @@ const labels = {
         website: 'Website',
         loading: 'Loading...',
         results: 'Showing {n} of {total}',
+        bwfHeader: '🏸 Badminton Availability',
+        today: 'Today',
+        tomorrow: 'Tomorrow',
+        courts: 'courts',
+        slots: 'slots',
+        noData: 'No data',
+        refreshBwf: 'Refresh Badminton',
     },
     tc: {
         title: '康文署體育館',
@@ -207,6 +259,13 @@ const labels = {
         website: '網站',
         loading: '載入中...',
         results: '顯示 {n} 個，共 {total} 個',
+        bwfHeader: '🏸 羽毛球場可用情况',
+        today: '今日',
+        tomorrow: '明日',
+        courts: '個場',
+        slots: '個時段',
+        noData: '無數據',
+        refreshBwf: '更新羽毛球',
     }
 };
 
@@ -235,13 +294,12 @@ const DISTRICT_NAMES = {
 function getText(enVal, tcVal) {
     if (currentLang === 'en') return enVal || tcVal || '-';
     if (currentLang === 'tc') return tcVal || enVal || '-';
-    // both
     if (enVal === tcVal || !tcVal) return enVal || '-';
     return `${enVal} / ${tcVal}`;
 }
 
 function getDistrictName(en, tc) {
-    const key = en.toUpperCase();
+    const key = en?.toUpperCase() || '';
     if (DISTRICT_NAMES[key]) {
         if (currentLang === 'en') return DISTRICT_NAMES[key].en;
         if (currentLang === 'tc') return DISTRICT_NAMES[key].tc;
@@ -250,12 +308,11 @@ function getDistrictName(en, tc) {
     return getText(en, tc);
 }
 
-function formatFacilities(facilityStr, isEn) {
+function formatFacilities(facilityStr) {
     if (!facilityStr) return [];
     return facilityStr.split(',').map(f => f.trim()).filter(f => f);
 }
 
-// Create custom icon
 function createIcon(number) {
     return L.divIcon({
         className: 'custom-marker-wrapper',
@@ -266,23 +323,42 @@ function createIcon(number) {
     });
 }
 
+function getBwFData(props) {
+    const nameKey = (props.NameEN || '').toLowerCase().trim();
+    if (bwfData[nameKey]) return bwfData[nameKey];
+
+    // Fuzzy match: try first word
+    const firstWord = nameKey.split(' ')[0];
+    for (const key of Object.keys(bwfData)) {
+        if (key.startsWith(firstWord) || firstWord.startsWith(key.split(' ')[0])) {
+            return bwfData[key];
+        }
+    }
+    return null;
+}
+
+function formatBwfNumber(n) {
+    if (n === undefined || n === null || n === 0) return '0';
+    return String(n);
+}
+
 function createPopup(props) {
     const l = labels[currentLang];
     const name = getText(props.NameEN, props.NameTC);
     const address = getText(props.AddressEN, props.AddressTC);
     const district = getDistrictName(props.DistrictEN, props.DistrictTC);
-    
+
     let facilities = [];
-    if (currentLang === 'en') facilities = formatFacilities(props.FacilityTypeEN, true);
-    else if (currentLang === 'tc') facilities = formatFacilities(props.FacilityTypeTC, false);
-    else facilities = formatFacilities(props.FacilityTypeEN, true);
-    
+    if (currentLang === 'en') facilities = formatFacilities(props.FacilityTypeEN);
+    else if (currentLang === 'tc') facilities = formatFacilities(props.FacilityTypeTC);
+    else facilities = formatFacilities(props.FacilityTypeEN);
+
     const hours = getText(props.OpeningHoursEN, props.OpeningHoursTC);
     const tel = props.TelephoneEN || props.TelephoneTC || '-';
     const fax = props.FaxNumberEN || props.FaxNumberTC || '-';
     const email = props.EmailAddressEN || props.EmailAddressTC || '-';
     const website = currentLang === 'en' ? props.WebsiteEN : props.WebsiteTC;
-    
+
     let html = `<div class="popup-content">`;
     html += `<div class="popup-header">${name}</div>`;
     html += `<div class="popup-row"><span class="popup-label">${l.district}:</span><span class="popup-value">${district}</span></div>`;
@@ -290,7 +366,30 @@ function createPopup(props) {
     if (hours && hours !== '-') html += `<div class="popup-row"><span class="popup-label">${l.hours}:</span><span class="popup-value">${hours}</span></div>`;
     if (tel && tel !== '-') html += `<div class="popup-row"><span class="popup-label">${l.tel}:</span><span class="popup-value">${tel}</span></div>`;
     if (fax && fax !== '-') html += `<div class="popup-row"><span class="popup-label">${l.fax}:</span><span class="popup-value">${fax}</span></div>`;
-    
+
+    // Badminton availability
+    const bwf = getBwFData(props);
+    if (bwf) {
+        const todayCourts = bwf.todayCourts || 0;
+        const todaySlots = bwf.todaySlots || 0;
+        const tomorrowCourts = bwf.tomorrowCourts || 0;
+        const tomorrowSlots = bwf.tomorrowSlots || 0;
+
+        html += `<div class="popup-bwf">`;
+        html += `<div class="popup-bwf-header">${l.bwfHeader}</div>`;
+        html += `<div class="popup-bwf-row">`;
+        html += `<span class="popup-bwf-label">${l.today}:</span>`;
+        const todayClass = todayCourts > 0 ? 'has-avail' : 'no-avail';
+        html += `<span class="popup-bwf-val ${todayClass}">${formatBwfNumber(todayCourts)} ${l.courts} / ${formatBwfNumber(todaySlots)} ${l.slots}</span>`;
+        html += `</div>`;
+        html += `<div class="popup-bwf-row">`;
+        html += `<span class="popup-bwf-label">${l.tomorrow}:</span>`;
+        const tomorrowClass = tomorrowCourts > 0 ? 'has-avail' : 'no-avail';
+        html += `<span class="popup-bwf-val ${tomorrowClass}">${formatBwfNumber(tomorrowCourts)} ${l.courts} / ${formatBwfNumber(tomorrowSlots)} ${l.slots}</span>`;
+        html += `</div>`;
+        html += `</div>`;
+    }
+
     if (facilities.length > 0) {
         html += `<div class="popup-facilities"><div class="popup-label">${l.facilities}:</div>`;
         html += `<div class="facility-tags">`;
@@ -299,28 +398,25 @@ function createPopup(props) {
         });
         html += `</div></div>`;
     }
-    
+
     if (website && website !== 'http://www.lcsd.gov.hk/en/facilities/facilitieslist/landsports/sportcentre.html' && website !== 'http://www.lcsd.gov.hk/tc/facilities/facilitieslist/landsports/sportcentre.html') {
         html += `<div class="popup-link"><a href="${website}" target="_blank">${l.website} →</a></div>`;
     }
-    
+
     html += `</div>`;
     return html;
 }
 
 function updateLanguage(newLang) {
     currentLang = newLang;
-    
-    // Update title
+
     const l = labels[newLang];
     document.getElementById('title').textContent = newLang === 'en' ? 'LCSD Sports Centres | 康文署體育館' : newLang === 'tc' ? '康文署體育館' : 'LCSD Sports Centres / 康文署體育館';
-    
-    // Update controls
     document.getElementById('district-label').textContent = l.district + ':';
     document.getElementById('search-label').textContent = l.search + ':';
     document.getElementById('search-input').placeholder = newLang === 'en' ? 'Name | 名稱' : newLang === 'tc' ? '名稱' : 'Name / 名稱';
-    
-    // Update district filter options
+    document.getElementById('bwf-refresh').textContent = l.refreshBwf;
+
     const select = document.getElementById('district-filter');
     const currentValue = select.value;
     select.innerHTML = `<option value="">${l.all}</option>`;
@@ -336,16 +432,14 @@ function updateLanguage(newLang) {
         });
     }
     select.value = currentValue;
-    
-    // Update markers
+
     if (window.markerMap) {
         window.markerMap.forEach((marker, idx) => {
             const props = window.allData[idx].properties;
             marker.setPopupContent(createPopup(props));
         });
     }
-    
-    // Update stats
+
     updateStats();
 }
 
@@ -359,27 +453,27 @@ function updateStats() {
 function filterData() {
     const district = document.getElementById('district-filter').value;
     const search = document.getElementById('search-input').value.toLowerCase().trim();
-    
+
     window.filteredData = window.allData.filter(f => {
         const props = f.properties;
         const districtMatch = !district || (props.DistrictEN?.toUpperCase() === district);
-        const searchMatch = !search || 
+        const searchMatch = !search ||
             (props.NameEN && props.NameEN.toLowerCase().includes(search)) ||
             (props.NameTC && props.NameTC.includes(search)) ||
             (props.AddressEN && props.AddressEN.toLowerCase().includes(search)) ||
             (props.AddressTC && props.AddressTC.includes(search));
         return districtMatch && searchMatch;
     });
-    
+
     updateStats();
     updateMarkers();
 }
 
 function updateMarkers() {
     if (!window.markerMap || !window.filteredData) return;
-    
+
     const shownIds = new Set(window.filteredData.map(f => f.properties.OBJECTID));
-    
+
     window.markerMap.forEach((marker, idx) => {
         const objId = window.allData[idx].properties.OBJECTID;
         if (shownIds.has(objId)) {
@@ -390,7 +484,6 @@ function updateMarkers() {
     });
 }
 
-// Init map
 const map = L.map('map').setView([22.35, 114.18], 11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | LCSD'
@@ -400,46 +493,99 @@ window.markerMap = new Map();
 window.allData = [];
 window.filteredData = [];
 
-// Load data
+async function loadBwfData() {
+    const btn = document.getElementById('bwf-refresh');
+    const loading = document.getElementById('bwf-loading');
+    btn.disabled = true;
+    loading.style.display = 'inline';
+
+    try {
+        const resp = await fetch('https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/badminton/file');
+        const data = await resp.json();
+
+        const aggregated = {};
+        const today = '2026-05-01';
+        const tomorrow = '2026-05-02';
+
+        for (const record of data) {
+            const venueEn = (record.Venue_Name_EN || '').toLowerCase().trim();
+            const venueTc = (record.Venue_Name_TC || '').trim();
+            const date = record.Available_Date || '';
+            const courts = parseInt(record.Available_Courts || 0, 10);
+            const key = venueEn;
+
+            if (!aggregated[key]) {
+                aggregated[key] = { todaySlots: 0, todayCourts: 0, tomorrowSlots: 0, tomorrowCourts: 0 };
+            }
+            if (date === today && courts > 0) {
+                aggregated[key].todaySlots++;
+                aggregated[key].todayCourts += courts;
+            } else if (date === tomorrow && courts > 0) {
+                aggregated[key].tomorrowSlots++;
+                aggregated[key].tomorrowCourts += courts;
+            }
+        }
+
+        bwfData = aggregated;
+        console.log(`Loaded badminton data: ${Object.keys(bwfData).length} venues`);
+
+        // Refresh all popups
+        if (window.markerMap) {
+            window.markerMap.forEach((marker, idx) => {
+                const props = window.allData[idx].properties;
+                marker.setPopupContent(createPopup(props));
+            });
+        }
+    } catch (e) {
+        console.error('Failed to load badminton data:', e);
+    } finally {
+        btn.disabled = false;
+        loading.style.display = 'none';
+    }
+}
+
 fetch('lcsd_sports_centres.geojson')
     .then(r => r.json())
     .then(data => {
         window.allData = data.features;
         window.filteredData = data.features;
-        
+
         const districts = new Set();
-        
+
         data.features.forEach((feature, idx) => {
             const props = feature.properties;
             const dKey = props.DistrictEN?.toUpperCase() || '';
-            
+
             if (dKey && !districts.has(dKey)) {
                 districts.add(dKey);
                 const dName = getDistrictName(props.DistrictEN, props.DistrictTC);
                 document.getElementById('district-filter').innerHTML += `<option value="${dKey}">${dName}</option>`;
             }
-            
+
             const coords = feature.geometry.coordinates;
             const lat = coords[1];
             const lng = coords[0];
-            
+
             const marker = L.marker([lat, lng], { icon: createIcon(idx + 1) })
                 .bindPopup(createPopup(props));
-            
+
             window.markerMap.set(idx, marker);
             marker.addTo(map);
         });
-        
+
         document.getElementById('stats').textContent = labels[currentLang].results.replace('{n}', data.features.length).replace('{total}', data.features.length);
+
+        // Load badminton data on startup
+        loadBwfData();
     })
     .catch(e => {
         console.error(e);
         document.getElementById('stats').textContent = 'Error loading data';
     });
 
-// Event listeners
 document.getElementById('district-filter').addEventListener('change', filterData);
 document.getElementById('search-input').addEventListener('input', filterData);
+document.getElementById('bwf-refresh').addEventListener('click', loadBwfData);
 
 document.getElementById('lang-toggle').addEventListener('click', e => {
     if (e.target.tagName !== 'BUTTON') return;

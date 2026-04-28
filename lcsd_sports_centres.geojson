@@ -59,7 +59,11 @@
         "EASTING": 835563.20971804,
         "LATITUDE": 22.4498872,
         "LONGITUDE": 114.17002734,
-        "LASTUPDATE": "2/4/2026 2:21:08 PM"
+        "LASTUPDATE": "2/4/2026 2:21:08 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 4
       }
     },
     {
@@ -114,7 +118,11 @@
         "EASTING": 821245.0,
         "LATITUDE": 22.20750832,
         "LONGITUDE": 114.03117753,
-        "LASTUPDATE": "12/2/2026 4:07:50 PM"
+        "LASTUPDATE": "12/2/2026 4:07:50 PM",
+        "BwfTodaySlots": 2,
+        "BwfTodayCourts": 7,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -169,7 +177,11 @@
         "EASTING": 833947.0,
         "LATITUDE": 22.24956466,
         "LONGITUDE": 114.15435797,
-        "LASTUPDATE": "30/1/2026 9:35:34 AM"
+        "LASTUPDATE": "30/1/2026 9:35:34 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -224,7 +236,11 @@
         "EASTING": 837539.54868257,
         "LATITUDE": 22.34448804,
         "LONGITUDE": 114.18921818,
-        "LASTUPDATE": "12/1/2026 4:57:15 PM"
+        "LASTUPDATE": "12/1/2026 4:57:15 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 4
       }
     },
     {
@@ -279,7 +295,11 @@
         "EASTING": 812252.7,
         "LATITUDE": 22.29058776,
         "LONGITUDE": 113.94383087,
-        "LASTUPDATE": "8/1/2026 3:52:36 PM"
+        "LASTUPDATE": "8/1/2026 3:52:36 PM",
+        "BwfTodaySlots": 2,
+        "BwfTodayCourts": 9,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 6
       }
     },
     {
@@ -334,7 +354,11 @@
         "EASTING": 820517.2,
         "LATITUDE": 22.4414664,
         "LONGITUDE": 114.02386434,
-        "LASTUPDATE": "18/6/2025 2:35:05 PM"
+        "LASTUPDATE": "18/6/2025 2:35:05 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 4
       }
     },
     {
@@ -389,7 +413,11 @@
         "EASTING": 835632.0,
         "LATITUDE": 22.32078166,
         "LONGITUDE": 114.1707013,
-        "LASTUPDATE": "9/6/2025 10:39:00 AM"
+        "LASTUPDATE": "9/6/2025 10:39:00 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -444,7 +472,11 @@
         "EASTING": 840993.0,
         "LATITUDE": 22.28205202,
         "LONGITUDE": 114.22272286,
-        "LASTUPDATE": "28/4/2025 3:20:22 PM"
+        "LASTUPDATE": "28/4/2025 3:20:22 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -499,7 +531,11 @@
         "EASTING": 839866.0,
         "LATITUDE": 22.28368928,
         "LONGITUDE": 114.21178755,
-        "LASTUPDATE": "28/4/2025 2:56:27 PM"
+        "LASTUPDATE": "28/4/2025 2:56:27 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -554,7 +590,11 @@
         "EASTING": 834220.0,
         "LATITUDE": 22.25051322,
         "LONGITUDE": 114.15700625,
-        "LASTUPDATE": "28/4/2025 12:19:17 PM"
+        "LASTUPDATE": "28/4/2025 12:19:17 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -609,7 +649,11 @@
         "EASTING": 833460.0,
         "LATITUDE": 22.28600261,
         "LONGITUDE": 114.14962647,
-        "LASTUPDATE": "28/4/2025 10:25:18 AM"
+        "LASTUPDATE": "28/4/2025 10:25:18 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 7,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -664,7 +708,11 @@
         "EASTING": 831297.0,
         "LATITUDE": 22.28194298,
         "LONGITUDE": 114.12863884,
-        "LASTUPDATE": "24/4/2025 3:37:25 PM"
+        "LASTUPDATE": "24/4/2025 3:37:25 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 6,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -719,7 +767,11 @@
         "EASTING": 835661.26666819,
         "LATITUDE": 22.45806923,
         "LONGITUDE": 114.17097962,
-        "LASTUPDATE": "16/4/2025 11:49:00 AM"
+        "LASTUPDATE": "16/4/2025 11:49:00 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -774,7 +826,11 @@
         "EASTING": 832061.0,
         "LATITUDE": 22.28571982,
         "LONGITUDE": 114.13605113,
-        "LASTUPDATE": "3/4/2025 5:33:23 PM"
+        "LASTUPDATE": "3/4/2025 5:33:23 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 6,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -829,7 +885,11 @@
         "EASTING": 834646.0,
         "LATITUDE": 22.32924268,
         "LONGITUDE": 114.16113018,
-        "LASTUPDATE": "26/3/2025 12:00:54 PM"
+        "LASTUPDATE": "26/3/2025 12:00:54 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -884,7 +944,11 @@
         "EASTING": 840338.0,
         "LATITUDE": 22.32148134,
         "LONGITUDE": 114.21637824,
-        "LASTUPDATE": "24/3/2025 3:54:03 PM"
+        "LASTUPDATE": "24/3/2025 3:54:03 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -939,7 +1003,11 @@
         "EASTING": 838589.0,
         "LATITUDE": 22.29225252,
         "LONGITUDE": 114.19939755,
-        "LASTUPDATE": "24/3/2025 3:13:05 PM"
+        "LASTUPDATE": "24/3/2025 3:13:05 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -994,7 +1062,11 @@
         "EASTING": 832218.8,
         "LATITUDE": 22.37367805,
         "LONGITUDE": 114.13753056,
-        "LASTUPDATE": "24/3/2025 9:49:23 AM"
+        "LASTUPDATE": "24/3/2025 9:49:23 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -1049,7 +1121,11 @@
         "EASTING": 820953.0,
         "LATITUDE": 22.20681943,
         "LONGITUDE": 114.02834637,
-        "LASTUPDATE": "17/3/2025 5:43:50 PM"
+        "LASTUPDATE": "17/3/2025 5:43:50 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1104,7 +1180,11 @@
         "EASTING": 832796.0,
         "LATITUDE": 22.48475411,
         "LONGITUDE": 114.1431354,
-        "LASTUPDATE": "17/3/2025 11:44:16 AM"
+        "LASTUPDATE": "17/3/2025 11:44:16 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -1159,7 +1239,11 @@
         "EASTING": 845091.01332263,
         "LATITUDE": 22.31308037,
         "LONGITUDE": 114.26250637,
-        "LASTUPDATE": "25/11/2024 2:36:12 PM"
+        "LASTUPDATE": "25/11/2024 2:36:12 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -1214,7 +1298,11 @@
         "EASTING": 837633.0,
         "LATITUDE": 22.31884869,
         "LONGITUDE": 114.19012296,
-        "LASTUPDATE": "8/6/2023 10:13:03 AM"
+        "LASTUPDATE": "8/6/2023 10:13:03 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -1269,7 +1357,11 @@
         "EASTING": 845695.48623731,
         "LATITUDE": 22.31731531,
         "LONGITUDE": 114.26837586,
-        "LASTUPDATE": "31/5/2023 10:17:49 AM"
+        "LASTUPDATE": "31/5/2023 10:17:49 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -1324,7 +1416,11 @@
         "EASTING": 831820.0,
         "LATITUDE": 22.50331834,
         "LONGITUDE": 114.1336454,
-        "LASTUPDATE": "19/5/2023 11:13:19 AM"
+        "LASTUPDATE": "19/5/2023 11:13:19 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1379,7 +1475,11 @@
         "EASTING": 831273.9,
         "LATITUDE": 22.49696848,
         "LONGITUDE": 114.12839948,
-        "LASTUPDATE": "19/5/2023 11:12:10 AM"
+        "LASTUPDATE": "19/5/2023 11:12:10 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -1434,7 +1534,11 @@
         "EASTING": 832990.0,
         "LATITUDE": 22.50027775,
         "LONGITUDE": 114.14501703,
-        "LASTUPDATE": "19/5/2023 11:10:54 AM"
+        "LASTUPDATE": "19/5/2023 11:10:54 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1489,7 +1593,11 @@
         "EASTING": 831491.0,
         "LATITUDE": 22.50497904,
         "LONGITUDE": 114.13044738,
-        "LASTUPDATE": "19/5/2023 11:10:24 AM"
+        "LASTUPDATE": "19/5/2023 11:10:24 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 6,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -1544,7 +1652,11 @@
         "EASTING": 844302.69224277,
         "LATITUDE": 22.3064138,
         "LONGITUDE": 114.2548516,
-        "LASTUPDATE": "10/5/2023 11:13:42 AM"
+        "LASTUPDATE": "10/5/2023 11:13:42 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1599,7 +1711,11 @@
         "EASTING": 817757.1,
         "LATITUDE": 22.4647959,
         "LONGITUDE": 113.99702152,
-        "LASTUPDATE": "9/5/2023 4:19:56 PM"
+        "LASTUPDATE": "9/5/2023 4:19:56 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 5,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1654,7 +1770,11 @@
         "EASTING": 829651.8,
         "LATITUDE": 22.3659553,
         "LONGITUDE": 114.11263643,
-        "LASTUPDATE": "9/5/2023 4:19:11 PM"
+        "LASTUPDATE": "9/5/2023 4:19:11 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1709,7 +1829,11 @@
         "EASTING": 828562.4,
         "LATITUDE": 22.35154434,
         "LONGITUDE": 114.10206693,
-        "LASTUPDATE": "9/5/2023 2:21:21 PM"
+        "LASTUPDATE": "9/5/2023 2:21:21 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 7,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 8
       }
     },
     {
@@ -1764,7 +1888,11 @@
         "EASTING": 839112.4,
         "LATITUDE": 22.37973994,
         "LONGITUDE": 114.20452888,
-        "LASTUPDATE": "9/5/2023 2:20:08 PM"
+        "LASTUPDATE": "9/5/2023 2:20:08 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1819,7 +1947,11 @@
         "EASTING": 837633.0,
         "LATITUDE": 22.33830959,
         "LONGITUDE": 114.1901248,
-        "LASTUPDATE": "20/1/2023 3:29:06 PM"
+        "LASTUPDATE": "20/1/2023 3:29:06 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1874,7 +2006,11 @@
         "EASTING": 833408.09128065,
         "LATITUDE": 22.33051381,
         "LONGITUDE": 114.14911398,
-        "LASTUPDATE": "15/9/2022 9:27:32 AM"
+        "LASTUPDATE": "15/9/2022 9:27:32 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -1929,7 +2065,11 @@
         "EASTING": 835190.23511451,
         "LATITUDE": 22.44629379,
         "LONGITUDE": 114.16640415,
-        "LASTUPDATE": "22/8/2022 11:06:13 AM"
+        "LASTUPDATE": "22/8/2022 11:06:13 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 7
       }
     },
     {
@@ -1984,7 +2124,11 @@
         "EASTING": 840948.0,
         "LATITUDE": 22.28472521,
         "LONGITUDE": 114.22228707,
-        "LASTUPDATE": "8/4/2022 12:00:28 PM"
+        "LASTUPDATE": "8/4/2022 12:00:28 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2039,7 +2183,11 @@
         "EASTING": 840352.26939309,
         "LATITUDE": 22.3293498,
         "LONGITUDE": 114.21651896,
-        "LASTUPDATE": "30/11/2021 12:27:42 PM"
+        "LASTUPDATE": "30/11/2021 12:27:42 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 7,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2094,7 +2242,11 @@
         "EASTING": 828627.9,
         "LATITUDE": 22.36243202,
         "LONGITUDE": 114.10305726,
-        "LASTUPDATE": "19/2/2021 3:55:52 PM"
+        "LASTUPDATE": "19/2/2021 3:55:52 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2149,7 +2301,11 @@
         "EASTING": 837163.97664633,
         "LATITUDE": 22.37222827,
         "LONGITUDE": 114.18557397,
-        "LASTUPDATE": "6/7/2020 12:20:00 PM"
+        "LASTUPDATE": "6/7/2020 12:20:00 PM",
+        "BwfTodaySlots": 2,
+        "BwfTodayCourts": 7,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2204,7 +2360,11 @@
         "EASTING": 815911.0,
         "LATITUDE": 22.38425395,
         "LONGITUDE": 113.97919879,
-        "LASTUPDATE": "29/6/2020 11:02:41 AM"
+        "LASTUPDATE": "29/6/2020 11:02:41 AM",
+        "BwfTodaySlots": 2,
+        "BwfTodayCourts": 8,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -2259,7 +2419,11 @@
         "EASTING": 834456.0,
         "LATITUDE": 22.27734356,
         "LONGITUDE": 114.15929239,
-        "LASTUPDATE": "3/12/2018 2:39:08 PM"
+        "LASTUPDATE": "3/12/2018 2:39:08 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 2,
+        "BwfTomorrowCourts": 6
       }
     },
     {
@@ -2314,7 +2478,11 @@
         "EASTING": 832828.0,
         "LATITUDE": 22.29017362,
         "LONGITUDE": 114.14349277,
-        "LASTUPDATE": "3/12/2018 11:54:02 AM"
+        "LASTUPDATE": "3/12/2018 11:54:02 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 5,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -2369,7 +2537,11 @@
         "EASTING": 820449.0,
         "LATITUDE": 22.45029662,
         "LONGITUDE": 114.0231921,
-        "LASTUPDATE": "9/10/2018 4:55:59 PM"
+        "LASTUPDATE": "9/10/2018 4:55:59 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2424,7 +2596,11 @@
         "EASTING": 836250.9,
         "LATITUDE": 22.28121865,
         "LONGITUDE": 114.17678702,
-        "LASTUPDATE": "5/6/2017 3:31:35 PM"
+        "LASTUPDATE": "5/6/2017 3:31:35 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2479,7 +2655,11 @@
         "EASTING": 829509.0,
         "LATITUDE": 22.37767005,
         "LONGITUDE": 114.11124447,
-        "LASTUPDATE": "8/5/2017 11:59:34 AM"
+        "LASTUPDATE": "8/5/2017 11:59:34 AM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2534,7 +2714,11 @@
         "EASTING": 841518.0,
         "LATITUDE": 22.41668708,
         "LONGITUDE": 114.22786614,
-        "LASTUPDATE": "27/1/2017 11:43:19 AM"
+        "LASTUPDATE": "27/1/2017 11:43:19 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2589,7 +2773,11 @@
         "EASTING": 818540.4,
         "LATITUDE": 22.44739269,
         "LONGITUDE": 114.00465358,
-        "LASTUPDATE": "2/3/2012 4:20:21 PM"
+        "LASTUPDATE": "2/3/2012 4:20:21 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -2644,7 +2832,11 @@
         "EASTING": 842765.0,
         "LATITUDE": 22.26485191,
         "LONGITUDE": 114.23990955,
-        "LASTUPDATE": "12/12/2011 10:07:14 AM"
+        "LASTUPDATE": "12/12/2011 10:07:14 AM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -2699,7 +2891,11 @@
         "EASTING": 843759.5,
         "LATITUDE": 22.26357455,
         "LONGITUDE": 114.24955287,
-        "LASTUPDATE": "7/6/2011 7:23:14 PM"
+        "LASTUPDATE": "7/6/2011 7:23:14 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -2754,7 +2950,11 @@
         "EASTING": 833857.0,
         "LATITUDE": 22.33796529,
         "LONGITUDE": 114.15347018,
-        "LASTUPDATE": "8/4/2010 12:36:55 PM"
+        "LASTUPDATE": "8/4/2010 12:36:55 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 2,
+        "BwfTomorrowCourts": 8
       }
     },
     {
@@ -2809,7 +3009,11 @@
         "EASTING": 835555.3,
         "LATITUDE": 22.30179026,
         "LONGITUDE": 114.16975107,
-        "LASTUPDATE": "13/1/2010 6:48:56 PM"
+        "LASTUPDATE": "13/1/2010 6:48:56 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2864,7 +3068,11 @@
         "EASTING": 834056.0,
         "LATITUDE": 22.24448053,
         "LONGITUDE": 114.15541617,
-        "LASTUPDATE": "13/1/2010 6:48:50 PM"
+        "LASTUPDATE": "13/1/2010 6:48:50 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2919,7 +3127,11 @@
         "EASTING": 817675.0,
         "LATITUDE": 22.26698558,
         "LONGITUDE": 113.99647877,
-        "LASTUPDATE": "13/1/2010 6:48:42 PM"
+        "LASTUPDATE": "13/1/2010 6:48:42 PM",
+        "BwfTodaySlots": 4,
+        "BwfTodayCourts": 7,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -2974,7 +3186,11 @@
         "EASTING": 836718.0,
         "LATITUDE": 22.31196785,
         "LONGITUDE": 114.18124181,
-        "LASTUPDATE": "13/1/2010 6:48:35 PM"
+        "LASTUPDATE": "13/1/2010 6:48:35 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -3029,7 +3245,11 @@
         "EASTING": 830667.0,
         "LATITUDE": 22.37231912,
         "LONGITUDE": 114.12249072,
-        "LASTUPDATE": "13/1/2010 6:48:21 PM"
+        "LASTUPDATE": "13/1/2010 6:48:21 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 5,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -3084,7 +3304,11 @@
         "EASTING": 835909.0,
         "LATITUDE": 22.24973776,
         "LONGITUDE": 114.17339162,
-        "LASTUPDATE": "13/1/2010 6:48:09 PM"
+        "LASTUPDATE": "13/1/2010 6:48:09 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 8,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -3139,7 +3363,11 @@
         "EASTING": 817854.0,
         "LATITUDE": 22.45476779,
         "LONGITUDE": 113.99797587,
-        "LASTUPDATE": "13/1/2010 6:47:53 PM"
+        "LASTUPDATE": "13/1/2010 6:47:53 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -3194,7 +3422,11 @@
         "EASTING": 831200.1,
         "LATITUDE": 22.34987084,
         "LONGITUDE": 114.12767384,
-        "LASTUPDATE": "13/1/2010 6:47:26 PM"
+        "LASTUPDATE": "13/1/2010 6:47:26 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -3249,7 +3481,11 @@
         "EASTING": 830920.2,
         "LATITUDE": 22.37011646,
         "LONGITUDE": 114.12491895,
-        "LASTUPDATE": "13/1/2010 6:47:19 PM"
+        "LASTUPDATE": "13/1/2010 6:47:19 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 4
       }
     },
     {
@@ -3304,7 +3540,11 @@
         "EASTING": 815282.9,
         "LATITUDE": 22.40316562,
         "LONGITUDE": 113.97318964,
-        "LASTUPDATE": "13/1/2010 6:47:05 PM"
+        "LASTUPDATE": "13/1/2010 6:47:05 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -3359,7 +3599,11 @@
         "EASTING": 841152.0,
         "LATITUDE": 22.31566352,
         "LONGITUDE": 114.22427705,
-        "LASTUPDATE": "13/1/2010 6:46:52 PM"
+        "LASTUPDATE": "13/1/2010 6:46:52 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -3414,7 +3658,11 @@
         "EASTING": 842653.0,
         "LATITUDE": 22.30386464,
         "LONGITUDE": 114.2388401,
-        "LASTUPDATE": "13/1/2010 6:46:46 PM"
+        "LASTUPDATE": "13/1/2010 6:46:46 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 8,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -3469,7 +3717,11 @@
         "EASTING": 839911.0,
         "LATITUDE": 22.21915603,
         "LONGITUDE": 114.21220799,
-        "LASTUPDATE": "13/1/2010 6:46:40 PM"
+        "LASTUPDATE": "13/1/2010 6:46:40 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -3524,7 +3776,11 @@
         "EASTING": 838814.0,
         "LATITUDE": 22.34546046,
         "LONGITUDE": 114.20159036,
-        "LASTUPDATE": "13/1/2010 6:46:34 PM"
+        "LASTUPDATE": "13/1/2010 6:46:34 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -3579,7 +3835,11 @@
         "EASTING": 834261.0,
         "LATITUDE": 22.33861872,
         "LONGITUDE": 114.15739182,
-        "LASTUPDATE": "13/1/2010 6:46:13 PM"
+        "LASTUPDATE": "13/1/2010 6:46:13 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -3634,7 +3894,11 @@
         "EASTING": 835698.0,
         "LATITUDE": 22.36307184,
         "LONGITUDE": 114.17134025,
-        "LASTUPDATE": "13/1/2010 6:46:07 PM"
+        "LASTUPDATE": "13/1/2010 6:46:07 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -3689,7 +3953,11 @@
         "EASTING": 818736.0,
         "LATITUDE": 22.45501185,
         "LONGITUDE": 114.0065445,
-        "LASTUPDATE": "13/1/2010 6:46:02 PM"
+        "LASTUPDATE": "13/1/2010 6:46:02 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 8,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -3744,7 +4012,11 @@
         "EASTING": 843754.0,
         "LATITUDE": 22.32222843,
         "LONGITUDE": 114.2495347,
-        "LASTUPDATE": "13/1/2010 6:45:57 PM"
+        "LASTUPDATE": "13/1/2010 6:45:57 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -3799,7 +4071,11 @@
         "EASTING": 844328.0,
         "LATITUDE": 22.32585613,
         "LONGITUDE": 114.25510805,
-        "LASTUPDATE": "13/1/2010 6:45:49 PM"
+        "LASTUPDATE": "13/1/2010 6:45:49 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 2,
+        "BwfTomorrowCourts": 6
       }
     },
     {
@@ -3854,7 +4130,11 @@
         "EASTING": 829020.0,
         "LATITUDE": 22.35409834,
         "LONGITUDE": 114.10645957,
-        "LASTUPDATE": "13/1/2010 6:45:42 PM"
+        "LASTUPDATE": "13/1/2010 6:45:42 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 4
       }
     },
     {
@@ -3909,7 +4189,11 @@
         "EASTING": 841504.0,
         "LATITUDE": 22.3197985,
         "LONGITUDE": 114.22769495,
-        "LASTUPDATE": "13/1/2010 6:45:35 PM"
+        "LASTUPDATE": "13/1/2010 6:45:35 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -3964,7 +4248,11 @@
         "EASTING": 815149.4,
         "LATITUDE": 22.38542805,
         "LONGITUDE": 113.97181716,
-        "LASTUPDATE": "13/1/2010 6:45:19 PM"
+        "LASTUPDATE": "13/1/2010 6:45:19 PM",
+        "BwfTodaySlots": 2,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 4
       }
     },
     {
@@ -4019,7 +4307,11 @@
         "EASTING": 837884.0,
         "LATITUDE": 22.38293835,
         "LONGITUDE": 114.19256634,
-        "LASTUPDATE": "13/1/2010 6:45:10 PM"
+        "LASTUPDATE": "13/1/2010 6:45:10 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4074,7 +4366,11 @@
         "EASTING": 836118.0,
         "LATITUDE": 22.27807599,
         "LONGITUDE": 114.17541888,
-        "LASTUPDATE": "13/1/2010 6:45:03 PM"
+        "LASTUPDATE": "13/1/2010 6:45:03 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4129,7 +4425,11 @@
         "EASTING": 834591.0,
         "LATITUDE": 22.45100107,
         "LONGITUDE": 114.16058217,
-        "LASTUPDATE": "13/1/2010 6:44:57 PM"
+        "LASTUPDATE": "13/1/2010 6:44:57 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4184,7 +4484,11 @@
         "EASTING": 832285.0,
         "LATITUDE": 22.34069864,
         "LONGITUDE": 114.13820963,
-        "LASTUPDATE": "13/1/2010 6:44:31 PM"
+        "LASTUPDATE": "13/1/2010 6:44:31 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4239,7 +4543,11 @@
         "EASTING": 835984.0,
         "LATITUDE": 22.45388257,
         "LONGITUDE": 114.17411525,
-        "LASTUPDATE": "13/1/2010 6:44:01 PM"
+        "LASTUPDATE": "13/1/2010 6:44:01 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -4294,7 +4602,11 @@
         "EASTING": 837348.0,
         "LATITUDE": 22.30727166,
         "LONGITUDE": 114.1873559,
-        "LASTUPDATE": "13/1/2010 6:43:54 PM"
+        "LASTUPDATE": "13/1/2010 6:43:54 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4349,7 +4661,11 @@
         "EASTING": 838285.0,
         "LATITUDE": 22.33712595,
         "LONGITUDE": 114.19645378,
-        "LASTUPDATE": "13/1/2010 6:43:33 PM"
+        "LASTUPDATE": "13/1/2010 6:43:33 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -4404,7 +4720,11 @@
         "EASTING": 837183.0,
         "LATITUDE": 22.26894576,
         "LONGITUDE": 114.18575212,
-        "LASTUPDATE": "13/1/2010 6:43:18 PM"
+        "LASTUPDATE": "13/1/2010 6:43:18 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 8,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4459,7 +4779,11 @@
         "EASTING": 821461.0,
         "LATITUDE": 22.44306328,
         "LONGITUDE": 114.03303116,
-        "LASTUPDATE": "13/1/2010 6:43:12 PM"
+        "LASTUPDATE": "13/1/2010 6:43:12 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 5,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4514,7 +4838,11 @@
         "EASTING": 831391.0,
         "LATITUDE": 22.36112346,
         "LONGITUDE": 114.12952428,
-        "LASTUPDATE": "13/1/2010 6:43:06 PM"
+        "LASTUPDATE": "13/1/2010 6:43:06 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 2
       }
     },
     {
@@ -4569,7 +4897,11 @@
         "EASTING": 836126.0,
         "LATITUDE": 22.37908307,
         "LONGITUDE": 114.17549554,
-        "LASTUPDATE": "13/1/2010 6:42:59 PM"
+        "LASTUPDATE": "13/1/2010 6:42:59 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4624,7 +4956,11 @@
         "EASTING": 836704.0,
         "LATITUDE": 22.31483056,
         "LONGITUDE": 114.18110602,
-        "LASTUPDATE": "13/1/2010 6:42:52 PM"
+        "LASTUPDATE": "13/1/2010 6:42:52 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -4679,7 +5015,11 @@
         "EASTING": 814461.0,
         "LATITUDE": 22.40660484,
         "LONGITUDE": 113.96508485,
-        "LASTUPDATE": "13/1/2010 6:42:44 PM"
+        "LASTUPDATE": "13/1/2010 6:42:44 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 3,
+        "BwfTomorrowCourts": 8
       }
     },
     {
@@ -4734,7 +5074,11 @@
         "EASTING": 835035.0,
         "LATITUDE": 22.45533606,
         "LONGITUDE": 114.1648953,
-        "LASTUPDATE": "13/1/2010 6:42:38 PM"
+        "LASTUPDATE": "13/1/2010 6:42:38 PM",
+        "BwfTodaySlots": 3,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -4789,7 +5133,11 @@
         "EASTING": 837506.0,
         "LATITUDE": 22.32964034,
         "LONGITUDE": 114.18889123,
-        "LASTUPDATE": "13/1/2010 6:42:33 PM"
+        "LASTUPDATE": "13/1/2010 6:42:33 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 7,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4844,7 +5192,11 @@
         "EASTING": 837982.0,
         "LATITUDE": 22.34552471,
         "LONGITUDE": 114.1935135,
-        "LASTUPDATE": "13/1/2010 6:42:27 PM"
+        "LASTUPDATE": "13/1/2010 6:42:27 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4899,7 +5251,11 @@
         "EASTING": 828403.0,
         "LATITUDE": 22.37047704,
         "LONGITUDE": 114.10050913,
-        "LASTUPDATE": "13/1/2010 6:41:55 PM"
+        "LASTUPDATE": "13/1/2010 6:41:55 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -4954,7 +5310,11 @@
         "EASTING": 841692.0,
         "LATITUDE": 22.42602405,
         "LONGITUDE": 114.22955967,
-        "LASTUPDATE": "13/1/2010 6:41:39 PM"
+        "LASTUPDATE": "13/1/2010 6:41:39 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 5,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5009,7 +5369,11 @@
         "EASTING": 821962.0,
         "LATITUDE": 22.28488899,
         "LONGITUDE": 114.03805497,
-        "LASTUPDATE": "13/1/2010 6:41:24 PM"
+        "LASTUPDATE": "13/1/2010 6:41:24 PM",
+        "BwfTodaySlots": 5,
+        "BwfTodayCourts": 15,
+        "BwfTomorrowSlots": 8,
+        "BwfTomorrowCourts": 21
       }
     },
     {
@@ -5064,7 +5428,11 @@
         "EASTING": 829846.0,
         "LATITUDE": 22.36899301,
         "LONGITUDE": 114.1145206,
-        "LASTUPDATE": "13/1/2010 6:41:10 PM"
+        "LASTUPDATE": "13/1/2010 6:41:10 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5119,7 +5487,11 @@
         "EASTING": 839643.0,
         "LATITUDE": 22.3345501,
         "LONGITUDE": 114.20963555,
-        "LASTUPDATE": "13/1/2010 6:40:56 PM"
+        "LASTUPDATE": "13/1/2010 6:40:56 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 3
       }
     },
     {
@@ -5174,7 +5546,11 @@
         "EASTING": 835654.0,
         "LATITUDE": 22.32559497,
         "LONGITUDE": 114.17091463,
-        "LASTUPDATE": "13/1/2010 6:40:35 PM"
+        "LASTUPDATE": "13/1/2010 6:40:35 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -5229,7 +5605,11 @@
         "EASTING": 835614.0,
         "LATITUDE": 22.32608261,
         "LONGITUDE": 114.17052636,
-        "LASTUPDATE": "13/1/2010 6:40:29 PM"
+        "LASTUPDATE": "13/1/2010 6:40:29 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 4,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -5284,7 +5664,11 @@
         "EASTING": 835556.0,
         "LATITUDE": 22.33728954,
         "LONGITUDE": 114.16996283,
-        "LASTUPDATE": "13/1/2010 6:40:21 PM"
+        "LASTUPDATE": "13/1/2010 6:40:21 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 2,
+        "BwfTomorrowCourts": 4
       }
     },
     {
@@ -5339,7 +5723,11 @@
         "EASTING": 838708.0,
         "LATITUDE": 22.33595142,
         "LONGITUDE": 114.20055972,
-        "LASTUPDATE": "13/1/2010 6:40:15 PM"
+        "LASTUPDATE": "13/1/2010 6:40:15 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5394,7 +5782,11 @@
         "EASTING": 834817.0,
         "LATITUDE": 22.3218829,
         "LONGITUDE": 114.16279075,
-        "LASTUPDATE": "13/1/2010 6:39:59 PM"
+        "LASTUPDATE": "13/1/2010 6:39:59 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 3,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -5449,7 +5841,11 @@
         "EASTING": 842637.0,
         "LATITUDE": 22.29206169,
         "LONGITUDE": 114.23867963,
-        "LASTUPDATE": "13/1/2010 6:39:46 PM"
+        "LASTUPDATE": "13/1/2010 6:39:46 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5504,7 +5900,11 @@
         "EASTING": 835380.0,
         "LATITUDE": 22.30443616,
         "LONGITUDE": 114.16825637,
-        "LASTUPDATE": "13/1/2010 6:39:37 PM"
+        "LASTUPDATE": "13/1/2010 6:39:37 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5559,7 +5959,11 @@
         "EASTING": 841271.0,
         "LATITUDE": 22.32968768,
         "LONGITUDE": 114.22543688,
-        "LASTUPDATE": "13/1/2010 6:39:29 PM"
+        "LASTUPDATE": "13/1/2010 6:39:29 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 6,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     },
     {
@@ -5614,7 +6018,11 @@
         "EASTING": 814417.0,
         "LATITUDE": 22.37869116,
         "LONGITUDE": 113.96469987,
-        "LASTUPDATE": "13/1/2010 6:39:07 PM"
+        "LASTUPDATE": "13/1/2010 6:39:07 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5669,7 +6077,11 @@
         "EASTING": 844794.0,
         "LATITUDE": 22.31710325,
         "LONGITUDE": 114.25962608,
-        "LASTUPDATE": "13/1/2010 6:38:43 PM"
+        "LASTUPDATE": "13/1/2010 6:38:43 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5724,7 +6136,11 @@
         "EASTING": 839808.0,
         "LATITUDE": 22.32686474,
         "LONGITUDE": 114.21123532,
-        "LASTUPDATE": "13/1/2010 6:23:22 PM"
+        "LASTUPDATE": "13/1/2010 6:23:22 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 2,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5779,7 +6195,11 @@
         "EASTING": 828627.1,
         "LATITUDE": 22.35551446,
         "LONGITUDE": 114.10271139,
-        "LASTUPDATE": "13/1/2010 6:23:05 PM"
+        "LASTUPDATE": "13/1/2010 6:23:05 PM",
+        "BwfTodaySlots": 1,
+        "BwfTodayCourts": 1,
+        "BwfTomorrowSlots": 0,
+        "BwfTomorrowCourts": 0
       }
     },
     {
@@ -5834,7 +6254,11 @@
         "EASTING": 840764.0,
         "LATITUDE": 22.32247364,
         "LONGITUDE": 114.22051335,
-        "LASTUPDATE": "13/1/2010 6:22:37 PM"
+        "LASTUPDATE": "13/1/2010 6:22:37 PM",
+        "BwfTodaySlots": 0,
+        "BwfTodayCourts": 0,
+        "BwfTomorrowSlots": 1,
+        "BwfTomorrowCourts": 1
       }
     }
   ]
