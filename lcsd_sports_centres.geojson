@@ -63,7 +63,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 4
+        "BwfTomorrowCourts": 4,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 6, \"slots\": 1}, \"2026-04-29\": {\"courts\": 7, \"slots\": 2}, \"2026-04-30\": {\"courts\": 12, \"slots\": 3}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 4, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 14, \"slots\": 3}, \"2026-05-05\": {\"courts\": 112, \"slots\": 16}}"
       }
     },
     {
@@ -122,7 +123,8 @@
         "BwfTodaySlots": 2,
         "BwfTodayCourts": 7,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 9, \"slots\": 5}, \"2026-04-29\": {\"courts\": 15, \"slots\": 5}, \"2026-04-30\": {\"courts\": 11, \"slots\": 3}, \"2026-05-01\": {\"courts\": 7, \"slots\": 2}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 13, \"slots\": 4}, \"2026-05-04\": {\"courts\": 28, \"slots\": 7}, \"2026-05-05\": {\"courts\": 23, \"slots\": 6}}"
       }
     },
     {
@@ -181,7 +183,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 2}, \"2026-05-04\": {\"courts\": 12, \"slots\": 3}, \"2026-05-05\": {\"courts\": 54, \"slots\": 16}}"
       }
     },
     {
@@ -240,7 +243,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 4
+        "BwfTomorrowCourts": 4,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 7, \"slots\": 3}, \"2026-04-29\": {\"courts\": 3, \"slots\": 2}, \"2026-04-30\": {\"courts\": 5, \"slots\": 2}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 4, \"slots\": 1}, \"2026-05-03\": {\"courts\": 4, \"slots\": 1}, \"2026-05-04\": {\"courts\": 10, \"slots\": 3}, \"2026-05-05\": {\"courts\": 52, \"slots\": 14}}"
       }
     },
     {
@@ -299,7 +303,8 @@
         "BwfTodaySlots": 2,
         "BwfTodayCourts": 9,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 6
+        "BwfTomorrowCourts": 6,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 16, \"slots\": 6}, \"2026-04-29\": {\"courts\": 20, \"slots\": 3}, \"2026-04-30\": {\"courts\": 16, \"slots\": 4}, \"2026-05-01\": {\"courts\": 9, \"slots\": 2}, \"2026-05-02\": {\"courts\": 6, \"slots\": 1}, \"2026-05-03\": {\"courts\": 20, \"slots\": 4}, \"2026-05-04\": {\"courts\": 8, \"slots\": 4}, \"2026-05-05\": {\"courts\": 84, \"slots\": 16}}"
       }
     },
     {
@@ -358,7 +363,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 4
+        "BwfTomorrowCourts": 4,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 12, \"slots\": 2}, \"2026-04-30\": {\"courts\": 5, \"slots\": 1}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 4, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 14, \"slots\": 3}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -417,7 +423,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 12, \"slots\": 2}, \"2026-04-29\": {\"courts\": 18, \"slots\": 5}, \"2026-04-30\": {\"courts\": 13, \"slots\": 4}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 2, \"slots\": 2}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 28, \"slots\": 9}, \"2026-05-05\": {\"courts\": 98, \"slots\": 16}}"
       }
     },
     {
@@ -476,7 +483,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 1}, \"2026-04-29\": {\"courts\": 4, \"slots\": 1}, \"2026-04-30\": {\"courts\": 4, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 2, \"slots\": 1}, \"2026-05-05\": {\"courts\": 56, \"slots\": 14}}"
       }
     },
     {
@@ -535,7 +543,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 54, \"slots\": 15}}"
       }
     },
     {
@@ -594,7 +603,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 2}, \"2026-04-29\": {\"courts\": 12, \"slots\": 5}, \"2026-04-30\": {\"courts\": 8, \"slots\": 4}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 6, \"slots\": 2}, \"2026-05-04\": {\"courts\": 12, \"slots\": 4}, \"2026-05-05\": {\"courts\": 28, \"slots\": 10}}"
       }
     },
     {
@@ -653,7 +663,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 7,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 2}, \"2026-04-29\": {\"courts\": 4, \"slots\": 1}, \"2026-04-30\": {\"courts\": 1, \"slots\": 1}, \"2026-05-01\": {\"courts\": 7, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 9, \"slots\": 3}, \"2026-05-05\": {\"courts\": 88, \"slots\": 16}}"
       }
     },
     {
@@ -712,7 +723,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 6,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 12, \"slots\": 3}, \"2026-04-29\": {\"courts\": 6, \"slots\": 2}, \"2026-04-30\": {\"courts\": 7, \"slots\": 1}, \"2026-05-01\": {\"courts\": 6, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 10, \"slots\": 2}, \"2026-05-05\": {\"courts\": 54, \"slots\": 7}}"
       }
     },
     {
@@ -771,7 +783,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 2, \"slots\": 1}, \"2026-04-30\": {\"courts\": 2, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 48, \"slots\": 12}}"
       }
     },
     {
@@ -830,7 +843,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 6,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 2}, \"2026-04-29\": {\"courts\": 6, \"slots\": 2}, \"2026-04-30\": {\"courts\": 7, \"slots\": 3}, \"2026-05-01\": {\"courts\": 6, \"slots\": 1}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 15, \"slots\": 4}, \"2026-05-05\": {\"courts\": 98, \"slots\": 16}}"
       }
     },
     {
@@ -889,7 +903,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 3, \"slots\": 2}, \"2026-04-30\": {\"courts\": 8, \"slots\": 2}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 13, \"slots\": 2}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -948,7 +963,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 4, \"slots\": 3}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 4, \"slots\": 2}, \"2026-05-05\": {\"courts\": 30, \"slots\": 9}}"
       }
     },
     {
@@ -1007,7 +1023,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 3}, \"2026-04-29\": {\"courts\": 2, \"slots\": 1}, \"2026-04-30\": {\"courts\": 2, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 52, \"slots\": 14}}"
       }
     },
     {
@@ -1066,7 +1083,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 1}, \"2026-04-29\": {\"courts\": 6, \"slots\": 2}, \"2026-04-30\": {\"courts\": 3, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 11, \"slots\": 3}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 3, \"slots\": 2}, \"2026-05-05\": {\"courts\": 60, \"slots\": 16}}"
       }
     },
     {
@@ -1125,7 +1143,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 1, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 2, \"slots\": 2}, \"2026-05-05\": {\"courts\": 7, \"slots\": 7}}"
       }
     },
     {
@@ -1184,7 +1203,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 2}, \"2026-04-29\": {\"courts\": 10, \"slots\": 4}, \"2026-04-30\": {\"courts\": 3, \"slots\": 1}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 10, \"slots\": 3}, \"2026-05-05\": {\"courts\": 52, \"slots\": 14}}"
       }
     },
     {
@@ -1243,7 +1263,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 15, \"slots\": 3}, \"2026-04-29\": {\"courts\": 23, \"slots\": 5}, \"2026-04-30\": {\"courts\": 11, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 27, \"slots\": 5}, \"2026-05-05\": {\"courts\": 64, \"slots\": 10}}"
       }
     },
     {
@@ -1302,7 +1323,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 3, \"slots\": 3}, \"2026-04-30\": {\"courts\": 1, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 6, \"slots\": 2}, \"2026-05-04\": {\"courts\": 8, \"slots\": 3}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -1361,7 +1383,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 5, \"slots\": 1}, \"2026-04-30\": {\"courts\": 7, \"slots\": 3}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 8, \"slots\": 3}, \"2026-05-05\": {\"courts\": 112, \"slots\": 16}}"
       }
     },
     {
@@ -1420,7 +1443,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 4}, \"2026-04-29\": {\"courts\": 5, \"slots\": 3}, \"2026-04-30\": {\"courts\": 3, \"slots\": 2}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 14, \"slots\": 9}, \"2026-05-05\": {\"courts\": 28, \"slots\": 16}}"
       }
     },
     {
@@ -1479,7 +1503,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 7, \"slots\": 2}, \"2026-04-29\": {\"courts\": 17, \"slots\": 4}, \"2026-04-30\": {\"courts\": 15, \"slots\": 2}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 3, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 3, \"slots\": 1}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -1538,7 +1563,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{}"
       }
     },
     {
@@ -1597,7 +1623,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 6,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 8, \"slots\": 1}, \"2026-04-29\": {\"courts\": 18, \"slots\": 3}, \"2026-04-30\": {\"courts\": 15, \"slots\": 2}, \"2026-05-01\": {\"courts\": 6, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 5, \"slots\": 1}, \"2026-05-04\": {\"courts\": 2, \"slots\": 1}, \"2026-05-05\": {\"courts\": 116, \"slots\": 16}}"
       }
     },
     {
@@ -1656,7 +1683,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 9, \"slots\": 3}, \"2026-04-29\": {\"courts\": 6, \"slots\": 4}, \"2026-04-30\": {\"courts\": 7, \"slots\": 4}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 9, \"slots\": 2}, \"2026-05-05\": {\"courts\": 104, \"slots\": 16}}"
       }
     },
     {
@@ -1715,7 +1743,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 5,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 14, \"slots\": 4}, \"2026-04-29\": {\"courts\": 16, \"slots\": 4}, \"2026-04-30\": {\"courts\": 11, \"slots\": 3}, \"2026-05-01\": {\"courts\": 5, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 6, \"slots\": 1}, \"2026-05-04\": {\"courts\": 31, \"slots\": 8}, \"2026-05-05\": {\"courts\": 112, \"slots\": 16}}"
       }
     },
     {
@@ -1774,7 +1803,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 15, \"slots\": 3}, \"2026-04-30\": {\"courts\": 3, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 17, \"slots\": 4}, \"2026-05-05\": {\"courts\": 84, \"slots\": 16}}"
       }
     },
     {
@@ -1833,7 +1863,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 7,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 8
+        "BwfTomorrowCourts": 8,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 19, \"slots\": 6}, \"2026-04-29\": {\"courts\": 11, \"slots\": 5}, \"2026-04-30\": {\"courts\": 13, \"slots\": 3}, \"2026-05-01\": {\"courts\": 7, \"slots\": 1}, \"2026-05-02\": {\"courts\": 8, \"slots\": 1}, \"2026-05-03\": {\"courts\": 5, \"slots\": 2}, \"2026-05-04\": {\"courts\": 3, \"slots\": 2}, \"2026-05-05\": {\"courts\": 104, \"slots\": 16}}"
       }
     },
     {
@@ -1892,7 +1923,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 6, \"slots\": 1}, \"2026-04-29\": {\"courts\": 7, \"slots\": 1}, \"2026-04-30\": {\"courts\": 10, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 8, \"slots\": 1}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -1951,7 +1983,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 6, \"slots\": 2}, \"2026-04-29\": {\"courts\": 3, \"slots\": 2}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 1, \"slots\": 1}, \"2026-05-05\": {\"courts\": 36, \"slots\": 11}}"
       }
     },
     {
@@ -2010,7 +2043,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 14, \"slots\": 2}, \"2026-04-29\": {\"courts\": 8, \"slots\": 2}, \"2026-04-30\": {\"courts\": 5, \"slots\": 3}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 7, \"slots\": 2}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -2069,7 +2103,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 7
+        "BwfTomorrowCourts": 7,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 13, \"slots\": 2}, \"2026-04-29\": {\"courts\": 10, \"slots\": 3}, \"2026-04-30\": {\"courts\": 16, \"slots\": 2}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 7, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 8, \"slots\": 3}, \"2026-05-05\": {\"courts\": 104, \"slots\": 16}}"
       }
     },
     {
@@ -2128,7 +2163,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 1}, \"2026-04-29\": {\"courts\": 5, \"slots\": 3}, \"2026-04-30\": {\"courts\": 3, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 5, \"slots\": 1}, \"2026-05-05\": {\"courts\": 78, \"slots\": 16}}"
       }
     },
     {
@@ -2187,7 +2223,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 7,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 7, \"slots\": 4}, \"2026-04-30\": {\"courts\": 6, \"slots\": 3}, \"2026-05-01\": {\"courts\": 7, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 25, \"slots\": 4}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -2246,7 +2283,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 1}, \"2026-04-29\": {\"courts\": 4, \"slots\": 1}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 34, \"slots\": 10}}"
       }
     },
     {
@@ -2305,7 +2343,8 @@
         "BwfTodaySlots": 2,
         "BwfTodayCourts": 7,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 1}, \"2026-04-29\": {\"courts\": 3, \"slots\": 1}, \"2026-04-30\": {\"courts\": 7, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 3, \"slots\": 1}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -2364,7 +2403,8 @@
         "BwfTodaySlots": 2,
         "BwfTodayCourts": 8,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 13, \"slots\": 4}, \"2026-04-29\": {\"courts\": 18, \"slots\": 6}, \"2026-04-30\": {\"courts\": 6, \"slots\": 2}, \"2026-05-01\": {\"courts\": 8, \"slots\": 2}, \"2026-05-02\": {\"courts\": 3, \"slots\": 1}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 8, \"slots\": 4}, \"2026-05-05\": {\"courts\": 80, \"slots\": 16}}"
       }
     },
     {
@@ -2423,7 +2463,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 2,
-        "BwfTomorrowCourts": 6
+        "BwfTomorrowCourts": 6,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 3}, \"2026-04-29\": {\"courts\": 4, \"slots\": 1}, \"2026-04-30\": {\"courts\": 1, \"slots\": 1}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 6, \"slots\": 2}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 11, \"slots\": 3}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -2482,7 +2523,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 5,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 22, \"slots\": 3}, \"2026-04-30\": {\"courts\": 16, \"slots\": 5}, \"2026-05-01\": {\"courts\": 5, \"slots\": 1}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 39, \"slots\": 8}, \"2026-05-05\": {\"courts\": 112, \"slots\": 10}}"
       }
     },
     {
@@ -2541,7 +2583,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 2}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 2, \"slots\": 2}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 4, \"slots\": 2}, \"2026-05-05\": {\"courts\": 42, \"slots\": 14}}"
       }
     },
     {
@@ -2600,7 +2643,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 1}, \"2026-04-29\": {\"courts\": 1, \"slots\": 1}, \"2026-04-30\": {\"courts\": 8, \"slots\": 2}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -2659,7 +2703,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 1}, \"2026-04-29\": {\"courts\": 6, \"slots\": 2}, \"2026-04-30\": {\"courts\": 4, \"slots\": 1}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 4, \"slots\": 1}, \"2026-05-04\": {\"courts\": 10, \"slots\": 3}, \"2026-05-05\": {\"courts\": 35, \"slots\": 9}}"
       }
     },
     {
@@ -2718,7 +2763,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 2, \"slots\": 2}, \"2026-04-30\": {\"courts\": 3, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 8, \"slots\": 4}, \"2026-05-05\": {\"courts\": 26, \"slots\": 10}}"
       }
     },
     {
@@ -2777,7 +2823,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 15, \"slots\": 2}, \"2026-04-29\": {\"courts\": 3, \"slots\": 1}, \"2026-04-30\": {\"courts\": 20, \"slots\": 4}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 6, \"slots\": 1}, \"2026-05-04\": {\"courts\": 21, \"slots\": 3}, \"2026-05-05\": {\"courts\": 112, \"slots\": 16}}"
       }
     },
     {
@@ -2836,7 +2883,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 12, \"slots\": 2}, \"2026-04-29\": {\"courts\": 5, \"slots\": 4}, \"2026-04-30\": {\"courts\": 17, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 3, \"slots\": 1}, \"2026-05-03\": {\"courts\": 28, \"slots\": 4}, \"2026-05-04\": {\"courts\": 33, \"slots\": 7}, \"2026-05-05\": {\"courts\": 104, \"slots\": 16}}"
       }
     },
     {
@@ -2895,7 +2943,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 2}, \"2026-04-29\": {\"courts\": 18, \"slots\": 4}, \"2026-04-30\": {\"courts\": 6, \"slots\": 3}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 11, \"slots\": 3}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -2954,7 +3003,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 2,
-        "BwfTomorrowCourts": 8
+        "BwfTomorrowCourts": 8,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 1}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 8, \"slots\": 2}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 1, \"slots\": 1}, \"2026-05-05\": {\"courts\": 36, \"slots\": 9}}"
       }
     },
     {
@@ -3013,7 +3063,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 1}, \"2026-04-29\": {\"courts\": 1, \"slots\": 1}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 24, \"slots\": 2}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 7, \"slots\": 3}, \"2026-05-05\": {\"courts\": 160, \"slots\": 16}}"
       }
     },
     {
@@ -3072,7 +3123,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 9, \"slots\": 2}, \"2026-04-29\": {\"courts\": 7, \"slots\": 2}, \"2026-04-30\": {\"courts\": 13, \"slots\": 4}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 44, \"slots\": 10}, \"2026-05-05\": {\"courts\": 94, \"slots\": 16}}"
       }
     },
     {
@@ -3131,7 +3183,8 @@
         "BwfTodaySlots": 4,
         "BwfTodayCourts": 7,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 27, \"slots\": 9}, \"2026-04-29\": {\"courts\": 20, \"slots\": 5}, \"2026-04-30\": {\"courts\": 26, \"slots\": 8}, \"2026-05-01\": {\"courts\": 7, \"slots\": 4}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 10, \"slots\": 3}, \"2026-05-04\": {\"courts\": 30, \"slots\": 8}, \"2026-05-05\": {\"courts\": 38, \"slots\": 10}}"
       }
     },
     {
@@ -3190,7 +3243,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 15, \"slots\": 3}, \"2026-04-29\": {\"courts\": 23, \"slots\": 5}, \"2026-04-30\": {\"courts\": 11, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 27, \"slots\": 5}, \"2026-05-05\": {\"courts\": 64, \"slots\": 10}}"
       }
     },
     {
@@ -3249,7 +3303,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 5,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 8, \"slots\": 2}, \"2026-04-29\": {\"courts\": 12, \"slots\": 3}, \"2026-04-30\": {\"courts\": 11, \"slots\": 2}, \"2026-05-01\": {\"courts\": 5, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 14, \"slots\": 3}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -3308,7 +3363,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 8,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 10, \"slots\": 4}, \"2026-04-29\": {\"courts\": 25, \"slots\": 9}, \"2026-04-30\": {\"courts\": 5, \"slots\": 2}, \"2026-05-01\": {\"courts\": 8, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 48, \"slots\": 10}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -3367,7 +3423,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 2}, \"2026-04-29\": {\"courts\": 15, \"slots\": 5}, \"2026-04-30\": {\"courts\": 12, \"slots\": 4}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 3, \"slots\": 1}, \"2026-05-03\": {\"courts\": 4, \"slots\": 2}, \"2026-05-04\": {\"courts\": 25, \"slots\": 8}, \"2026-05-05\": {\"courts\": 96, \"slots\": 14}}"
       }
     },
     {
@@ -3426,7 +3483,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 8, \"slots\": 3}, \"2026-04-30\": {\"courts\": 9, \"slots\": 3}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 3, \"slots\": 1}, \"2026-05-05\": {\"courts\": 44, \"slots\": 11}}"
       }
     },
     {
@@ -3485,7 +3543,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 4
+        "BwfTomorrowCourts": 4,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 2}, \"2026-04-29\": {\"courts\": 8, \"slots\": 2}, \"2026-04-30\": {\"courts\": 4, \"slots\": 1}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 4, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 6, \"slots\": 2}, \"2026-05-05\": {\"courts\": 16, \"slots\": 4}}"
       }
     },
     {
@@ -3544,7 +3603,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 7, \"slots\": 1}, \"2026-04-29\": {\"courts\": 4, \"slots\": 2}, \"2026-04-30\": {\"courts\": 8, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 47, \"slots\": 9}, \"2026-05-05\": {\"courts\": 74, \"slots\": 16}}"
       }
     },
     {
@@ -3603,7 +3663,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 1}, \"2026-04-29\": {\"courts\": 3, \"slots\": 1}, \"2026-04-30\": {\"courts\": 1, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 10, \"slots\": 3}, \"2026-05-05\": {\"courts\": 50, \"slots\": 14}}"
       }
     },
     {
@@ -3662,7 +3723,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 8,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 2}, \"2026-04-29\": {\"courts\": 15, \"slots\": 3}, \"2026-04-30\": {\"courts\": 5, \"slots\": 3}, \"2026-05-01\": {\"courts\": 8, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 6, \"slots\": 2}, \"2026-05-04\": {\"courts\": 17, \"slots\": 4}, \"2026-05-05\": {\"courts\": 65, \"slots\": 15}}"
       }
     },
     {
@@ -3721,7 +3783,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 8, \"slots\": 2}, \"2026-04-29\": {\"courts\": 11, \"slots\": 3}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 7, \"slots\": 2}, \"2026-05-05\": {\"courts\": 48, \"slots\": 15}}"
       }
     },
     {
@@ -3780,7 +3843,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 7, \"slots\": 2}, \"2026-04-29\": {\"courts\": 10, \"slots\": 2}, \"2026-04-30\": {\"courts\": 21, \"slots\": 4}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 3, \"slots\": 1}, \"2026-05-03\": {\"courts\": 4, \"slots\": 2}, \"2026-05-04\": {\"courts\": 9, \"slots\": 4}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -3839,7 +3903,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 2}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 5, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 7, \"slots\": 3}, \"2026-05-05\": {\"courts\": 30, \"slots\": 10}}"
       }
     },
     {
@@ -3898,7 +3963,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 2}, \"2026-04-29\": {\"courts\": 4, \"slots\": 2}, \"2026-04-30\": {\"courts\": 4, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 9, \"slots\": 7}, \"2026-05-05\": {\"courts\": 36, \"slots\": 12}}"
       }
     },
     {
@@ -3957,7 +4023,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 8,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 8, \"slots\": 2}, \"2026-04-29\": {\"courts\": 22, \"slots\": 6}, \"2026-04-30\": {\"courts\": 16, \"slots\": 3}, \"2026-05-01\": {\"courts\": 8, \"slots\": 1}, \"2026-05-02\": {\"courts\": 3, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 25, \"slots\": 6}, \"2026-05-05\": {\"courts\": 60, \"slots\": 10}}"
       }
     },
     {
@@ -4016,7 +4083,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 1}, \"2026-04-29\": {\"courts\": 7, \"slots\": 2}, \"2026-04-30\": {\"courts\": 4, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 10, \"slots\": 3}, \"2026-05-04\": {\"courts\": 6, \"slots\": 3}, \"2026-05-05\": {\"courts\": 40, \"slots\": 10}}"
       }
     },
     {
@@ -4075,7 +4143,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 2,
-        "BwfTomorrowCourts": 6
+        "BwfTomorrowCourts": 6,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 2}, \"2026-04-29\": {\"courts\": 4, \"slots\": 3}, \"2026-04-30\": {\"courts\": 2, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 6, \"slots\": 2}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 9, \"slots\": 4}, \"2026-05-05\": {\"courts\": 33, \"slots\": 12}}"
       }
     },
     {
@@ -4134,7 +4203,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 4
+        "BwfTomorrowCourts": 4,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 13, \"slots\": 4}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 6, \"slots\": 2}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 4, \"slots\": 1}, \"2026-05-03\": {\"courts\": 7, \"slots\": 1}, \"2026-05-04\": {\"courts\": 17, \"slots\": 4}, \"2026-05-05\": {\"courts\": 64, \"slots\": 10}}"
       }
     },
     {
@@ -4193,7 +4263,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 6, \"slots\": 2}, \"2026-04-29\": {\"courts\": 8, \"slots\": 4}, \"2026-04-30\": {\"courts\": 5, \"slots\": 2}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 6, \"slots\": 2}, \"2026-05-04\": {\"courts\": 22, \"slots\": 4}, \"2026-05-05\": {\"courts\": 88, \"slots\": 16}}"
       }
     },
     {
@@ -4252,7 +4323,8 @@
         "BwfTodaySlots": 2,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 4
+        "BwfTomorrowCourts": 4,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 13, \"slots\": 2}, \"2026-04-29\": {\"courts\": 22, \"slots\": 6}, \"2026-04-30\": {\"courts\": 8, \"slots\": 3}, \"2026-05-01\": {\"courts\": 3, \"slots\": 2}, \"2026-05-02\": {\"courts\": 4, \"slots\": 1}, \"2026-05-03\": {\"courts\": 8, \"slots\": 2}, \"2026-05-04\": {\"courts\": 44, \"slots\": 7}, \"2026-05-05\": {\"courts\": 48, \"slots\": 10}}"
       }
     },
     {
@@ -4311,7 +4383,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 7, \"slots\": 2}, \"2026-04-29\": {\"courts\": 8, \"slots\": 2}, \"2026-04-30\": {\"courts\": 3, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 4, \"slots\": 1}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -4370,7 +4443,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 1, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 35, \"slots\": 12}}"
       }
     },
     {
@@ -4429,7 +4503,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 10, \"slots\": 5}, \"2026-04-29\": {\"courts\": 6, \"slots\": 2}, \"2026-04-30\": {\"courts\": 7, \"slots\": 2}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 1, \"slots\": 1}, \"2026-05-05\": {\"courts\": 44, \"slots\": 12}}"
       }
     },
     {
@@ -4488,7 +4563,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 11, \"slots\": 2}, \"2026-04-29\": {\"courts\": 12, \"slots\": 2}, \"2026-04-30\": {\"courts\": 6, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 15, \"slots\": 2}, \"2026-05-05\": {\"courts\": 88, \"slots\": 14}}"
       }
     },
     {
@@ -4547,7 +4623,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 3}, \"2026-04-29\": {\"courts\": 2, \"slots\": 2}, \"2026-04-30\": {\"courts\": 2, \"slots\": 2}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 7, \"slots\": 7}, \"2026-05-05\": {\"courts\": 10, \"slots\": 10}}"
       }
     },
     {
@@ -4606,7 +4683,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 1, \"slots\": 1}, \"2026-04-30\": {\"courts\": 3, \"slots\": 1}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 1, \"slots\": 1}, \"2026-05-04\": {\"courts\": 1, \"slots\": 1}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -4665,7 +4743,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 11, \"slots\": 2}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 3, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 15, \"slots\": 2}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -4724,7 +4803,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 8,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 2}, \"2026-04-29\": {\"courts\": 10, \"slots\": 4}, \"2026-04-30\": {\"courts\": 3, \"slots\": 1}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 10, \"slots\": 3}, \"2026-05-05\": {\"courts\": 52, \"slots\": 14}}"
       }
     },
     {
@@ -4783,7 +4863,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 5,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 8, \"slots\": 1}, \"2026-04-29\": {\"courts\": 6, \"slots\": 2}, \"2026-04-30\": {\"courts\": 8, \"slots\": 1}, \"2026-05-01\": {\"courts\": 5, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 88, \"slots\": 16}}"
       }
     },
     {
@@ -4842,7 +4923,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 2
+        "BwfTomorrowCourts": 2,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 10, \"slots\": 2}, \"2026-04-29\": {\"courts\": 5, \"slots\": 2}, \"2026-04-30\": {\"courts\": 6, \"slots\": 2}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 5, \"slots\": 1}, \"2026-05-04\": {\"courts\": 18, \"slots\": 4}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -4901,7 +4983,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 1}, \"2026-04-29\": {\"courts\": 2, \"slots\": 2}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 32, \"slots\": 10}}"
       }
     },
     {
@@ -4960,7 +5043,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 12, \"slots\": 2}, \"2026-04-29\": {\"courts\": 18, \"slots\": 5}, \"2026-04-30\": {\"courts\": 13, \"slots\": 4}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 2, \"slots\": 2}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 28, \"slots\": 9}, \"2026-05-05\": {\"courts\": 98, \"slots\": 16}}"
       }
     },
     {
@@ -5019,7 +5103,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 3,
-        "BwfTomorrowCourts": 8
+        "BwfTomorrowCourts": 8,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 0, \"slots\": 0}, \"2026-04-29\": {\"courts\": 22, \"slots\": 5}, \"2026-04-30\": {\"courts\": 7, \"slots\": 1}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 8, \"slots\": 3}, \"2026-05-03\": {\"courts\": 7, \"slots\": 2}, \"2026-05-04\": {\"courts\": 44, \"slots\": 10}, \"2026-05-05\": {\"courts\": 100, \"slots\": 16}}"
       }
     },
     {
@@ -5078,7 +5163,8 @@
         "BwfTodaySlots": 3,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 6, \"slots\": 1}, \"2026-04-29\": {\"courts\": 20, \"slots\": 6}, \"2026-04-30\": {\"courts\": 13, \"slots\": 3}, \"2026-05-01\": {\"courts\": 3, \"slots\": 3}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 20, \"slots\": 5}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -5137,7 +5223,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 7,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 4, \"slots\": 2}, \"2026-04-29\": {\"courts\": 6, \"slots\": 3}, \"2026-04-30\": {\"courts\": 4, \"slots\": 1}, \"2026-05-01\": {\"courts\": 7, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 13, \"slots\": 2}, \"2026-05-05\": {\"courts\": 82, \"slots\": 16}}"
       }
     },
     {
@@ -5196,7 +5283,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 1, \"slots\": 1}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 4, \"slots\": 1}, \"2026-05-05\": {\"courts\": 22, \"slots\": 7}}"
       }
     },
     {
@@ -5255,7 +5343,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 1, \"slots\": 1}, \"2026-04-29\": {\"courts\": 15, \"slots\": 3}, \"2026-04-30\": {\"courts\": 3, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 2, \"slots\": 1}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 17, \"slots\": 4}, \"2026-05-05\": {\"courts\": 84, \"slots\": 16}}"
       }
     },
     {
@@ -5314,7 +5403,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 5,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 20, \"slots\": 2}, \"2026-04-29\": {\"courts\": 16, \"slots\": 4}, \"2026-04-30\": {\"courts\": 18, \"slots\": 2}, \"2026-05-01\": {\"courts\": 5, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 2, \"slots\": 2}, \"2026-05-05\": {\"courts\": 168, \"slots\": 16}}"
       }
     },
     {
@@ -5373,7 +5463,8 @@
         "BwfTodaySlots": 5,
         "BwfTodayCourts": 15,
         "BwfTomorrowSlots": 8,
-        "BwfTomorrowCourts": 21
+        "BwfTomorrowCourts": 21,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 49, \"slots\": 15}, \"2026-04-29\": {\"courts\": 24, \"slots\": 6}, \"2026-04-30\": {\"courts\": 32, \"slots\": 9}, \"2026-05-01\": {\"courts\": 15, \"slots\": 5}, \"2026-05-02\": {\"courts\": 21, \"slots\": 8}, \"2026-05-03\": {\"courts\": 15, \"slots\": 5}, \"2026-05-04\": {\"courts\": 16, \"slots\": 5}, \"2026-05-05\": {\"courts\": 60, \"slots\": 15}}"
       }
     },
     {
@@ -5432,7 +5523,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 1}, \"2026-04-29\": {\"courts\": 2, \"slots\": 1}, \"2026-04-30\": {\"courts\": 4, \"slots\": 2}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 1, \"slots\": 1}, \"2026-05-05\": {\"courts\": 32, \"slots\": 8}}"
       }
     },
     {
@@ -5491,7 +5583,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 3
+        "BwfTomorrowCourts": 3,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 1}, \"2026-04-29\": {\"courts\": 3, \"slots\": 1}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 3, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 0, \"slots\": 0}, \"2026-05-05\": {\"courts\": 39, \"slots\": 10}}"
       }
     },
     {
@@ -5550,7 +5643,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 1}, \"2026-04-29\": {\"courts\": 2, \"slots\": 1}, \"2026-04-30\": {\"courts\": 5, \"slots\": 2}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 14, \"slots\": 4}, \"2026-05-05\": {\"courts\": 76, \"slots\": 19}}"
       }
     },
     {
@@ -5609,7 +5703,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 4,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 1}, \"2026-04-29\": {\"courts\": 2, \"slots\": 1}, \"2026-04-30\": {\"courts\": 5, \"slots\": 2}, \"2026-05-01\": {\"courts\": 4, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 14, \"slots\": 4}, \"2026-05-05\": {\"courts\": 76, \"slots\": 19}}"
       }
     },
     {
@@ -5668,7 +5763,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 2,
-        "BwfTomorrowCourts": 4
+        "BwfTomorrowCourts": 4,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 2}, \"2026-04-29\": {\"courts\": 1, \"slots\": 1}, \"2026-04-30\": {\"courts\": 7, \"slots\": 2}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 4, \"slots\": 2}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 28, \"slots\": 5}, \"2026-05-05\": {\"courts\": 16, \"slots\": 2}}"
       }
     },
     {
@@ -5727,7 +5823,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 8, \"slots\": 2}, \"2026-04-29\": {\"courts\": 7, \"slots\": 2}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 4, \"slots\": 2}, \"2026-05-04\": {\"courts\": 9, \"slots\": 3}, \"2026-05-05\": {\"courts\": 36, \"slots\": 9}}"
       }
     },
     {
@@ -5786,7 +5883,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 3,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 1}, \"2026-04-29\": {\"courts\": 4, \"slots\": 1}, \"2026-04-30\": {\"courts\": 8, \"slots\": 1}, \"2026-05-01\": {\"courts\": 3, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 6, \"slots\": 1}, \"2026-05-04\": {\"courts\": 13, \"slots\": 3}, \"2026-05-05\": {\"courts\": 96, \"slots\": 16}}"
       }
     },
     {
@@ -5845,7 +5943,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{}"
       }
     },
     {
@@ -5904,7 +6003,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 5, \"slots\": 1}, \"2026-04-29\": {\"courts\": 3, \"slots\": 3}, \"2026-04-30\": {\"courts\": 1, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 17, \"slots\": 3}, \"2026-05-05\": {\"courts\": 88, \"slots\": 16}}"
       }
     },
     {
@@ -5963,7 +6063,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 6,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 7, \"slots\": 2}, \"2026-04-29\": {\"courts\": 15, \"slots\": 5}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 6, \"slots\": 1}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 2, \"slots\": 1}, \"2026-05-04\": {\"courts\": 19, \"slots\": 3}, \"2026-05-05\": {\"courts\": 92, \"slots\": 16}}"
       }
     },
     {
@@ -6022,7 +6123,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{}"
       }
     },
     {
@@ -6081,7 +6183,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 2}, \"2026-04-29\": {\"courts\": 11, \"slots\": 3}, \"2026-04-30\": {\"courts\": 10, \"slots\": 4}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 7, \"slots\": 1}, \"2026-05-04\": {\"courts\": 13, \"slots\": 4}, \"2026-05-05\": {\"courts\": 44, \"slots\": 9}}"
       }
     },
     {
@@ -6140,7 +6243,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 2,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 3, \"slots\": 1}, \"2026-04-29\": {\"courts\": 0, \"slots\": 0}, \"2026-04-30\": {\"courts\": 0, \"slots\": 0}, \"2026-05-01\": {\"courts\": 2, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 6, \"slots\": 3}, \"2026-05-04\": {\"courts\": 7, \"slots\": 1}, \"2026-05-05\": {\"courts\": 56, \"slots\": 13}}"
       }
     },
     {
@@ -6199,7 +6303,8 @@
         "BwfTodaySlots": 1,
         "BwfTodayCourts": 1,
         "BwfTomorrowSlots": 0,
-        "BwfTomorrowCourts": 0
+        "BwfTomorrowCourts": 0,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 7, \"slots\": 3}, \"2026-04-29\": {\"courts\": 8, \"slots\": 3}, \"2026-04-30\": {\"courts\": 7, \"slots\": 3}, \"2026-05-01\": {\"courts\": 1, \"slots\": 1}, \"2026-05-02\": {\"courts\": 0, \"slots\": 0}, \"2026-05-03\": {\"courts\": 0, \"slots\": 0}, \"2026-05-04\": {\"courts\": 14, \"slots\": 6}, \"2026-05-05\": {\"courts\": 36, \"slots\": 12}}"
       }
     },
     {
@@ -6258,7 +6363,8 @@
         "BwfTodaySlots": 0,
         "BwfTodayCourts": 0,
         "BwfTomorrowSlots": 1,
-        "BwfTomorrowCourts": 1
+        "BwfTomorrowCourts": 1,
+        "BwfDays": "{\"2026-04-28\": {\"courts\": 2, \"slots\": 2}, \"2026-04-29\": {\"courts\": 4, \"slots\": 2}, \"2026-04-30\": {\"courts\": 2, \"slots\": 1}, \"2026-05-01\": {\"courts\": 0, \"slots\": 0}, \"2026-05-02\": {\"courts\": 1, \"slots\": 1}, \"2026-05-03\": {\"courts\": 3, \"slots\": 1}, \"2026-05-04\": {\"courts\": 6, \"slots\": 2}, \"2026-05-05\": {\"courts\": 50, \"slots\": 16}}"
       }
     }
   ]
