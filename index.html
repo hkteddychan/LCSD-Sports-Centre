@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCSD Sports Centres | 康文署體育館</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        
+        #header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        #header h1 { font-size: 18px; font-weight: 600; }
+        
+        #lang-toggle {
+            display: flex;
+            gap: 8px;
+        }
+        #lang-toggle button {
+            padding: 6px 14px;
+            border: 1.5px solid rgba(255,255,255,0.5);
+            background: transparent;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        #lang-toggle button.active {
+            background: white;
+            color: #1a237e;
+            border-color: white;
+            font-weight: 600;
+        }
+        #lang-toggle button:hover:not(.active) {
+            border-color: white;
+        }
+        
+        #controls {
+            padding: 10px 15px;
+            background: #f5f5f5;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        #controls label { font-size: 13px; color: #555; }
+        #district-filter {
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 13px;
+            min-width: 160px;
+        }
+        #search-input {
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 13px;
+            width: 200px;
+        }
+        #stats {
+            font-size: 12px;
+            color: #666;
+            margin-left: auto;
+        }
+        
+        #map { height: calc(100vh - 110px); width: 100%; }
+        
+        .leaflet-popup-content-wrapper {
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .popup-content { min-width: 280px; }
+        .popup-header {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a237e;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #3949ab;
+        }
+        .popup-row {
+            display: flex;
+            gap: 8px;
+            margin: 5px 0;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .popup-label { font-weight: 600; color: #555; min-width: 70px; }
+        .popup-value { color: #333; flex: 1; }
+        .popup-facilities { margin-top: 8px; }
+        .popup-facilities .facility-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 4px;
+        }
+        .facility-tag {
+            background: #e8eaf6;
+            color: #3949ab;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+        .popup-link {
+            margin-top: 10px;
+            text-align: right;
+        }
+        .popup-link a {
+            color: #3949ab;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .popup-link a:hover { text-decoration: underline; }
+        
+        .custom-marker {
+            background: #3949ab;
+            border: 2.5px solid white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s, background 0.2s;
+        }
+        .custom-marker:hover {
+            transform: scale(1.2);
+            background: #1a237e;
+        }
+        .marker-digit {
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 24px;
+        }
+        
+        @media (max-width: 600px) {
+            #header h1 { font-size: 15px; }
+            #search-input { width: 150px; }
+            #map { height: calc(100vh - 130px); }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 id="title">LCSD Sports Centres | 康文署體育館</h1>
+        <div id="lang-toggle">
+            <button class="active" data-lang="en">EN</button>
+            <button data-lang="tc">繁體</button>
+            <button data-lang="both">EN+中</button>
+        </div>
+    </div>
+    <div id="controls">
+        <label id="district-label">District:</label>
+        <select id="district-filter">
+            <option value="">All Districts | 所有地區</option>
+        </select>
+        <label id="search-label">Search:</label>
+        <input type="text" id="search-input" placeholder="Name | 名稱">
+        <span id="stats">Loading...</span>
+    </div>
+    <div id="map"></div>
+
+<script>
+const lang = { en: true, tc: true, both: false };
+let currentLang = 'en';
+let geojsonLayer;
+
+const labels = {
+    en: {
+        title: 'LCSD Sports Centres',
+        district: 'District',
+        search: 'Search',
+        all: 'All Districts',
+        address: 'Address',
+        facilities: 'Facilities',
+        hours: 'Hours',
+        tel: 'Tel',
+        fax: 'Fax',
+        email: 'Email',
+        website: 'Website',
+        loading: 'Loading...',
+        results: 'Showing {n} of {total}',
+    },
+    tc: {
+        title: '康文署體育館',
+        district: '地區',
+        search: '搜尋',
+        all: '所有地區',
+        address: '地址',
+        facilities: '設施',
+        hours: '開放時間',
+        tel: '電話',
+        fax: '傳真',
+        email: '電郵',
+        website: '網站',
+        loading: '載入中...',
+        results: '顯示 {n} 個，共 {total} 個',
+    }
+};
+
+const DISTRICT_NAMES = {
+    'CENTRAL AND WESTERN': { en: 'Central & Western', tc: '中西區' },
+    'EASTERN': { en: 'Eastern', tc: '東區' },
+    'ISLANDS': { en: 'Islands', tc: '離島' },
+    'KOWLOON CITY': { en: 'Kowloon City', tc: '九龍城' },
+    'KWAI TSING': { en: 'Kwai Tsing', tc: '葵青' },
+    'KWUN TONG': { en: 'Kwun Tong', tc: '觀塘' },
+    'NORTH': { en: 'North', tc: '北區' },
+    'SAI KUNG': { en: 'Sai Kung', tc: '西貢' },
+    'SHA TIN': { en: 'Sha Tin', tc: '沙田' },
+    'SHAM SHUI PO': { en: 'Sham Shui Po', tc: '深水埗' },
+    'SOUTHERN': { en: 'Southern', tc: '南區' },
+    'TAI PO': { en: 'Tai Po', tc: '大埔' },
+    'TSEUNG KWAN O': { en: 'Tseung Kwan O', tc: '將軍澳' },
+    'TSUEN WAN': { en: 'Tsuen Wan', tc: '荃灣' },
+    'TUEN MUN': { en: 'Tuen Mun', tc: '屯門' },
+    'WAN CHAI': { en: 'Wan Chai', tc: '灣仔' },
+    'WONG TAI SIN': { en: 'Wong Tai Sin', tc: '黃大仙' },
+    'YAU TSIM MONG': { en: 'Yau Tsim Mong', tc: '油尖旺' },
+    'YUEN LONG': { en: 'Yuen Long', tc: '元朗' },
+};
+
+function getText(enVal, tcVal) {
+    if (currentLang === 'en') return enVal || tcVal || '-';
+    if (currentLang === 'tc') return tcVal || enVal || '-';
+    // both
+    if (enVal === tcVal || !tcVal) return enVal || '-';
+    return `${enVal} / ${tcVal}`;
+}
+
+function getDistrictName(en, tc) {
+    const key = en.toUpperCase();
+    if (DISTRICT_NAMES[key]) {
+        if (currentLang === 'en') return DISTRICT_NAMES[key].en;
+        if (currentLang === 'tc') return DISTRICT_NAMES[key].tc;
+        return `${DISTRICT_NAMES[key].en} / ${DISTRICT_NAMES[key].tc}`;
+    }
+    return getText(en, tc);
+}
+
+function formatFacilities(facilityStr, isEn) {
+    if (!facilityStr) return [];
+    return facilityStr.split(',').map(f => f.trim()).filter(f => f);
+}
+
+// Create custom icon
+function createIcon(number) {
+    return L.divIcon({
+        className: 'custom-marker-wrapper',
+        html: `<div class="custom-marker"><div class="marker-digit">${number}</div></div>`,
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -14]
+    });
+}
+
+function createPopup(props) {
+    const l = labels[currentLang];
+    const name = getText(props.NameEN, props.NameTC);
+    const address = getText(props.AddressEN, props.AddressTC);
+    const district = getDistrictName(props.DistrictEN, props.DistrictTC);
+    
+    let facilities = [];
+    if (currentLang === 'en') facilities = formatFacilities(props.FacilityTypeEN, true);
+    else if (currentLang === 'tc') facilities = formatFacilities(props.FacilityTypeTC, false);
+    else facilities = formatFacilities(props.FacilityTypeEN, true);
+    
+    const hours = getText(props.OpeningHoursEN, props.OpeningHoursTC);
+    const tel = props.TelephoneEN || props.TelephoneTC || '-';
+    const fax = props.FaxNumberEN || props.FaxNumberTC || '-';
+    const email = props.EmailAddressEN || props.EmailAddressTC || '-';
+    const website = currentLang === 'en' ? props.WebsiteEN : props.WebsiteTC;
+    
+    let html = `<div class="popup-content">`;
+    html += `<div class="popup-header">${name}</div>`;
+    html += `<div class="popup-row"><span class="popup-label">${l.district}:</span><span class="popup-value">${district}</span></div>`;
+    html += `<div class="popup-row"><span class="popup-label">${l.address}:</span><span class="popup-value">${address}</span></div>`;
+    if (hours && hours !== '-') html += `<div class="popup-row"><span class="popup-label">${l.hours}:</span><span class="popup-value">${hours}</span></div>`;
+    if (tel && tel !== '-') html += `<div class="popup-row"><span class="popup-label">${l.tel}:</span><span class="popup-value">${tel}</span></div>`;
+    if (fax && fax !== '-') html += `<div class="popup-row"><span class="popup-label">${l.fax}:</span><span class="popup-value">${fax}</span></div>`;
+    
+    if (facilities.length > 0) {
+        html += `<div class="popup-facilities"><div class="popup-label">${l.facilities}:</div>`;
+        html += `<div class="facility-tags">`;
+        facilities.forEach(f => {
+            html += `<span class="facility-tag">${f}</span>`;
+        });
+        html += `</div></div>`;
+    }
+    
+    if (website && website !== 'http://www.lcsd.gov.hk/en/facilities/facilitieslist/landsports/sportcentre.html' && website !== 'http://www.lcsd.gov.hk/tc/facilities/facilitieslist/landsports/sportcentre.html') {
+        html += `<div class="popup-link"><a href="${website}" target="_blank">${l.website} →</a></div>`;
+    }
+    
+    html += `</div>`;
+    return html;
+}
+
+function updateLanguage(newLang) {
+    currentLang = newLang;
+    
+    // Update title
+    const l = labels[newLang];
+    document.getElementById('title').textContent = newLang === 'en' ? 'LCSD Sports Centres | 康文署體育館' : newLang === 'tc' ? '康文署體育館' : 'LCSD Sports Centres / 康文署體育館';
+    
+    // Update controls
+    document.getElementById('district-label').textContent = l.district + ':';
+    document.getElementById('search-label').textContent = l.search + ':';
+    document.getElementById('search-input').placeholder = newLang === 'en' ? 'Name | 名稱' : newLang === 'tc' ? '名稱' : 'Name / 名稱';
+    
+    // Update district filter options
+    const select = document.getElementById('district-filter');
+    const currentValue = select.value;
+    select.innerHTML = `<option value="">${l.all}</option>`;
+    const districts = new Set();
+    if (window.allData) {
+        window.allData.forEach(f => {
+            const dKey = f.properties.DistrictEN?.toUpperCase() || '';
+            if (dKey && !districts.has(dKey)) {
+                districts.add(dKey);
+                const dName = getDistrictName(f.properties.DistrictEN, f.properties.DistrictTC);
+                select.innerHTML += `<option value="${dKey}">${dName}</option>`;
+            }
+        });
+    }
+    select.value = currentValue;
+    
+    // Update markers
+    if (window.markerMap) {
+        window.markerMap.forEach((marker, idx) => {
+            const props = window.allData[idx].properties;
+            marker.setPopupContent(createPopup(props));
+        });
+    }
+    
+    // Update stats
+    updateStats();
+}
+
+function updateStats() {
+    const l = labels[currentLang];
+    const total = window.allData ? window.allData.length : 0;
+    const filtered = window.filteredData ? window.filteredData.length : total;
+    document.getElementById('stats').textContent = l.results.replace('{n}', filtered).replace('{total}', total);
+}
+
+function filterData() {
+    const district = document.getElementById('district-filter').value;
+    const search = document.getElementById('search-input').value.toLowerCase().trim();
+    
+    window.filteredData = window.allData.filter(f => {
+        const props = f.properties;
+        const districtMatch = !district || (props.DistrictEN?.toUpperCase() === district);
+        const searchMatch = !search || 
+            (props.NameEN && props.NameEN.toLowerCase().includes(search)) ||
+            (props.NameTC && props.NameTC.includes(search)) ||
+            (props.AddressEN && props.AddressEN.toLowerCase().includes(search)) ||
+            (props.AddressTC && props.AddressTC.includes(search));
+        return districtMatch && searchMatch;
+    });
+    
+    updateStats();
+    updateMarkers();
+}
+
+function updateMarkers() {
+    if (!window.markerMap || !window.filteredData) return;
+    
+    const shownIds = new Set(window.filteredData.map(f => f.properties.OBJECTID));
+    
+    window.markerMap.forEach((marker, idx) => {
+        const objId = window.allData[idx].properties.OBJECTID;
+        if (shownIds.has(objId)) {
+            marker.addTo(map);
+        } else {
+            marker.remove();
+        }
+    });
+}
+
+// Init map
+const map = L.map('map').setView([22.35, 114.18], 11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | LCSD'
+}).addTo(map);
+
+window.markerMap = new Map();
+window.allData = [];
+window.filteredData = [];
+
+// Load data
+fetch('lcsd_sports_centres.geojson')
+    .then(r => r.json())
+    .then(data => {
+        window.allData = data.features;
+        window.filteredData = data.features;
+        
+        const districts = new Set();
+        
+        data.features.forEach((feature, idx) => {
+            const props = feature.properties;
+            const dKey = props.DistrictEN?.toUpperCase() || '';
+            
+            if (dKey && !districts.has(dKey)) {
+                districts.add(dKey);
+                const dName = getDistrictName(props.DistrictEN, props.DistrictTC);
+                document.getElementById('district-filter').innerHTML += `<option value="${dKey}">${dName}</option>`;
+            }
+            
+            const coords = feature.geometry.coordinates;
+            const lat = coords[1];
+            const lng = coords[0];
+            
+            const marker = L.marker([lat, lng], { icon: createIcon(idx + 1) })
+                .bindPopup(createPopup(props));
+            
+            window.markerMap.set(idx, marker);
+            marker.addTo(map);
+        });
+        
+        document.getElementById('stats').textContent = labels[currentLang].results.replace('{n}', data.features.length).replace('{total}', data.features.length);
+    })
+    .catch(e => {
+        console.error(e);
+        document.getElementById('stats').textContent = 'Error loading data';
+    });
+
+// Event listeners
+document.getElementById('district-filter').addEventListener('change', filterData);
+document.getElementById('search-input').addEventListener('input', filterData);
+
+document.getElementById('lang-toggle').addEventListener('click', e => {
+    if (e.target.tagName !== 'BUTTON') return;
+    document.querySelectorAll('#lang-toggle button').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    updateLanguage(e.target.dataset.lang);
+});
+</script>
+</body>
+</html>
