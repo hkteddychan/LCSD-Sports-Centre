@@ -1,492 +1,448 @@
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LCSD Sports Centres | 康文署體育館</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>LCSD Sports Centres | 康文署體育館</title>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+ <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
-        #header {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            color: white;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        #header h1 { font-size: 18px; font-weight: 600; }
+  #header {
+   background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+   color: white;
+   padding: 12px 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 10px;
+  }
+  #header h1 { font-size: 18px; font-weight: 600; }
 
-        #lang-toggle {
-            display: flex;
-            gap: 8px;
-        }
-        #lang-toggle button {
-            padding: 6px 14px;
-            border: 1.5px solid rgba(255,255,255,0.5);
-            background: transparent;
-            color: white;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: all 0.2s;
-        }
-        #lang-toggle button.active {
-            background: white;
-            color: #1a237e;
-            border-color: white;
-            font-weight: 600;
-        }
-        #lang-toggle button:hover:not(.active) {
-            border-color: white;
-        }
+  #lang-toggle { display: flex; gap: 8px; }
+  #lang-toggle button {
+   padding: 6px 14px;
+   border: 1.5px solid rgba(255,255,255,0.5);
+   background: transparent;
+   color: white;
+   border-radius: 20px;
+   cursor: pointer;
+   font-size: 13px;
+   transition: all 0.2s;
+  }
+  #lang-toggle button.active { background: white; color: #1a237e; border-color: white; font-weight: 600; }
+  #lang-toggle button:hover:not(.active) { border-color: white; }
 
-        #controls {
-            padding: 10px 15px;
-            background: #f5f5f5;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-        }
-        #controls label { font-size: 13px; color: #555; }
-        #district-filter {
-            padding: 6px 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 13px;
-            min-width: 160px;
-        }
-        #search-input {
-            padding: 6px 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 13px;
-            width: 200px;
-        }
-        #bwf-refresh {
-            padding: 6px 14px;
-            border: none;
-            background: #3949ab;
-            color: white;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-            transition: background 0.2s;
-        }
-        #bwf-refresh:hover { background: #1a237e; }
-        #bwf-refresh:disabled { background: #9fa8da; cursor: not-allowed; }
-        #stats {
-            font-size: 12px;
-            color: #666;
-            margin-left: auto;
-        }
+  #controls {
+   padding: 10px 15px;
+   background: #f5f5f5;
+   display: flex;
+   gap: 10px;
+   flex-wrap: wrap;
+   align-items: center;
+   border-bottom: 1px solid #ddd;
+  }
+  #controls label { font-size: 13px; color: #555; }
+  #district-filter {
+   padding: 6px 12px; border: 1px solid #ccc; border-radius: 6px;
+   font-size: 13px; min-width: 160px;
+  }
+  #search-input {
+   padding: 6px 12px; border: 1px solid #ccc; border-radius: 6px;
+   font-size: 13px; width: 200px;
+  }
+  #bwf-refresh {
+   padding: 6px 14px; border: none; background: #3949ab; color: white;
+   border-radius: 6px; cursor: pointer; font-size: 12px; transition: background 0.2s;
+  }
+  #bwf-refresh:hover { background: #1a237e; }
+  #bwf-refresh:disabled { background: #9fa8da; cursor: not-allowed; }
+  #stats { font-size: 12px; color: #666; margin-left: auto; }
 
-        #map { height: calc(100vh - 110px); width: 100%; }
+  #map { height: calc(100vh - 110px); width: 100%; }
 
-        .leaflet-popup-content-wrapper {
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-        .popup-content { min-width: 280px; }
-        .popup-header {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1a237e;
-            margin-bottom: 8px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #3949ab;
-        }
-        .popup-row {
-            display: flex;
-            gap: 8px;
-            margin: 5px 0;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-        .popup-label { font-weight: 600; color: #555; min-width: 70px; }
-        .popup-value { color: #333; flex: 1; }
-        .popup-facilities { margin-top: 8px; }
-        .popup-facilities .facility-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            margin-top: 4px;
-        }
-        .facility-tag {
-            background: #e8eaf6;
-            color: #3949ab;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-        }
-        .popup-bwf {
-            margin-top: 10px;
-            padding: 8px 10px;
-            background: #e8f5e9;
-            border-radius: 8px;
-            border: 1px solid #a5d6a7;
-        }
-        .popup-bwf-header {
-            font-size: 11px;
-            font-weight: 700;
-            color: #2e7d32;
-            margin-bottom: 4px;
-        }
-        .popup-bwf-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: #333;
-            margin: 2px 0;
-        }
-        .popup-bwf-label { color: #555; }
-        .popup-bwf-val { font-weight: 600; }
-        .popup-bwf-val.has-avail { color: #2e7d32; }
-        .popup-bwf-val.no-avail { color: #c62828; }
-        .popup-link {
-            margin-top: 10px;
-            text-align: right;
-        }
-        .popup-link a {
-            color: #3949ab;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .popup-link a:hover { text-decoration: underline; }
+  .leaflet-popup-content-wrapper {
+   border-radius: 10px;
+   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .popup-content { min-width: 300px; }
+  .popup-header {
+   font-size: 15px; font-weight: 700; color: #1a237e;
+   margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid #3949ab;
+  }
+  .popup-row {
+   display: flex; gap: 8px; margin: 5px 0;
+   font-size: 13px; line-height: 1.4;
+  }
+  .popup-label { font-weight: 600; color: #555; min-width: 70px; }
+  .popup-value { color: #333; flex: 1; }
 
-        .custom-marker {
-            background: #3949ab;
-            border: 2.5px solid white;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            transition: transform 0.2s, background 0.2s;
-        }
-        .custom-marker:hover {
-            transform: scale(1.2);
-            background: #1a237e;
-        }
-        .marker-digit {
-            color: white;
-            font-size: 10px;
-            font-weight: 700;
-            text-align: center;
-            line-height: 24px;
-        }
+  .popup-bwf {
+   margin-top: 10px; padding: 10px 10px 6px;
+   background: #f1f8e9; border-radius: 8px;
+   border: 1px solid #c8e6c9;
+  }
+  .popup-bwf-header {
+   font-size: 11px; font-weight: 700; color: #33691e;
+   margin-bottom: 8px; letter-spacing: 0.3px;
+  }
 
-        .bwf-loading {
-            font-size: 11px;
-            color: #888;
-            margin-left: 10px;
-        }
+  .bwf-timeline { display: flex; flex-direction: column; gap: 3px; }
+  .bwf-day {
+   display: flex; align-items: center; gap: 6px;
+   font-size: 11.5px;
+  }
+  .bwf-day-label {
+   min-width: 26px; font-weight: 600; color: #555;
+   font-size: 11px; text-align: right;
+  }
+  .bwf-bar-track {
+   flex: 1; height: 14px; background: #e8f5e9;
+   border-radius: 7px; overflow: hidden;
+   position: relative;
+  }
+  .bwf-bar-fill {
+   height: 100%; border-radius: 7px;
+   transition: width 0.3s ease;
+   min-width: 2px;
+  }
+  .bwf-bar-fill.none { background: #ef9a9a; }
+  .bwf-bar-fill.low { background: #fff176; }
+  .bwf-bar-fill.mid { background: #aed581; }
+  .bwf-bar-fill.high { background: #66bb6a; }
+  .bwf-bar-fill.full { background: #2e7d32; }
+  .bwf-day-val {
+   min-width: 50px; font-size: 10.5px; color: #333;
+   font-weight: 600; text-align: right;
+  }
 
-        @media (max-width: 600px) {
-            #header h1 { font-size: 15px; }
-            #search-input { width: 150px; }
-            #map { height: calc(100vh - 130px); }
-        }
-    </style>
+  .popup-facilities { margin-top: 8px; }
+  .popup-facilities .facility-tags {
+   display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px;
+  }
+  .facility-tag {
+   background: #e8eaf6; color: #3949ab; padding: 2px 8px;
+   border-radius: 12px; font-size: 11px;
+  }
+  .popup-link { margin-top: 10px; text-align: right; }
+  .popup-link a {
+   color: #3949ab; text-decoration: none; font-size: 12px; font-weight: 600;
+  }
+  .popup-link a:hover { text-decoration: underline; }
+
+  .custom-marker {
+   background: #3949ab; border: 2.5px solid white; border-radius: 50%;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+   transition: transform 0.2s, background 0.2s;
+  }
+  .custom-marker:hover { transform: scale(1.2); background: #1a237e; }
+  .marker-digit {
+   color: white; font-size: 10px; font-weight: 700;
+   text-align: center; line-height: 24px;
+  }
+
+  .bwf-loading { font-size: 11px; color: #888; margin-left: 10px; }
+
+  @media (max-width: 600px) {
+   #header h1 { font-size: 15px; }
+   #search-input { width: 150px; }
+   #map { height: calc(100vh - 130px); }
+  }
+ </style>
 </head>
 <body>
-    <div id="header">
-        <h1 id="title">LCSD Sports Centres | 康文署體育館</h1>
-        <div id="lang-toggle">
-            <button class="active" data-lang="en">EN</button>
-            <button data-lang="tc">繁體</button>
-            <button data-lang="both">EN+中</button>
-        </div>
-    </div>
-    <div id="controls">
-        <label id="district-label">District:</label>
-        <select id="district-filter">
-            <option value="">All Districts | 所有地區</option>
-        </select>
-        <label id="search-label">Search:</label>
-        <input type="text" id="search-input" placeholder="Name | 名稱">
-        <button id="bwf-refresh">🔄 Refresh Badminton</button>
-        <span class="bwf-loading" id="bwf-loading" style="display:none">Loading badminton data...</span>
-        <span id="stats">Loading...</span>
-    </div>
-    <div id="map"></div>
+ <div id="header">
+  <h1 id="title">LCSD Sports Centres | 康文署體育館</h1>
+  <div id="lang-toggle">
+   <button class="active" data-lang="en">EN</button>
+   <button data-lang="tc">繁體</button>
+   <button data-lang="both">EN+中</button>
+  </div>
+ </div>
+ <div id="controls">
+  <label id="district-label">District:</label>
+  <select id="district-filter"><option value="">All Districts | 所有地區</option></select>
+  <label id="search-label">Search:</label>
+  <input type="text" id="search-input" placeholder="Name | 名稱">
+  <button id="bwf-refresh">🔄 Refresh Badminton</button>
+  <span class="bwf-loading" id="bwf-loading" style="display:none">Loading badminton data...</span>
+  <span id="stats">Loading...</span>
+ </div>
+ <div id="map"></div>
 
 <script>
-const lang = { en: true, tc: true, both: false };
 let currentLang = 'en';
-let geojsonLayer;
-let bwfData = {}; // keyed by venue name (lowercase)
+let bwfData = {}; // keyed by lowercase venue name, value = array of {date, courts, slots}
 
 const labels = {
-    en: {
-        title: 'LCSD Sports Centres',
-        district: 'District',
-        search: 'Search',
-        all: 'All Districts',
-        address: 'Address',
-        facilities: 'Facilities',
-        hours: 'Hours',
-        tel: 'Tel',
-        fax: 'Fax',
-        email: 'Email',
-        website: 'Website',
-        loading: 'Loading...',
-        results: 'Showing {n} of {total}',
-        bwfHeader: '🏸 Badminton Availability',
-        today: 'Today',
-        tomorrow: 'Tomorrow',
-        courts: 'courts',
-        slots: 'slots',
-        noData: 'No data',
-        refreshBwf: 'Refresh Badminton',
-    },
-    tc: {
-        title: '康文署體育館',
-        district: '地區',
-        search: '搜尋',
-        all: '所有地區',
-        address: '地址',
-        facilities: '設施',
-        hours: '開放時間',
-        tel: '電話',
-        fax: '傳真',
-        email: '電郵',
-        website: '網站',
-        loading: '載入中...',
-        results: '顯示 {n} 個，共 {total} 個',
-        bwfHeader: '🏸 羽毛球場可用情况',
-        today: '今日',
-        tomorrow: '明日',
-        courts: '個場',
-        slots: '個時段',
-        noData: '無數據',
-        refreshBwf: '更新羽毛球',
-    }
+ en: {
+  title: 'LCSD Sports Centres',
+  district: 'District', search: 'Search', all: 'All Districts',
+  address: 'Address', facilities: 'Facilities', hours: 'Hours',
+  tel: 'Tel', fax: 'Fax', email: 'Email', website: 'Website',
+  loading: 'Loading...',
+  results: 'Showing {n} of {total}',
+  bwfHeader: '🏸 Badminton (Next 7 Days)',
+  courts: 'courts', slots: 'slots', noData: 'No data',
+  refreshBwf: 'Refresh Badminton',
+  maxLabel: 'MAX',
+  dayNames: ['Tue','Wed','Thu','Fri','Sat','Sun','Mon'],
+  todayLabel: 'Today',
+ },
+ tc: {
+  title: '康文署體育館',
+  district: '地區', search: '搜尋', all: '所有地區',
+  address: '地址', facilities: '設施', hours: '開放時間',
+  tel: '電話', fax: '傳真', email: '電郵', website: '網站',
+  loading: '載入中...',
+  results: '顯示 {n} 個，共 {total} 個',
+  bwfHeader: '🏸 羽毛球場 (未來7天)',
+  courts: '個場', slots: '個時段', noData: '無數據',
+  refreshBwf: '更新羽毛球',
+  maxLabel: '最高',
+  dayNames: ['二','三','四','五','六','日','一'],
+  todayLabel: '今日',
+ }
 };
 
 const DISTRICT_NAMES = {
-    'CENTRAL AND WESTERN': { en: 'Central & Western', tc: '中西區' },
-    'EASTERN': { en: 'Eastern', tc: '東區' },
-    'ISLANDS': { en: 'Islands', tc: '離島' },
-    'KOWLOON CITY': { en: 'Kowloon City', tc: '九龍城' },
-    'KWAI TSING': { en: 'Kwai Tsing', tc: '葵青' },
-    'KWUN TONG': { en: 'Kwun Tong', tc: '觀塘' },
-    'NORTH': { en: 'North', tc: '北區' },
-    'SAI KUNG': { en: 'Sai Kung', tc: '西貢' },
-    'SHA TIN': { en: 'Sha Tin', tc: '沙田' },
-    'SHAM SHUI PO': { en: 'Sham Shui Po', tc: '深水埗' },
-    'SOUTHERN': { en: 'Southern', tc: '南區' },
-    'TAI PO': { en: 'Tai Po', tc: '大埔' },
-    'TSEUNG KWAN O': { en: 'Tseung Kwan O', tc: '將軍澳' },
-    'TSUEN WAN': { en: 'Tsuen Wan', tc: '荃灣' },
-    'TUEN MUN': { en: 'Tuen Mun', tc: '屯門' },
-    'WAN CHAI': { en: 'Wan Chai', tc: '灣仔' },
-    'WONG TAI SIN': { en: 'Wong Tai Sin', tc: '黃大仙' },
-    'YAU TSIM MONG': { en: 'Yau Tsim Mong', tc: '油尖旺' },
-    'YUEN LONG': { en: 'Yuen Long', tc: '元朗' },
+ 'CENTRAL AND WESTERN': { en: 'Central & Western', tc: '中西區' },
+ 'EASTERN': { en: 'Eastern', tc: '東區' },
+ 'ISLANDS': { en: 'Islands', tc: '離島' },
+ 'KOWLOON CITY': { en: 'Kowloon City', tc: '九龍城' },
+ 'KWAI TSING': { en: 'Kwai Tsing', tc: '葵青' },
+ 'KWUN TONG': { en: 'Kwun Tong', tc: '觀塘' },
+ 'NORTH': { en: 'North', tc: '北區' },
+ 'SAI KUNG': { en: 'Sai Kung', tc: '西貢' },
+ 'SHA TIN': { en: 'Sha Tin', tc: '沙田' },
+ 'SHAM SHUI PO': { en: 'Sham Shui Po', tc: '深水埗' },
+ 'SOUTHERN': { en: 'Southern', tc: '南區' },
+ 'TAI PO': { en: 'Tai Po', tc: '大埔' },
+ 'TSEUNG KWAN O': { en: 'Tseung Kwan O', tc: '將軍澳' },
+ 'TSUEN WAN': { en: 'Tsuen Wan', tc: '荃灣' },
+ 'TUEN MUN': { en: 'Tuen Mun', tc: '屯門' },
+ 'WAN CHAI': { en: 'Wan Chai', tc: '灣仔' },
+ 'WONG TAI SIN': { en: 'Wong Tai Sin', tc: '黃大仙' },
+ 'YAU TSIM MONG': { en: 'Yau Tsim Mong', tc: '油尖旺' },
+ 'YUEN LONG': { en: 'Yuen Long', tc: '元朗' },
+};
+
+const DAY_MAP = {
+ 0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu', 5: 'Fri', 6: 'Sat'
+};
+const DAY_MAP_TC = {
+ 0: '日', 1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六'
 };
 
 function getText(enVal, tcVal) {
-    if (currentLang === 'en') return enVal || tcVal || '-';
-    if (currentLang === 'tc') return tcVal || enVal || '-';
-    if (enVal === tcVal || !tcVal) return enVal || '-';
-    return `${enVal} / ${tcVal}`;
+ if (currentLang === 'en') return enVal || tcVal || '-';
+ if (currentLang === 'tc') return tcVal || enVal || '-';
+ if (enVal === tcVal || !tcVal) return enVal || '-';
+ return `${enVal} / ${tcVal}`;
 }
 
 function getDistrictName(en, tc) {
-    const key = en?.toUpperCase() || '';
-    if (DISTRICT_NAMES[key]) {
-        if (currentLang === 'en') return DISTRICT_NAMES[key].en;
-        if (currentLang === 'tc') return DISTRICT_NAMES[key].tc;
-        return `${DISTRICT_NAMES[key].en} / ${DISTRICT_NAMES[key].tc}`;
-    }
-    return getText(en, tc);
+ const key = en?.toUpperCase() || '';
+ if (DISTRICT_NAMES[key]) {
+  if (currentLang === 'en') return DISTRICT_NAMES[key].en;
+  if (currentLang === 'tc') return DISTRICT_NAMES[key].tc;
+  return `${DISTRICT_NAMES[key].en} / ${DISTRICT_NAMES[key].tc}`;
+ }
+ return getText(en, tc);
 }
 
 function formatFacilities(facilityStr) {
-    if (!facilityStr) return [];
-    return facilityStr.split(',').map(f => f.trim()).filter(f => f);
+ if (!facilityStr) return [];
+ return facilityStr.split(',').map(f => f.trim()).filter(f => f);
 }
 
 function createIcon(number) {
-    return L.divIcon({
-        className: 'custom-marker-wrapper',
-        html: `<div class="custom-marker"><div class="marker-digit">${number}</div></div>`,
-        iconSize: [24, 24],
-        iconAnchor: [12, 12],
-        popupAnchor: [0, -14]
-    });
+ return L.divIcon({
+  className: 'custom-marker-wrapper',
+  html: `<div class="custom-marker"><div class="marker-digit">${number}</div></div>`,
+  iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -14]
+ });
 }
 
-function getBwFData(props) {
-    const nameKey = (props.NameEN || '').toLowerCase().trim();
-    if (bwfData[nameKey]) return bwfData[nameKey];
-
-    // Fuzzy match: try first word
-    const firstWord = nameKey.split(' ')[0];
-    for (const key of Object.keys(bwfData)) {
-        if (key.startsWith(firstWord) || firstWord.startsWith(key.split(' ')[0])) {
-            return bwfData[key];
-        }
-    }
-    return null;
+function getBwfDays(props) {
+ const nameKey = (props.NameEN || '').toLowerCase().trim();
+ if (bwfData[nameKey]) return bwfData[nameKey];
+ const firstWord = nameKey.split(' ')[0];
+ for (const key of Object.keys(bwfData)) {
+  if (key.startsWith(firstWord) || firstWord.startsWith(key.split(' ')[0])) {
+   return bwfData[key];
+  }
+ }
+ return null;
 }
 
-function formatBwfNumber(n) {
-    if (n === undefined || n === null || n === 0) return '0';
-    return String(n);
+function getDayLabel(dateStr, l) {
+ const d = new Date(dateStr + 'T00:00:00');
+ const today = new Date();
+ today.setHours(0,0,0,0);
+ const target = new Date(dateStr + 'T00:00:00');
+ const diff = Math.round((target - today) / 86400000);
+ if (diff === 0) return l.todayLabel;
+ if (diff === 1) return currentLang === 'tc' ? '明日' : 'Tomorrow';
+ if (currentLang === 'en') return DAY_MAP[d.getDay()];
+ return DAY_MAP_TC[d.getDay()];
+}
+
+function getBarClass(courts) {
+ if (courts === 0) return 'none';
+ if (courts <= 2) return 'low';
+ if (courts <= 5) return 'mid';
+ if (courts <= 10) return 'high';
+ return 'full';
 }
 
 function createPopup(props) {
-    const l = labels[currentLang];
-    const name = getText(props.NameEN, props.NameTC);
-    const address = getText(props.AddressEN, props.AddressTC);
-    const district = getDistrictName(props.DistrictEN, props.DistrictTC);
+ const l = labels[currentLang];
+ const name = getText(props.NameEN, props.NameTC);
+ const address = getText(props.AddressEN, props.AddressTC);
+ const district = getDistrictName(props.DistrictEN, props.DistrictTC);
 
-    let facilities = [];
-    if (currentLang === 'en') facilities = formatFacilities(props.FacilityTypeEN);
-    else if (currentLang === 'tc') facilities = formatFacilities(props.FacilityTypeTC);
-    else facilities = formatFacilities(props.FacilityTypeEN);
+ let facilities = [];
+ if (currentLang === 'en') facilities = formatFacilities(props.FacilityTypeEN);
+ else if (currentLang === 'tc') facilities = formatFacilities(props.FacilityTypeTC);
+ else facilities = formatFacilities(props.FacilityTypeEN);
 
-    const hours = getText(props.OpeningHoursEN, props.OpeningHoursTC);
-    const tel = props.TelephoneEN || props.TelephoneTC || '-';
-    const fax = props.FaxNumberEN || props.FaxNumberTC || '-';
-    const email = props.EmailAddressEN || props.EmailAddressTC || '-';
-    const website = currentLang === 'en' ? props.WebsiteEN : props.WebsiteTC;
+ const hours = getText(props.OpeningHoursEN, props.OpeningHoursTC);
+ const tel = props.TelephoneEN || props.TelephoneTC || '-';
+ const fax = props.FaxNumberEN || props.FaxNumberTC || '-';
+ const website = currentLang === 'en' ? props.WebsiteEN : props.WebsiteTC;
 
-    let html = `<div class="popup-content">`;
-    html += `<div class="popup-header">${name}</div>`;
-    html += `<div class="popup-row"><span class="popup-label">${l.district}:</span><span class="popup-value">${district}</span></div>`;
-    html += `<div class="popup-row"><span class="popup-label">${l.address}:</span><span class="popup-value">${address}</span></div>`;
-    if (hours && hours !== '-') html += `<div class="popup-row"><span class="popup-label">${l.hours}:</span><span class="popup-value">${hours}</span></div>`;
-    if (tel && tel !== '-') html += `<div class="popup-row"><span class="popup-label">${l.tel}:</span><span class="popup-value">${tel}</span></div>`;
-    if (fax && fax !== '-') html += `<div class="popup-row"><span class="popup-label">${l.fax}:</span><span class="popup-value">${fax}</span></div>`;
+ let html = `<div class="popup-content">`;
+ html += `<div class="popup-header">${name}</div>`;
+ html += `<div class="popup-row"><span class="popup-label">${l.district}:</span><span class="popup-value">${district}</span></div>`;
+ html += `<div class="popup-row"><span class="popup-label">${l.address}:</span><span class="popup-value">${address}</span></div>`;
+ if (hours && hours !== '-') html += `<div class="popup-row"><span class="popup-label">${l.hours}:</span><span class="popup-value">${hours}</span></div>`;
+ if (tel && tel !== '-') html += `<div class="popup-row"><span class="popup-label">${l.tel}:</span><span class="popup-value">${tel}</span></div>`;
+ if (fax && fax !== '-') html += `<div class="popup-row"><span class="popup-label">${l.fax}:</span><span class="popup-value">${fax}</span></div>`;
 
-    // Badminton availability
-    const bwf = getBwFData(props);
-    if (bwf) {
-        const todayCourts = bwf.todayCourts || 0;
-        const todaySlots = bwf.todaySlots || 0;
-        const tomorrowCourts = bwf.tomorrowCourts || 0;
-        const tomorrowSlots = bwf.tomorrowSlots || 0;
+ // Badminton timeline
+ const days = getBwfDays(props);
+ if (days && days.length > 0) {
+  // Find max courts for bar scaling
+  const maxCourts = Math.max(...days.map(d => d.courts), 1);
+  const l2 = labels[currentLang];
 
-        html += `<div class="popup-bwf">`;
-        html += `<div class="popup-bwf-header">${l.bwfHeader}</div>`;
-        html += `<div class="popup-bwf-row">`;
-        html += `<span class="popup-bwf-label">${l.today}:</span>`;
-        const todayClass = todayCourts > 0 ? 'has-avail' : 'no-avail';
-        html += `<span class="popup-bwf-val ${todayClass}">${formatBwfNumber(todayCourts)} ${l.courts} / ${formatBwfNumber(todaySlots)} ${l.slots}</span>`;
-        html += `</div>`;
-        html += `<div class="popup-bwf-row">`;
-        html += `<span class="popup-bwf-label">${l.tomorrow}:</span>`;
-        const tomorrowClass = tomorrowCourts > 0 ? 'has-avail' : 'no-avail';
-        html += `<span class="popup-bwf-val ${tomorrowClass}">${formatBwfNumber(tomorrowCourts)} ${l.courts} / ${formatBwfNumber(tomorrowSlots)} ${l.slots}</span>`;
-        html += `</div>`;
-        html += `</div>`;
-    }
+  html += `<div class="popup-bwf">`;
+  html += `<div class="popup-bwf-header">${l.bwfHeader}</div>`;
+  html += `<div class="bwf-timeline">`;
 
-    if (facilities.length > 0) {
-        html += `<div class="popup-facilities"><div class="popup-label">${l.facilities}:</div>`;
-        html += `<div class="facility-tags">`;
-        facilities.forEach(f => {
-            html += `<span class="facility-tag">${f}</span>`;
-        });
-        html += `</div></div>`;
-    }
+  days.forEach(day => {
+   const label = getDayLabel(day.date, l2);
+   const pct = maxCourts > 0 ? Math.round((day.courts / maxCourts) * 100) : 0;
+   const barClass = getBarClass(day.courts);
+   const courtsText = day.courts > 0 ? `${day.courts} ${l2.courts}` : '-';
 
-    if (website && website !== 'http://www.lcsd.gov.hk/en/facilities/facilitieslist/landsports/sportcentre.html' && website !== 'http://www.lcsd.gov.hk/tc/facilities/facilitieslist/landsports/sportcentre.html') {
-        html += `<div class="popup-link"><a href="${website}" target="_blank">${l.website} →</a></div>`;
-    }
+   html += `<div class="bwf-day">`;
+   html += `<div class="bwf-day-label">${label}</div>`;
+   html += `<div class="bwf-bar-track">`;
+   html += `<div class="bwf-bar-fill ${barClass}" style="width:${pct}%"></div>`;
+   html += `</div>`;
+   html += `<div class="bwf-day-val">${courtsText}</div>`;
+   html += `</div>`;
+  });
 
-    html += `</div>`;
-    return html;
+  html += `</div></div>`;
+ }
+
+ if (facilities.length > 0) {
+  html += `<div class="popup-facilities"><div class="popup-label">${l.facilities}:</div>`;
+  html += `<div class="facility-tags">`;
+  facilities.forEach(f => { html += `<span class="facility-tag">${f}</span>`; });
+  html += `</div></div>`;
+ }
+
+ if (website &&
+     website !== 'http://www.lcsd.gov.hk/en/facilities/facilitieslist/landsports/sportcentre.html' &&
+     website !== 'http://www.lcsd.gov.hk/tc/facilities/facilitieslist/landsports/sportcentre.html') {
+  html += `<div class="popup-link"><a href="${website}" target="_blank">${l.website} →</a></div>`;
+ }
+
+ html += `</div>`;
+ return html;
 }
 
 function updateLanguage(newLang) {
-    currentLang = newLang;
+ currentLang = newLang;
+ const l = labels[newLang];
+ document.getElementById('title').textContent =
+  newLang === 'en' ? 'LCSD Sports Centres | 康文署體育館' :
+  newLang === 'tc' ? '康文署體育館' : 'LCSD Sports Centres / 康文署體育館';
+ document.getElementById('district-label').textContent = l.district + ':';
+ document.getElementById('search-label').textContent = l.search + ':';
+ document.getElementById('search-input').placeholder =
+  newLang === 'en' ? 'Name | 名稱' : newLang === 'tc' ? '名稱' : 'Name / 名稱';
+ document.getElementById('bwf-refresh').textContent = l.refreshBwf;
 
-    const l = labels[newLang];
-    document.getElementById('title').textContent = newLang === 'en' ? 'LCSD Sports Centres | 康文署體育館' : newLang === 'tc' ? '康文署體育館' : 'LCSD Sports Centres / 康文署體育館';
-    document.getElementById('district-label').textContent = l.district + ':';
-    document.getElementById('search-label').textContent = l.search + ':';
-    document.getElementById('search-input').placeholder = newLang === 'en' ? 'Name | 名稱' : newLang === 'tc' ? '名稱' : 'Name / 名稱';
-    document.getElementById('bwf-refresh').textContent = l.refreshBwf;
+ const select = document.getElementById('district-filter');
+ const currentValue = select.value;
+ select.innerHTML = `<option value="">${l.all}</option>`;
+ const districts = new Set();
+ if (window.allData) {
+  window.allData.forEach(f => {
+   const dKey = f.properties.DistrictEN?.toUpperCase() || '';
+   if (dKey && !districts.has(dKey)) {
+    districts.add(dKey);
+    select.innerHTML += `<option value="${dKey}">${getDistrictName(f.properties.DistrictEN, f.properties.DistrictTC)}</option>`;
+   }
+  });
+ }
+ select.value = currentValue;
 
-    const select = document.getElementById('district-filter');
-    const currentValue = select.value;
-    select.innerHTML = `<option value="">${l.all}</option>`;
-    const districts = new Set();
-    if (window.allData) {
-        window.allData.forEach(f => {
-            const dKey = f.properties.DistrictEN?.toUpperCase() || '';
-            if (dKey && !districts.has(dKey)) {
-                districts.add(dKey);
-                const dName = getDistrictName(f.properties.DistrictEN, f.properties.DistrictTC);
-                select.innerHTML += `<option value="${dKey}">${dName}</option>`;
-            }
-        });
-    }
-    select.value = currentValue;
-
-    if (window.markerMap) {
-        window.markerMap.forEach((marker, idx) => {
-            const props = window.allData[idx].properties;
-            marker.setPopupContent(createPopup(props));
-        });
-    }
-
-    updateStats();
+ if (window.markerMap) {
+  window.markerMap.forEach((marker, idx) => {
+   marker.setPopupContent(createPopup(window.allData[idx].properties));
+  });
+ }
+ updateStats();
 }
 
 function updateStats() {
-    const l = labels[currentLang];
-    const total = window.allData ? window.allData.length : 0;
-    const filtered = window.filteredData ? window.filteredData.length : total;
-    document.getElementById('stats').textContent = l.results.replace('{n}', filtered).replace('{total}', total);
+ const l = labels[currentLang];
+ const total = window.allData ? window.allData.length : 0;
+ const filtered = window.filteredData ? window.filteredData.length : total;
+ document.getElementById('stats').textContent = l.results.replace('{n}', filtered).replace('{total}', total);
 }
 
 function filterData() {
-    const district = document.getElementById('district-filter').value;
-    const search = document.getElementById('search-input').value.toLowerCase().trim();
+ const district = document.getElementById('district-filter').value;
+ const search = document.getElementById('search-input').value.toLowerCase().trim();
 
-    window.filteredData = window.allData.filter(f => {
-        const props = f.properties;
-        const districtMatch = !district || (props.DistrictEN?.toUpperCase() === district);
-        const searchMatch = !search ||
-            (props.NameEN && props.NameEN.toLowerCase().includes(search)) ||
-            (props.NameTC && props.NameTC.includes(search)) ||
-            (props.AddressEN && props.AddressEN.toLowerCase().includes(search)) ||
-            (props.AddressTC && props.AddressTC.includes(search));
-        return districtMatch && searchMatch;
-    });
+ window.filteredData = window.allData.filter(f => {
+  const props = f.properties;
+  const districtMatch = !district || (props.DistrictEN?.toUpperCase() === district);
+  const searchMatch = !search ||
+   (props.NameEN && props.NameEN.toLowerCase().includes(search)) ||
+   (props.NameTC && props.NameTC.includes(search)) ||
+   (props.AddressEN && props.AddressEN.toLowerCase().includes(search)) ||
+   (props.AddressTC && props.AddressTC.includes(search));
+  return districtMatch && searchMatch;
+ });
 
-    updateStats();
-    updateMarkers();
+ updateStats();
+ updateMarkers();
 }
 
 function updateMarkers() {
-    if (!window.markerMap || !window.filteredData) return;
-
-    const shownIds = new Set(window.filteredData.map(f => f.properties.OBJECTID));
-
-    window.markerMap.forEach((marker, idx) => {
-        const objId = window.allData[idx].properties.OBJECTID;
-        if (shownIds.has(objId)) {
-            marker.addTo(map);
-        } else {
-            marker.remove();
-        }
-    });
+ if (!window.markerMap || !window.filteredData) return;
+ const shownIds = new Set(window.filteredData.map(f => f.properties.OBJECTID));
+ window.markerMap.forEach((marker, idx) => {
+  const objId = window.allData[idx].properties.OBJECTID;
+  if (shownIds.has(objId)) marker.addTo(map);
+  else marker.remove();
+ });
 }
 
 const map = L.map('map').setView([22.35, 114.18], 11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | LCSD'
+ attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | LCSD'
 }).addTo(map);
 
 window.markerMap = new Map();
@@ -494,104 +450,89 @@ window.allData = [];
 window.filteredData = [];
 
 async function loadBwfData() {
-    const btn = document.getElementById('bwf-refresh');
-    const loading = document.getElementById('bwf-loading');
-    btn.disabled = true;
-    loading.style.display = 'inline';
+ const btn = document.getElementById('bwf-refresh');
+ const loading = document.getElementById('bwf-loading');
+ btn.disabled = true;
+ loading.style.display = 'inline';
 
-    try {
-        const resp = await fetch('https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/badminton/file');
-        const data = await resp.json();
+ try {
+  const resp = await fetch('https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/badminton/file');
+  const data = await resp.json();
 
-        const aggregated = {};
-        const today = '2026-05-01';
-        const tomorrow = '2026-05-02';
+  const aggregated = {};
 
-        for (const record of data) {
-            const venueEn = (record.Venue_Name_EN || '').toLowerCase().trim();
-            const venueTc = (record.Venue_Name_TC || '').trim();
-            const date = record.Available_Date || '';
-            const courts = parseInt(record.Available_Courts || 0, 10);
-            const key = venueEn;
+  for (const record of data) {
+   const venueEn = (record.Venue_Name_EN || '').toLowerCase().trim();
+   const date = record.Available_Date || '';
+   const courts = parseInt(record.Available_Courts || 0, 10);
 
-            if (!aggregated[key]) {
-                aggregated[key] = { todaySlots: 0, todayCourts: 0, tomorrowSlots: 0, tomorrowCourts: 0 };
-            }
-            if (date === today && courts > 0) {
-                aggregated[key].todaySlots++;
-                aggregated[key].todayCourts += courts;
-            } else if (date === tomorrow && courts > 0) {
-                aggregated[key].tomorrowSlots++;
-                aggregated[key].tomorrowCourts += courts;
-            }
-        }
+   if (!aggregated[venueEn]) aggregated[venueEn] = [];
+   aggregated[venueEn].push({ date, courts });
+  }
 
-        bwfData = aggregated;
-        console.log(`Loaded badminton data: ${Object.keys(bwfData).length} venues`);
+  // Sort each venue's days chronologically
+  for (const key of Object.keys(aggregated)) {
+   aggregated[key].sort((a, b) => a.date.localeCompare(b.date));
+  }
 
-        // Refresh all popups
-        if (window.markerMap) {
-            window.markerMap.forEach((marker, idx) => {
-                const props = window.allData[idx].properties;
-                marker.setPopupContent(createPopup(props));
-            });
-        }
-    } catch (e) {
-        console.error('Failed to load badminton data:', e);
-    } finally {
-        btn.disabled = false;
-        loading.style.display = 'none';
-    }
+  bwfData = aggregated;
+  console.log(`Loaded badminton data: ${Object.keys(bwfData).length} venues`);
+
+  if (window.markerMap) {
+   window.markerMap.forEach((marker, idx) => {
+    marker.setPopupContent(createPopup(window.allData[idx].properties));
+   });
+  }
+ } catch (e) {
+  console.error('Failed to load badminton data:', e);
+ } finally {
+  btn.disabled = false;
+  loading.style.display = 'none';
+ }
 }
 
 fetch('lcsd_sports_centres.geojson')
-    .then(r => r.json())
-    .then(data => {
-        window.allData = data.features;
-        window.filteredData = data.features;
+ .then(r => r.json())
+ .then(data => {
+  window.allData = data.features;
+  window.filteredData = data.features;
 
-        const districts = new Set();
+  const districts = new Set();
+  data.features.forEach((feature, idx) => {
+   const props = feature.properties;
+   const dKey = props.DistrictEN?.toUpperCase() || '';
+   if (dKey && !districts.has(dKey)) {
+    districts.add(dKey);
+    document.getElementById('district-filter').innerHTML +=
+     `<option value="${dKey}">${getDistrictName(props.DistrictEN, props.DistrictTC)}</option>`;
+   }
+   const marker = L.marker(
+    [feature.geometry.coordinates[1], feature.geometry.coordinates[0]],
+    { icon: createIcon(idx + 1) }
+   ).bindPopup(createPopup(props));
+   window.markerMap.set(idx, marker);
+   marker.addTo(map);
+  });
 
-        data.features.forEach((feature, idx) => {
-            const props = feature.properties;
-            const dKey = props.DistrictEN?.toUpperCase() || '';
+  document.getElementById('stats').textContent =
+   labels[currentLang].results.replace('{n}', data.features.length).replace('{total}', data.features.length);
 
-            if (dKey && !districts.has(dKey)) {
-                districts.add(dKey);
-                const dName = getDistrictName(props.DistrictEN, props.DistrictTC);
-                document.getElementById('district-filter').innerHTML += `<option value="${dKey}">${dName}</option>`;
-            }
-
-            const coords = feature.geometry.coordinates;
-            const lat = coords[1];
-            const lng = coords[0];
-
-            const marker = L.marker([lat, lng], { icon: createIcon(idx + 1) })
-                .bindPopup(createPopup(props));
-
-            window.markerMap.set(idx, marker);
-            marker.addTo(map);
-        });
-
-        document.getElementById('stats').textContent = labels[currentLang].results.replace('{n}', data.features.length).replace('{total}', data.features.length);
-
-        // Load badminton data on startup
-        loadBwfData();
-    })
-    .catch(e => {
-        console.error(e);
-        document.getElementById('stats').textContent = 'Error loading data';
-    });
+  loadBwfData();
+ })
+ .catch(e => {
+  console.error(e);
+  document.getElementById('stats').textContent = 'Error loading data';
+ });
 
 document.getElementById('district-filter').addEventListener('change', filterData);
 document.getElementById('search-input').addEventListener('input', filterData);
 document.getElementById('bwf-refresh').addEventListener('click', loadBwfData);
 
 document.getElementById('lang-toggle').addEventListener('click', e => {
-    if (e.target.tagName !== 'BUTTON') return;
-    document.querySelectorAll('#lang-toggle button').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    updateLanguage(e.target.dataset.lang);
+ if (e.target.tagName !== 'BUTTON') return;
+ document.querySelectorAll('#lang-toggle button').forEach(b => b.classList.remove('active'));
+ e.target.classList.add('active');
+ updateLanguage(e.target.dataset.lang);
 });
 </script>
 </body>
