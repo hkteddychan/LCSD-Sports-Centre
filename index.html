@@ -13,12 +13,17 @@
 
   /* ── Header ── */
   #header {
-   background: #1a237e;
+   background: linear-gradient(135deg, #1a237e 0%, #3949ab 50%, #5c6bc0 100%);
    color: white; padding: 10px 16px;
    display: flex; justify-content: space-between; align-items: center;
    flex-wrap: wrap; gap: 8px;
+   box-shadow: 0 2px 16px rgba(26,35,126,0.3);
   }
-  #header h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; }
+  #header h1 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+  #header .subtitle {
+   font-size: 10px; opacity: 0.75; display: block; font-weight: 400;
+   margin-top: 1px;
+  }
 
   #lang-toggle { display: flex; gap: 6px; }
   #lang-toggle button {
@@ -288,6 +293,123 @@
    .popup-content { min-width: 260px; }
   }
 
+  /* ── FAB Group ── */
+  .fab-group {
+   position: absolute; bottom: 55px; right: 14px; z-index: 1000;
+   display: flex; flex-direction: column; gap: 10px; align-items: center;
+  }
+  .fab {
+   width: 46px; height: 46px; border-radius: 50%;
+   border: none; cursor: pointer; font-size: 18px;
+   display: flex; align-items: center; justify-content: center;
+   box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+   transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .fab:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+  .fab:active { transform: scale(0.95); }
+  .fab-locate {
+   background: linear-gradient(135deg, #7c4dff, #651fff);
+   color: white;
+  }
+  .fab-nearest {
+   background: linear-gradient(135deg, #ff6d00, #e65100);
+   color: white;
+  }
+  .fab-fav {
+   background: linear-gradient(135deg, #00c853, #009624);
+   color: white;
+  }
+  .fab-label {
+   font-size: 9px; font-weight: 700; color: #555; margin-top: 2px; text-align: center;
+  }
+  .fab-wrap { display: flex; flex-direction: column; align-items: center; }
+
+  /* ── User location dot ── */
+  .user-location-dot {
+   position: absolute; z-index: 800;
+   pointer-events: none;
+  }
+  .user-dot {
+   width: 16px; height: 16px; background: #4285f4;
+   border-radius: 50%; border: 3px solid white;
+   box-shadow: 0 2px 8px rgba(66,133,244,0.5);
+   position: absolute; top: -8px; left: -8px;
+  }
+  .user-pulse {
+   width: 32px; height: 32px; background: rgba(66,133,244,0.25);
+   border-radius: 50%; border: 2px solid rgba(66,133,244,0.5);
+   position: absolute; top: -16px; left: -16px;
+   animation: pulse 2s ease-out infinite;
+  }
+  @keyframes pulse {
+   0% { transform: scale(0.8); opacity: 1; }
+   100% { transform: scale(2.2); opacity: 0; }
+  }
+
+  /* ── Bottom Sheet ── */
+  #bottom-sheet {
+   position: fixed; bottom: 0; left: 0; right: 0; z-index: 1100;
+   background: white;
+   border-radius: 18px 18px 0 0;
+   box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+   transform: translateY(100%);
+   transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+   max-height: 75vh;
+   overflow-y: auto;
+  }
+  #bottom-sheet.open { transform: translateY(0); }
+  .sheet-handle {
+   width: 40px; height: 4px; background: #ddd; border-radius: 2px;
+   margin: 10px auto 0;
+  }
+  .sheet-content { padding: 12px 16px 24px; }
+  .sheet-header {
+   display: flex; justify-content: space-between; align-items: flex-start;
+   margin-bottom: 10px;
+  }
+  .sheet-name { font-size: 16px; font-weight: 700; color: #1a237e; }
+  .sheet-sub { font-size: 11px; color: #777; margin-top: 2px; }
+  .sheet-close {
+   background: #f0f2ff; border: none; border-radius: 50%;
+   width: 28px; height: 28px; cursor: pointer; font-size: 14px;
+   display: flex; align-items: center; justify-content: center;
+    color: #3949ab;
+  }
+  .sheet-close:hover { background: #e0e5ff; }
+  .sheet-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .sheet-btn {
+   padding: 7px 14px; border-radius: 20px; border: none; cursor: pointer;
+   font-size: 12px; font-weight: 600; text-decoration: none;
+   display: inline-flex; align-items: center; gap: 4px;
+   transition: transform 0.15s;
+  }
+  .sheet-btn:hover { transform: scale(1.04); }
+  .sheet-btn-nav {
+   background: linear-gradient(135deg, #4285f4, #1a73e8);
+   color: white;
+  }
+  .sheet-btn-book {
+   background: linear-gradient(135deg, #34a853, #1e8e3e);
+   color: white;
+  }
+  .sheet-btn-call {
+   background: #f0f2ff; color: #3949ab;
+  }
+
+  /* ── Toast ── */
+  #toast {
+   position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px);
+   background: rgba(30,30,30,0.92); color: white;
+   padding: 10px 20px; border-radius: 24px;
+   font-size: 13px; font-weight: 500;
+   z-index: 2000; opacity: 0;
+   transition: opacity 0.25s, transform 0.25s;
+   pointer-events: none;
+   white-space: nowrap;
+   backdrop-filter: blur(8px);
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
   /* Screen-reader only */
   .sr-only {
    position: absolute; width: 1px; height: 1px;
@@ -300,7 +422,10 @@
 
  <!-- Header -->
  <div id="header">
-  <h1 id="title">🏸 LCSD 康文署體育館</h1>
+  <div>
+   <h1 id="title">🏸 康文署體育館</h1>
+   <span class="subtitle" id="last-updated"></span>
+  </div>
   <div id="lang-toggle" role="group" aria-label="Language">
    <button class="active" data-lang="en" role="button" aria-pressed="true">EN</button>
    <button data-lang="tc" role="button" aria-pressed="false">繁體</button>
@@ -396,6 +521,37 @@
 <!-- ARIA announcer -->
 <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
+<!-- FAB Group -->
+<div class="fab-group" role="group" aria-label="Map actions">
+ <div class="fab-wrap">
+  <button class="fab fab-locate" id="fab-locate" title="我的位置" aria-label="我的位置">📍</button>
+  <span class="fab-label">位置</span>
+ </div>
+ <div class="fab-wrap">
+  <button class="fab fab-nearest" id="fab-nearest" title="最近有位" aria-label="最近有位">🎯</button>
+  <span class="fab-label">最近</span>
+ </div>
+</div>
+
+<!-- Bottom Sheet -->
+<div id="bottom-sheet" role="dialog" aria-label="場地詳情">
+ <div class="sheet-handle" aria-hidden="true"></div>
+ <div class="sheet-content">
+  <div class="sheet-header">
+   <div>
+    <div class="sheet-name" id="sheet-name">—</div>
+    <div class="sheet-sub" id="sheet-sub">—</div>
+   </div>
+   <button class="sheet-close" id="sheet-close" aria-label="關閉">✕</button>
+  </div>
+  <div class="sheet-info" id="sheet-info"></div>
+  <div class="sheet-actions" id="sheet-actions"></div>
+ </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" role="alert" aria-live="assertive"></div>
+
 <script>
 // ─── State ───
 let currentLang = 'tc'; // default to Traditional Chinese
@@ -403,18 +559,36 @@ let currentSport = 'badminton';
 let currentDateIdx = 0;
 let currentTimeFilter = 'all';
 let showFullVenues = false;
+let userLatLng = null;
 
-// ─── Dates ───
-const ALL_DATES = [
- { iso: '2026-04-28', label_en: 'Tue 28', label_tc: '二 28' },
- { iso: '2026-04-29', label_en: 'Wed 29', label_tc: '三 29' },
- { iso: '2026-04-30', label_en: 'Thu 30', label_tc: '四 30' },
- { iso: '2026-05-01', label_en: 'Fri 1',  label_tc: '五 1'  },
- { iso: '2026-05-02', label_en: 'Sat 2',  label_tc: '六 2'  },
- { iso: '2026-05-03', label_en: 'Sun 3',  label_tc: '日 3'  },
- { iso: '2026-05-04', label_en: 'Mon 4',  label_tc: '一 4'  },
- { iso: '2026-05-05', label_en: 'Tue 5',  label_tc: '二 5'  },
-];
+// ─── Dynamic Dates ───
+// Computed from BwfSchedule in GeoJSON data after load
+let ALL_DATES = [];
+
+// ─── Dynamic Dates (computed from BwfSchedule after data load) ───
+function computeDatesFromData() {
+  if (!window.allData || !window.allData.length) return;
+  const sample = window.allData[0]?.properties;
+  const raw = sample?.BwfSchedule || sample?.BskSchedule || sample?.VlbSchedule;
+  if (!raw) return;
+  try {
+    const sched = JSON.parse(raw);
+    const dates = Object.keys(sched).sort();
+    if (!dates.length) return;
+    const today = new Date(); today.setHours(0,0,0,0);
+    ALL_DATES = dates.map(iso => {
+      const d = new Date(iso + 'T00:00:00');
+      const diff = Math.round((d - today) / 86400000);
+      const dow = ['日','一','二','三','四','五','六'][d.getDay()];
+      const dowEn = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()];
+      let label_tc, label_en;
+      if (diff === 0) { label_tc = '今日'; label_en = 'Today'; }
+      else if (diff === 1) { label_tc = '明日'; label_en = 'Tomorrow'; }
+      else { label_tc = `${dow} ${iso.slice(5)}`; label_en = `${dowEn} ${iso.slice(5)}`; }
+      return { iso, label_tc, label_en };
+    });
+  } catch(e) { console.warn('Date parse error:', e); }
+}
 
 // ─── Time Slots (16 hours) ───
 const TIME_SLOTS = [
@@ -462,6 +636,7 @@ const labels = {
   availableSummary: 'Available · {date} · {sport}',
   summaryHas: '{n} slots open', summaryFull: 'all slots full', summaryEmpty: 'no data',
   anon: 'Anonymous venue',
+  updatedPrefix: 'Updates every 10 min',
  },
  tc: {
   title: '🏸 康文署體育館',
@@ -477,14 +652,15 @@ const labels = {
   noData: '沒有數據',
   periodAll: '全部時段', periodMorning: '早上', periodAfternoon: '下午', periodEvening: '晚間',
   lots: '7+ 節充足', some: '1-6 節少量', none: '已滿（隱藏）',
-  s0: '無場', s1: '1 場', s2: '2-3 場', s3: '4-6 場', s4: '7+ 場',
+  s0: '無位', s1: '1 場', s2: '2-3 場', s3: '4-6 場', s4: '7+ 場',
   showFull: '顯示已滿',
   schedTitle: '時段顏色:',
   today: '今日', tomorrow: '明日',
   availableSummary: '有位 · {date} · {sport}',
-  summaryHas: '共 {n} 節有位', summaryFull: '全部時段已滿', summaryEmpty: '暫無數據',
-  anon: '未命名場地',
- }
+  summaryHas: '{n} 節有空', summaryFull: '全部滿', summaryEmpty: '無數據',
+  anon: '未知場地',
+  updatedPrefix: '每10分鐘更新',
+ },
 };
 
 // ─── District names ───
@@ -730,7 +906,11 @@ function addMarkerTooltip(marker, props) {
 function updateLanguage(newLang) {
  currentLang = newLang;
  const l = labels[newLang];
- document.getElementById('title').textContent = l.title;
+  document.getElementById('title').textContent = l.title;
+  const lu = document.getElementById('last-updated');
+  const now = new Date();
+  const timeStr = `${now.getFullYear()}/${String(now.getMonth()+1).padStart(2,'0')}/${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  if (lu) lu.textContent = `${l.updatedPrefix} · ${timeStr}`;
  document.getElementById('district-label').textContent = l.district + ':';
  document.getElementById('search-input').placeholder = newLang === 'tc' ? '體育館名稱 / 地址 / 地區' : 'Venue name / address / district';
  document.getElementById('show-full-label').textContent = l.showFull;
@@ -935,12 +1115,14 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 window.markerMap = new Map();
 window.allData = [];
+userLatLng = null;
 
 // ─── Load data ───
 fetch('lcsd_sports_centres.geojson')
  .then(r => r.json())
  .then(data => {
   window.allData = data.features;
+  computeDatesFromData();
   buildDateBar();
 
   const districts = new Set();
@@ -957,6 +1139,8 @@ fetch('lcsd_sports_centres.geojson')
     [feature.geometry.coordinates[1], feature.geometry.coordinates[0]],
     { icon: createMarkerIcon(avail) }
    ).bindPopup(createPopup(props));
+   m.venueIdx = idx; // store index for bottom sheet access
+   m.on('click', () => openBottomSheet(m.venueIdx));
    addMarkerTooltip(m, props);
    window.markerMap.set(idx, m);
    if (avail > 0) m.addTo(map);
@@ -965,6 +1149,12 @@ fetch('lcsd_sports_centres.geojson')
   // Apply default language (TC)
   updateLanguage('tc');
   updateStats();
+
+  // Show last updated time
+  const now = new Date();
+  const timeStr = `${now.getFullYear()}/${String(now.getMonth()+1).padStart(2,'0')}/${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  const lu = document.getElementById('last-updated');
+  if (lu) lu.textContent = `每10分鐘更新 · ${timeStr}`;
  })
  .catch(e => {
   console.error(e);
@@ -1007,6 +1197,103 @@ document.addEventListener('keydown', e => {
   const btn = e.target.closest('.sport-btn, .date-btn, .time-pill');
   if (btn) { e.preventDefault(); btn.click(); }
  }
+});
+
+// ─── FAB: My Location ───
+document.getElementById('fab-locate').addEventListener('click', () => {
+  if (!navigator.geolocation) { showToast('⚠️ 瀏覽器不支援定位'); return; }
+  showToast('📍 取得位置中...');
+  navigator.geolocation.getCurrentPosition(pos => {
+    userLatLng = [pos.coords.latitude, pos.coords.longitude];
+    map.setView(userLatLng, 16);
+    // Remove existing user dot
+    const old = document.getElementById('user-dot-el');
+    if (old) old.remove();
+    // Add pulsing dot overlay
+    const dot = L.divIcon({
+      id: 'user-dot-el',
+      className: 'user-location-dot',
+      html: `<div class="user-pulse"></div><div class="user-dot"></div>`,
+      iconSize: [32, 32], iconAnchor: [16, 16],
+    });
+    L.marker(userLatLng, { icon: dot, interactive: false }).addTo(map);
+    const dist = userLatLng ? ` | 📍 ${userLatLng[0].toFixed(3)}, ${userLatLng[1].toFixed(3)}` : '';
+    showToast(`✅ 位置已定位${dist}`);
+  }, err => {
+    showToast(`⚠️ 定位失敗: ${err.message}`);
+  }, { enableHighAccuracy: true, timeout: 10000 });
+});
+
+// ─── FAB: Nearest Venue ───
+document.getElementById('fab-nearest').addEventListener('click', () => {
+  if (!userLatLng) {
+    showToast('⚠️ 先撳「位置」按鈕定位');
+    return;
+  }
+  let nearest = null, nearestDist = Infinity;
+  window.allData.forEach((f, idx) => {
+    const avail = getAvailableSessions(f.properties);
+    if (avail === 0 && !showFullVenues) return;
+    const [lng, lat] = f.geometry.coordinates;
+    const d = Math.sqrt((lat - userLatLng[0])**2 + (lng - userLatLng[1])**2);
+    if (d < nearestDist) { nearestDist = d; nearest = idx; }
+  });
+  if (nearest === null) { showToast('⚠️ 冇搵到合適嘅場地'); return; }
+  const f = window.allData[nearest];
+  const [lng, lat] = f.geometry.coordinates;
+  map.setView([lat, lng], 16);
+  window.markerMap.get(nearest).openPopup();
+  const km = (nearestDist * 111).toFixed(1);
+  showToast(`🎯 最近有位：${f.properties.NameTC || f.properties.NameEN} (${km}km)`);
+});
+
+// ─── Toast ───
+let toastTimer = null;
+function showToast(msg, duration = 3000) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), duration);
+}
+
+// ─── Bottom Sheet ───
+function openBottomSheet(idx) {
+  const f = window.allData[idx];
+  if (!f) return;
+  const p = f.properties;
+  const name = p.NameTC || p.NameEN || '—';
+  const district = getDistrictName(p.DistrictEN, p.DistrictTC);
+  const avail = getAvailableSessions(p);
+  const sportUnit = SPORT_DISPLAY[currentSport].unit[currentLang];
+
+  document.getElementById('sheet-name').textContent = name;
+  document.getElementById('sheet-sub').textContent = `${district} · ${avail} ${sportUnit} 有位`;
+
+  const l = labels[currentLang];
+  const address = getText(p.AddressEN, p.AddressTC);
+  const hours = getText(p.OpeningHoursEN, p.OpeningHoursTC);
+  const tel = p.TelephoneEN || p.TelephoneTC || '-';
+  let infoHtml = '';
+  if (address && address !== '-') infoHtml += `<div class="popup-row"><span class="popup-label">${l.address}:</span><span class="popup-value">${address}</span></div>`;
+  if (hours && hours !== '-') infoHtml += `<div class="popup-row"><span class="popup-label">${l.hours}:</span><span class="popup-value">${hours}</span></div>`;
+  if (tel && tel !== '-') infoHtml += `<div class="popup-row"><span class="popup-label">${l.tel}:</span><span class="popup-value">${tel}</span></div>`;
+  infoHtml += `<div style="margin-top:10px">${createPopup(p)}</div>`;
+  document.getElementById('sheet-info').innerHTML = infoHtml;
+
+  const [lng, lat] = f.geometry.coordinates;
+  const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+  const webUrl = currentLang === 'en' ? p.WebsiteEN : p.WebsiteTC;
+  let actionsHtml = `<a class="sheet-btn sheet-btn-nav" href="${navUrl}" target="_blank" rel="noopener">📍 導航</a>`;
+  if (tel && tel !== '-') actionsHtml += `<a class="sheet-btn sheet-btn-call" href="tel:${tel}">📞 致電</a>`;
+  if (webUrl && webUrl.indexOf('sportcentre.html') === -1) actionsHtml += `<a class="sheet-btn sheet-btn-book" href="${webUrl}" target="_blank" rel="noopener">🌐 官網</a>`;
+  document.getElementById('sheet-actions').innerHTML = actionsHtml;
+
+  document.getElementById('bottom-sheet').classList.add('open');
+}
+
+document.getElementById('sheet-close').addEventListener('click', () => {
+  document.getElementById('bottom-sheet').classList.remove('open');
 });
 </script>
 </body>
