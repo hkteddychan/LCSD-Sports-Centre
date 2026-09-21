@@ -417,6 +417,25 @@
    clip: rect(0,0,0,0); border: 0;
   }
  </style>
+
+  <meta name="theme-color" content="#3949ab">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="assets/hkmap.css">
+  <style>
+[data-theme="dark"] #sport-bar, [data-theme="dark"] #time-bar, [data-theme="dark"] #controls { background: var(--hk-surface-2); border-color: var(--hk-border); }
+[data-theme="dark"] #date-bar { background: var(--hk-surface); border-color: var(--hk-border); }
+[data-theme="dark"] .popup-header, [data-theme="dark"] .sheet-name { color: var(--hk-text); }
+[data-theme="dark"] .popup-sub, [data-theme="dark"] .popup-label { color: var(--hk-text-2); }
+[data-theme="dark"] .popup-value { color: var(--hk-text); }
+[data-theme="dark"] .popup-schedule { background: var(--hk-surface-2); border-color: var(--hk-border); }
+[data-theme="dark"] #bottom-sheet, [data-theme="dark"] #legend { background: var(--hk-surface); color: var(--hk-text); }
+[data-theme="dark"] .sheet-close { background: var(--hk-surface-2); color: var(--hk-text-2); }
+[data-theme="dark"] .sheet-btn-call { background: var(--hk-surface-2); color: var(--hk-primary-2); }
+
+</style>
+  <script src="assets/hkmap.js"></script>
 </head>
 <body>
 
@@ -1159,6 +1178,7 @@ fetch('lcsd_sports_centres.geojson')
  .catch(e => {
   console.error(e);
   document.getElementById('stats').textContent = 'Error loading data';
+  if (window.HKMap) HKMap.showError('⚠️ 體育館數據載入失敗');
  });
 
 // ─── Event Listeners ───
@@ -1295,6 +1315,11 @@ function openBottomSheet(idx) {
 document.getElementById('sheet-close').addEventListener('click', () => {
   document.getElementById('bottom-sheet').classList.remove('open');
 });
+</script>
+
+<script>
+  window.HKMap && window.HKMap.registerSW && window.HKMap.registerSW('sw.js');
+  window.HKMap && window.HKMap.mountThemeButton && window.HKMap.mountThemeButton(document.getElementById('map'));
 </script>
 </body>
 </html>
