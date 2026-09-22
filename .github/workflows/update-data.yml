@@ -37,3 +37,5 @@ jobs:
           commit_message: 'chore: daily update LCSD sports centre data'
           file_pattern: lcsd_sports_centres.geojson
           skip_dirty: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
