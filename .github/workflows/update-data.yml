@@ -2,7 +2,6 @@ name: Update LCSD Sports Centre Data
 
 on:
   schedule:
-    # Daily at 08:45 HKT (00:45 UTC) — refresh venue + schedule data
     - cron: '*/5 * * * *'
   workflow_dispatch:
 
@@ -21,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: master
-          persist-credentials: false
+          persist-credentials: true
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,11 +30,15 @@ jobs:
       - name: Fetch latest sports centre data
         run: python scripts/fetch_venue_data.py
 
-      - name: Commit if changed
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: 'chore: daily update LCSD sports centre data'
-          file_pattern: lcsd_sports_centres.geojson
-          skip_dirty: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and push if changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add lcsd_sports_centres.geojson
+            git commit -m "chore: auto-update LCSD sports centre data"
+            git push origin master
+            echo "Pushed data update"
+          else
+            echo "No data change"
+          fi
