@@ -1,0 +1,39 @@
+name: Update LCSD Sports Centre Data
+
+on:
+  schedule:
+    # Daily at 08:45 HKT (00:45 UTC) — refresh venue + schedule data
+    - cron: '45 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-lcsd-centre
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Fetch latest sports centre data
+        run: python scripts/fetch_venue_data.py
+
+      - name: Commit if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: daily update LCSD sports centre data'
+          file_pattern: lcsd_sports_centres.geojson
+          skip_dirty: false
