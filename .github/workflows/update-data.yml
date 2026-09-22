@@ -2,7 +2,7 @@ name: Update LCSD Sports Centre Data
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 permissions:
