@@ -3,7 +3,7 @@ name: Update LCSD Sports Centre Data
 on:
   schedule:
     # Daily at 08:45 HKT (00:45 UTC) — refresh venue + schedule data
-    - cron: '45 0 * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
