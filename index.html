@@ -880,7 +880,13 @@ function createPopup(props) {
 
  let html = `<div class="popup-content">`;
  html += `<div class="popup-header">${name}</div>`;
- html += `<div class="popup-sub">${district} · ${dateLabel} · ${SPORT_DISPLAY[currentSport].icon} ${sportUnit}</div>`;
+ // Available courts on the selected date (from schedule)
+ let availCount = 0;
+ if (schedule) {
+   const dd = schedule[ALL_DATES[currentDateIdx].iso];
+   if (dd) { for (const k in dd) if (dd[k] > 0) availCount += dd[k]; }
+ }
+ html += `<div class="popup-sub">${district} · ${dateLabel} · ${SPORT_DISPLAY[currentSport].icon} ${availCount > 0 ? availCount + ' ' : '0 '}${sportUnit}</div>`;
  html += `<div class="popup-row"><span class="popup-label">${l.address}:</span><span class="popup-value">${address}</span></div>`;
  if (hours && hours !== '-') html += `<div class="popup-row"><span class="popup-label">${l.hours}:</span><span class="popup-value">${hours}</span></div>`;
  if (tel && tel !== '-') html += `<div class="popup-row"><span class="popup-label">${l.tel}:</span><span class="popup-value">${tel}</span></div>`;
